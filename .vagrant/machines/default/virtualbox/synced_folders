@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/vogelzang-2016":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/vogelzang-2016","hostpath":"/Users/hansjonckers/Desktop/vogelzang-2016","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/hansjonckers/Desktop/vogelzang-2016","disabled":false,"__vagrantfile":true}}}
