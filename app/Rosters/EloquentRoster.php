@@ -24,7 +24,7 @@ class EloquentRoster extends Model implements Roster
      */
     public function date()
     {
-        return $this->date;
+        return Carbon::parse($this->date);
     }
 
     /**

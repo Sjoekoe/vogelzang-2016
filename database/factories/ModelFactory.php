@@ -11,13 +11,9 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
+use App\Rosters\EloquentRoster;
+use Faker\Generator;
 
-    return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
-    ];
+$factory->define(EloquentRoster::class, function (Generator $faker) {
+    return [];
 });

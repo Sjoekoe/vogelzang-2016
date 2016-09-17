@@ -4,6 +4,15 @@ namespace App\Rosters;
 interface Roster
 {
     const TABLE = 'rosters';
+    
+    const GROEPLES = 1;
+    const OUDERLES = 2;
+    const PRIVE_LES = 3;
+    const SPRINGLES = 4;
+    const WANDELING = 5;
+    const DRESSUURLES = 6;
+    const GROEPSLES_GEVORDERDEN = 7;
+    const SPRINGLES_GEVORDERDEN = 8;
 
     /**
      * @return int

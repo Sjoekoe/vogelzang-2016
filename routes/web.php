@@ -11,8 +11,6 @@ Route::get('news/{article}', ['as' => 'articles.show', 'uses' => 'ArticleControl
 Route::get('contact', ['as' => 'contact.index', 'uses' => 'ContactController@index']);
 Route::post('contact', ['as' => 'contact.store', 'uses' => 'ContactController@store']);
 
-
-
 Route::get('/sitemap', function() {
     $file = public_path() .  '/download/sitemap.xml';  // <- Replace with the path to your .xml file
 

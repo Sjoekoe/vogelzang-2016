@@ -23,7 +23,7 @@ class EloquentRosterRepository implements RosterRepository
     {
         $today = Carbon::now();
 
-        return $this->roster->where('date', '>', $today)
+        return $this->roster->where('date', '>=', $today->startOfDay())
             ->orderBy('date')
             ->orderBy('hour')
             ->paginate($limit);
@@ -54,10 +54,22 @@ class EloquentRosterRepository implements RosterRepository
         $roster = new EloquentRoster();
         $roster->name = $values['name'];
         $roster->date = Carbon::createFromFormat('d/m/Y', $values['date']);
-        $roster->type = $values['type'];
-        $roster->hour = $values['hour'];
-        $roster->limit = $values['limit'];
-        $roster->description = $values['description'];
+
+        if (array_key_exists('type', $values)) {
+            $roster->type = $values['type'];
+        }
+
+        if (array_key_exists('hour', $values)) {
+            $roster->hour = $values['hour'];
+        }
+
+        if (array_key_exists('limit', $values)) {
+            $roster->limit = $values['limit'];
+        }
+
+        if (array_key_exists('description', $values)) {
+            $roster->description = $values['description'];
+        }
 
         $roster->save();
 
@@ -83,11 +95,24 @@ class EloquentRosterRepository implements RosterRepository
     public function update(Roster $roster, array $values)
     {
         $roster->name = $values['name'];
+
         $roster->date = Carbon::createFromFormat('d/m/Y', $values['date']);
-        $roster->type = $values['type'];
-        $roster->description = $values['description'];
-        $roster->hour = $values['hour'];
-        $roster->limit = $values['limit'];
+
+        if (array_key_exists('type', $values)) {
+            $roster->type = $values['type'];
+        }
+
+        if (array_key_exists('hour', $values)) {
+            $roster->hour = $values['hour'];
+        }
+
+        if (array_key_exists('limit', $values)) {
+            $roster->limit = $values['limit'];
+        }
+
+        if (array_key_exists('description', $values)) {
+            $roster->description = $values['description'];
+        }
 
         $roster->save();
 
