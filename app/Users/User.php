@@ -5,6 +5,10 @@ interface User
 {
     const TABLE = 'users';
 
+    const ADMIN = 3;
+    const MODERATOR = 2;
+    const USER = 1;
+
     /**
      * @return int
      */

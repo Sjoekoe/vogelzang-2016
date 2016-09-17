@@ -180,8 +180,9 @@ return [
         /*
          * Own Service Providers...
          */
-        App\Rosters\RosterServiceProvider::class,
         App\Factories\ModelFactoryServiceProvider::class,
+        App\Rosters\RosterServiceProvider::class,
+        App\Users\UserServiceProvider::class,
     ],
 
     /*

@@ -10,9 +10,6 @@ class EloquentUser extends Authenticatable implements User
 {
     use Notifiable, StandardModel;
 
-    const ADMIN = 3;
-    const MODERATOR = 2;
-
     /**
      * @var string
      */

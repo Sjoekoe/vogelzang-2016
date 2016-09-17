@@ -3,6 +3,8 @@ namespace App\Factories;
 
 use App\Rosters\EloquentRoster;
 use App\Rosters\Roster;
+use App\Users\EloquentUser;
+use App\Users\User;
 use Illuminate\Database\Eloquent\Factory;
 
 class EloquentModelFactory implements ModelFactory
@@ -17,6 +19,7 @@ class EloquentModelFactory implements ModelFactory
      */
     private $models = [
         Roster::class => EloquentRoster::class,
+        User::class => EloquentUser::class,
     ];
 
     public function __construct(Factory $factory)

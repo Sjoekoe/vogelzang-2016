@@ -12,8 +12,12 @@
 */
 
 use App\Rosters\EloquentRoster;
+use App\Users\EloquentUser;
 use Faker\Generator;
 
+$factory->define(EloquentUser::class, function(Generator $faker) {
+    return [];
+});
 $factory->define(EloquentRoster::class, function (Generator $faker) {
     return [];
 });
