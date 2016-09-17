@@ -180,6 +180,7 @@ return [
         /*
          * Own Service Providers...
          */
+        App\Contacts\ContactServiceProvider::class,
         App\Factories\ModelFactoryServiceProvider::class,
         App\Riders\RiderServiceProvider::class,
         App\Rosters\RosterServiceProvider::class,

@@ -1,6 +1,7 @@
 <?php
 namespace App\Testing;
 
+use App\Contacts\Contact;
 use App\Riders\Rider;
 use App\Rosters\Roster;
 use App\Users\User;
@@ -54,6 +55,23 @@ trait DefaultIncludes
             'userRelation' => [
                 'data' => $this->includedUser($rider->user()),
             ]
+        ], $attributes);
+    }
+
+    /**
+     * @param \App\Contacts\Contact $contact
+     * @param array $attributes
+     * @return array
+     */
+    public function includedEntry(Contact $contact, $attributes = [])
+    {
+        return array_merge([
+            'id' => $contact->id(),
+            'name' => $contact->fullName(),
+            'email' => $contact->email(),
+            'subject' => $contact->subject(),
+            'message' => $contact->message(),
+            'is_read' => $contact->isRead(),
         ], $attributes);
     }
 }

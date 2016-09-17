@@ -1,6 +1,7 @@
 <?php
 namespace App\Testing;
 
+use App\Contacts\Contact;
 use App\Riders\Rider;
 use App\Rosters\Roster;
 use App\Users\User;
@@ -53,6 +54,21 @@ trait CreatesModels
         return $this->modelFactory->create(Rider::class, array_merge([
             'firstname' => 'Foo',
             'lastname' => 'bar',
+        ], $attributes));
+    }
+
+    /**
+     * @param array $attributes
+     * @return \App\Contacts\Contact
+     */
+    public function createFormEntry(array $attributes = [])
+    {
+        return $this->modelFactory->create(Contact::class, array_merge([
+            'full_name' => 'John Doe',
+            'email' => 'john@doe.com',
+            'subject' => 'Foo',
+            'message' => 'bar',
+            'read' => false,
         ], $attributes));
     }
 }

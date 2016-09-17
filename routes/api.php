@@ -26,5 +26,12 @@ $api->version('v1', function (Router $api) {
             $api->get('/', ['as' => 'riders.index', 'uses' => 'RiderController@index']);
             $api->get('/{rider}', ['as' => 'riders.index', 'uses' => 'RiderController@show']);
         });
+
+        $api->group(['prefix' => 'formentries'], function (Router $api) {
+            $api->get('/', ['as' => 'formentries.index', 'uses' => 'FormEntryController@index']);
+            $api->post('/', ['as' => 'formentries.store', 'uses' => 'FormEntryController@store']);
+            $api->get('/{form_entry}', ['as' => 'formentries.show', 'uses' => 'FormEntryController@show']);
+            $api->delete('/{form_entry}', ['as' => 'formentries.delete', 'uses' => 'FormEntryController@delete']);
+        });
     });
 });

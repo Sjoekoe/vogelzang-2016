@@ -11,6 +11,7 @@
 |
 */
 
+use App\Contacts\EloquentContact;
 use App\Riders\EloquentRider;
 use App\Rosters\EloquentRoster;
 use App\Users\EloquentUser;
@@ -23,5 +24,8 @@ $factory->define(EloquentRoster::class, function (Generator $faker) {
     return [];
 });
 $factory->define(EloquentRider::class, function (Generator $faker) {
+    return [];
+});
+$factory->define(EloquentContact::class, function (Generator $faker) {
     return [];
 });
