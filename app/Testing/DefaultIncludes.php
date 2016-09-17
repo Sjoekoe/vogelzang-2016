@@ -1,6 +1,7 @@
 <?php
 namespace App\Testing;
 
+use App\Riders\Rider;
 use App\Rosters\Roster;
 use App\Users\User;
 
@@ -36,6 +37,23 @@ trait DefaultIncludes
             'date' => $roster->date()->toIso8601String(),
             'description' => $roster->description(),
             'limit' => $roster->limit(),
+        ], $attributes);
+    }
+
+    /**
+     * @param \App\Riders\Rider $rider
+     * @param array $attributes
+     * @return array
+     */
+    public function includedRider(Rider $rider, $attributes = [])
+    {
+        return array_merge([
+            'id' => $rider->id(),
+            'first_name' => $rider->firstName(),
+            'last_name' => $rider->lastName(),
+            'userRelation' => [
+                'data' => $this->includedUser($rider->user()),
+            ]
         ], $attributes);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace App\Testing;
 
+use App\Riders\Rider;
 use App\Rosters\Roster;
 use App\Users\User;
 use Carbon\Carbon;
@@ -40,6 +41,18 @@ trait CreatesModels
             'description' => 'Foo bar',
             'limit' => 12,
             'hour' => 1,
+        ], $attributes));
+    }
+
+    /**
+     * @param array $attributes
+     * @return \App\Riders\Rider
+     */
+    public function createRider(array $attributes = [])
+    {
+        return $this->modelFactory->create(Rider::class, array_merge([
+            'firstname' => 'Foo',
+            'lastname' => 'bar',
         ], $attributes));
     }
 }

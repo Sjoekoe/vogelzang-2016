@@ -21,5 +21,10 @@ $api->version('v1', function (Router $api) {
             $api->put('/{user}', ['as' => 'users.update', 'uses' => 'UserController@update']);
             $api->delete('/{user}', ['as' => 'users.delete', 'uses' => 'UserController@delete']);
         });
+
+        $api->group(['prefix' => 'riders'], function (Router $api) {
+            $api->get('/', ['as' => 'riders.index', 'uses' => 'RiderController@index']);
+            $api->get('/{rider}', ['as' => 'riders.index', 'uses' => 'RiderController@show']);
+        });
     });
 });

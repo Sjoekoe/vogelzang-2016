@@ -181,6 +181,7 @@ return [
          * Own Service Providers...
          */
         App\Factories\ModelFactoryServiceProvider::class,
+        App\Riders\RiderServiceProvider::class,
         App\Rosters\RosterServiceProvider::class,
         App\Users\UserServiceProvider::class,
     ],

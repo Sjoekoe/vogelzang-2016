@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Riders\RiderRouteBinding;
 use App\Rosters\RosterRouteBinding;
 use App\Users\UserRouteBinding;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Route::bind('rider', RiderRouteBinding::class);
         Route::bind('roster', RosterRouteBinding::class);
         Route::bind('user', UserRouteBinding::class);
 
