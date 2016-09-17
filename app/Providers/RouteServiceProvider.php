@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Rosters\RosterRouteBinding;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -23,7 +24,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Route::bind('roster', RosterRouteBinding::class);
 
         parent::boot();
     }
@@ -70,7 +71,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::group([
             'middleware' => 'api',
-            'namespace' => $this->namespace,
+            'namespace' => $this->namespace . '\Api',
             'prefix' => 'api',
         ], function ($router) {
             require base_path('routes/api.php');

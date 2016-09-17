@@ -36,39 +36,14 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
 
-<header class="page-header">
-    <div class="header-section">
-        <a href="" class="logo">
-            Stal de vogelzang
-        </a>
-        <nav class="main-nav">
-            <span class="trigger"><i class="icon-hamburger"></i><span>Menu</span></span>
-            <ul class="nav-wrap">
-                <li>
-                    <a href="#">Menu item</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div class="header-section">
-        <ul class="contactinfo">
-            <li>T.&nbsp;<a href="tel:003250946946">050/946.946</a></li>
-            <li>E:&nbsp;<a href="mailto:contact@immobel.be">contact@immobel.be</a></li>
-        </ul>
-    </div>
-    <div class="header-section">
-        <ul class="contactinfo">
-            <li>Een of andere film</li>
-        </ul>
-    </div>
-</header>
-
+<div class="main-container">
     @yield('content')
+</div>
 
 <a href="#Contact" id="contact-corner-button" class="ir tracking" data-title="contact-corner">
     Contact Corner

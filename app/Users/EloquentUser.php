@@ -2,6 +2,7 @@
 namespace App\Users;
 
 use App\Models\StandardModel;
+use App\Riders\EloquentRider;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -88,7 +89,7 @@ class EloquentUser extends Authenticatable implements User
      */
     public function level()
     {
-        $this->level_id
+        $this->level_id;
     }
 
     /**
@@ -128,7 +129,6 @@ class EloquentUser extends Authenticatable implements User
      */
     public function isModerator()
     {
-        // @todo use constants
         return $this->level_id == self::MODERATOR;
     }
 
@@ -145,6 +145,6 @@ class EloquentUser extends Authenticatable implements User
      */
     public function riders()
     {
-        //
+        return $this->hasMany(EloquentRider::class, 'user_id', 'id')->get();
     }
 }
