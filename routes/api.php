@@ -33,5 +33,13 @@ $api->version('v1', function (Router $api) {
             $api->get('/{form_entry}', ['as' => 'formentries.show', 'uses' => 'FormEntryController@show']);
             $api->delete('/{form_entry}', ['as' => 'formentries.delete', 'uses' => 'FormEntryController@delete']);
         });
+
+        $api->group(['prefix' => 'articles'], function (Router $api) {
+            $api->get('/', ['as' => 'articles.index', 'uses' => 'ArticleController@index']);
+            $api->post('/', ['as' => 'articles.store', 'uses' => 'ArticleController@store']);
+            $api->get('/{article}', ['as' => 'articles.show', 'uses' => 'ArticleController@show']);
+            $api->put('/{article}', ['as' => 'articles.update', 'uses' => 'ArticleController@update']);
+            $api->delete('/{article}', ['as' => 'articles.delete', 'uses' => 'ArticleController@delete']);
+        });
     });
 });

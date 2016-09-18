@@ -9,7 +9,7 @@ class FormentriesTest extends \TestCase
     use DatabaseTransactions, DefaultIncludes;
 
     /** @test */
-    function it_can_get_all_form_entrues_paginated()
+    function it_can_get_all_form_entries_paginated()
     {
         $entry = $this->createFormEntry();
 

@@ -1,6 +1,8 @@
 <?php
 namespace App\Factories;
 
+use App\Articles\Article;
+use App\Articles\EloquentArticle;
 use App\Contacts\Contact;
 use App\Contacts\EloquentContact;
 use App\Riders\EloquentRider;
@@ -22,6 +24,7 @@ class EloquentModelFactory implements ModelFactory
      * @var array
      */
     private $models = [
+        Article::class => EloquentArticle::class,
         Contact::class => EloquentContact::class,
         Rider::class => EloquentRider::class,
         Roster::class => EloquentRoster::class,

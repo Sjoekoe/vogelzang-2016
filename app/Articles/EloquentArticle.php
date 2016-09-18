@@ -32,11 +32,19 @@ class EloquentArticle extends Model implements Article
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function userRelation()
+    {
+        return $this->belongsTo(EloquentUser::class, 'user_id', 'id');
+    }
+
+    /**
      * @return \App\Users\User
      */
     public function author()
     {
-        return $this->belongsTo(EloquentUser::class, 'user_id', 'id')->first();
+        return $this->userRelation()->first();
     }
 
     /**

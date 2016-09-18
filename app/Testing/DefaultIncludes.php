@@ -1,6 +1,7 @@
 <?php
 namespace App\Testing;
 
+use App\Articles\Article;
 use App\Contacts\Contact;
 use App\Riders\Rider;
 use App\Rosters\Roster;
@@ -72,6 +73,24 @@ trait DefaultIncludes
             'subject' => $contact->subject(),
             'message' => $contact->message(),
             'is_read' => $contact->isRead(),
+        ], $attributes);
+    }
+
+    /**
+     * @param \App\Articles\Article $article
+     * @param array $attributes
+     * @return array
+     */
+    public function includedArticle(Article $article, $attributes = [])
+    {
+        return array_merge([
+            'id' => $article->id(),
+            'title' => $article->title(),
+            'message' => $article->message(),
+            'created_at' => $article->createdAt()->toIso8601String(),
+            'userRelation' => [
+                'data' => $this->includedUser($article->author()),
+            ],
         ], $attributes);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Articles\ArticleRouteBinding;
 use App\Contacts\ContactRouteBinding;
 use App\Riders\RiderRouteBinding;
 use App\Rosters\RosterRouteBinding;
@@ -27,6 +28,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Route::bind('article', ArticleRouteBinding::class);
         Route::bind('form_entry', ContactRouteBinding::class);
         Route::bind('rider', RiderRouteBinding::class);
         Route::bind('roster', RosterRouteBinding::class);

@@ -1,6 +1,7 @@
 <?php
 namespace App\Testing;
 
+use App\Articles\Article;
 use App\Contacts\Contact;
 use App\Riders\Rider;
 use App\Rosters\Roster;
@@ -70,5 +71,29 @@ trait CreatesModels
             'message' => 'bar',
             'read' => false,
         ], $attributes));
+    }
+
+    /**
+     * @param array $attributes
+     * @return \App\Articles\Article
+     */
+    public function createArticle(array $attributes = [])
+    {
+        return $this->modelFactory->create(Article::class, array_merge([
+            'title' => 'Foo Title',
+            'message' => 'Foo Message',
+        ], $attributes));
+    }
+
+    /**
+     * @param array $attributes
+     * @return \App\Users\User
+     */
+    public function loginAsUser(array $attributes = [])
+    {
+        $user = $this->createUser($attributes);
+        $this->be($user);
+        
+        return $user;
     }
 }
