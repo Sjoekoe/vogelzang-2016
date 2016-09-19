@@ -186,6 +186,7 @@ return [
         App\Pictures\PictureServiceProvider::class,
         App\Riders\RiderServiceProvider::class,
         App\Rosters\RosterServiceProvider::class,
+        App\Subscriptions\SubscriptionServiceProvider::class,
         App\Users\UserServiceProvider::class,
     ],
 

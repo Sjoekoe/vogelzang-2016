@@ -12,6 +12,12 @@ $api->version('v1', function (Router $api) {
             $api->get('/{roster}', ['as' => 'rosters.show', 'uses' => 'RosterController@show']);
             $api->put('/{roster}', ['as' => 'rosters.update', 'uses' => 'RosterController@update']);
             $api->delete('/{roster}', ['as' => 'rosters.delete', 'uses' => 'RosterController@delete']);
+
+            $api->group(['prefix' => '/{roster}/subscriptions', 'as' => 'rosters.'], function (Router $api) {
+                $api->get('/', ['as' => 'subscriptions.index', 'uses' => 'SubscriptionController@index']);
+                $api->post('/', ['as' => 'subscriptions.store', 'uses' => 'SubscriptionController@store']);
+                $api->delete('/{subscription}', ['as' => 'subscriptions.delete', 'uses' => 'SubscriptionController@delete']);
+            });
         });
 
         $api->group(['prefix' => 'users'], function (Router $api) {

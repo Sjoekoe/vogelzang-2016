@@ -16,11 +16,27 @@ class EloquentSubscription extends Model implements Subscription
     protected $table = self::TABLE;
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function riderRelation()
+    {
+        return $this->belongsTo(EloquentRider::class, 'rider_id', 'id');
+    }
+
+    /**
      * @return \App\Rosters\Roster
      */
     public function rider()
     {
-        return $this->belongsTo(EloquentRider::class, 'rider_id', 'id')->first();
+        return $this->riderRelation()->first();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function rosterRelation()
+    {
+        return $this->belongsTo(EloquentRoster::class, 'roster_id', 'id');
     }
 
     /**
@@ -28,6 +44,6 @@ class EloquentSubscription extends Model implements Subscription
      */
     public function roster()
     {
-        return $this->belongsTo(EloquentRoster::class, 'roster_id', 'id')->first();
+        return $this->rosterRelation()->first();
     }
 }

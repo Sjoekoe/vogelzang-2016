@@ -11,6 +11,8 @@ use App\Riders\EloquentRider;
 use App\Riders\Rider;
 use App\Rosters\EloquentRoster;
 use App\Rosters\Roster;
+use App\Subscriptions\EloquentSubscription;
+use App\Subscriptions\Subscription;
 use App\Users\EloquentUser;
 use App\Users\User;
 use Illuminate\Database\Eloquent\Factory;
@@ -31,6 +33,7 @@ class EloquentModelFactory implements ModelFactory
         Picture::class => EloquentPicture::class,
         Rider::class => EloquentRider::class,
         Roster::class => EloquentRoster::class,
+        Subscription::class => EloquentSubscription::class,
         User::class => EloquentUser::class,
     ];
 

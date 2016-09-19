@@ -6,6 +6,7 @@ use App\Contacts\Contact;
 use App\Pictures\Picture;
 use App\Riders\Rider;
 use App\Rosters\Roster;
+use App\Subscriptions\Subscription;
 use App\Users\User;
 use Carbon\Carbon;
 
@@ -107,5 +108,14 @@ trait CreatesModels
         return $this->modelFactory->create(Picture::class, array_merge([
             'path' => 'path_to_file',
         ], $attributes));
+    }
+
+    /**
+     * @param array $attributes
+     * @return \App\Subscriptions\Subscription
+     */
+    public function createSubscription(array $attributes)
+    {
+        return $this->modelFactory->create(Subscription::class, $attributes);
     }
 }

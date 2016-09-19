@@ -6,6 +6,7 @@ use App\Contacts\Contact;
 use App\Pictures\Picture;
 use App\Riders\Rider;
 use App\Rosters\Roster;
+use App\Subscriptions\Subscription;
 use App\Users\User;
 
 trait DefaultIncludes
@@ -108,6 +109,24 @@ trait DefaultIncludes
             'articleRelation' => [
                 'data' => $this->includedArticle($picture->article()),
             ]
+        ], $attributes);
+    }
+
+    /**
+     * @param \App\Subscriptions\Subscription $subscription
+     * @param array $attributes
+     * @return array
+     */
+    public function includedSubscription(Subscription $subscription, $attributes = [])
+    {
+        return array_merge([
+            'id' => $subscription->id(),
+            'riderRelation' => [
+                'data' => $this->includedRider($subscription->rider()),
+            ],
+            'rosterRelation' => [
+                'data' => $this->includedRoster($subscription->roster()),
+            ],
         ], $attributes);
     }
 }

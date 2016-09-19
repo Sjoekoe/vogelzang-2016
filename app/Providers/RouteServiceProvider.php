@@ -7,6 +7,7 @@ use App\Contacts\ContactRouteBinding;
 use App\Pictures\PictureRouteBinding;
 use App\Riders\RiderRouteBinding;
 use App\Rosters\RosterRouteBinding;
+use App\Subscriptions\SubscriptionRouteBinding;
 use App\Users\UserRouteBinding;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -34,6 +35,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('picture', PictureRouteBinding::class);
         Route::bind('rider', RiderRouteBinding::class);
         Route::bind('roster', RosterRouteBinding::class);
+        Route::bind('subscription', SubscriptionRouteBinding::class);
         Route::bind('user', UserRouteBinding::class);
 
         parent::boot();

@@ -16,6 +16,7 @@ use App\Contacts\EloquentContact;
 use App\Pictures\EloquentPicture;
 use App\Riders\EloquentRider;
 use App\Rosters\EloquentRoster;
+use App\Subscriptions\EloquentSubscription;
 use App\Users\EloquentUser;
 use Faker\Generator;
 
@@ -35,5 +36,8 @@ $factory->define(EloquentArticle::class, function (Generator $faker) {
     return [];
 });
 $factory->define(EloquentPicture::class, function (Generator $faker) {
+    return [];
+});
+$factory->define(EloquentSubscription::class, function (Generator $faker) {
     return [];
 });
