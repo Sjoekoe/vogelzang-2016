@@ -1,199 +1,698 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="page page-home">
-
-        <div class="cycle-wrap">
-            <div class="cycle-slideshow" data-cycle-slides="> div" data-cycle-speed="2000" data-cycle-loop="1">
-                <div><img src="{{ asset('images/home5.jpg') }}" alt="Stal de vogelzang" /></div>
-            </div>
-
-        </div>
-
-        <div class="page-content">
-            <div class="va-wrap">
-                <div class="va-t">
-                    This is the home content
+    <section id="fh5co-home" data-section="home" style="background-image: url({{ asset('images/bg_image.jpg') }});" data-stellar-background-ratio="0.5">
+        <div class="gradient"></div>
+        <div class="container">
+            <div class="text-wrap">
+                <div class="text-inner">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            <h1 class="to-animate">Stal de vogelzang</h1>
+                            <h2 class="to-animate">Waar paardrijden puur genot is!</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <p class="allfin">
-            <a href="http://www.allfin.be/" class="logo allfin" target="_blank">
-                <img src="{{ asset('images/allfin-white.png') }}" alt="Allfin" />
-            </a>
-        </p>
-
-        <div id="scroll-down">
-            <i class="icon-arrow-down"></i>
-        </div>
-
     </section>
 
-    <div class="page-content-2-col fixed">
-        {{ 'popup description' }}
-        <hr class="alt" />
-        <form name="openhouse" action="#" method="post" class="validate ajax alt">
-            <p class="accent">* Required</p>
-            <input type="hidden" name="lang" value="nl"/>
-            <fieldset>
+    <section id="fh5co-testimony" class="fh5co-bg-color" data-section="testimony">
+            <div class="row">
+                <div class="col-md-12 section-heading text-center">
+                    <h2 class="to-animate"><span>Over ons</span></h2>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 subtext to-animate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 to-animate">
+                    <div class="getting-started getting-started-1">
+                        <div class="getting-grid" style="background-image:  url({{ asset('images/peter2.png') }});">
+                            <div class="desc"></div>
+                        </div>
+                        <a href="#" class="getting-grid2">
+                            <div class="call-to-action text-center">
+                                <p>De opzetter van Stal de Vogelzang - Peter Wauters - was van kleins af aan actief in de paardensport. <br>
+                                    Bij de LRV en op allerlei paardenmarkten was hij dan ook een vaak gezien gezicht.
+                                    <br>
+                                    Na enig zoeken kocht hij een boerderij met een aantal weiden in lokeren. <br>
+                                    De koeienstallen maakten plaats voor ruime paardenstallen en werd er een piste aangelegd.
+                                    <br>
+                                    Een naam zoeken voor de paardenstal bleek niet zo moeilijk te zijn. De boerderij is gelegen in de vogelzangstraat en op de boerderij hangt er nog steeds een bord met het opschrift "De Vogelzang".
+                                    <br>
+                                    Recentelijk zijn er nog vernieuwingen aangebracht, en is er een grote binnenpiste gebouwd met ruime stallen.
+                                </p>
+                                <p href="#" class="sign-up">
+
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="fh5co-services" data-section="services">
+        <div class="fh5co-services">
+            <div class="container">
                 <div class="row">
-                    <div class="one-half">
-                        <ul>
-                            <li>
-                                <label for="name">Name*</label>
-                                <input type="text" name="name" id="name" class="validate[required]" />
-                            </li>
-                            <li>
-                                <label for="phone">Phone*</label>
-                                <input type="tel" name="phone" id="phone" class="validate[required]" />
-                            </li>
-                            <li>
-                                <label for="email">Email*</label>
-                                <input type="email" name="email" id="email" class="validate[required,custom[email]]" />
-                            </li>
-                            <li>
-                                <label for="address">Address</label>
-                                <input type="text" name="address" id="address" />
-                            </li>
-                            <li>
-                                <label for="city">City</label>
-                                <input type="text" name="city" id="city" />
-                            </li>
-                        </ul>
+                    <div class="col-md-12 section-heading text-center">
+                        <h2 class="to-animate"><span>Pensionstallingen</span></h2>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 subtext">
+                                <h3 class="to-animate">U kan bij ons terecht voor het verhuur van stallingen. Dit kan voor voor zowel vol- als halfpension. Voor meer informatie kan u ons altijd contacteren. of kom gerust eens langs. </h3>
+                            </div>
+                        </div>
                     </div>
-                    <div class="one-half">
-                        <p>Choose</p>
-                        <ul>
-                            <li class="hidden">
-                                <label for="machine">Machine</label>
-                                <input type="text" name="machine" id="machine" value="" />
-                            </li>
-                            <li class="clearfix">
-                                <input type="submit" value="Submit" class="submit" />
-                            </li>
-                        </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <div class="box-services">
+                            <div class="fh5co-post to-animate">
+                                <h3>Onbeperkt gebruik faciliteiten</h3>
+                            </div>
+                        </div>
+
+                        <div class="box-services">
+                            <div class="fh5co-post to-animate">
+                                <h3>Dagelijks vers hooi</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="box-services">
+                            <div class="fh5co-post to-animate">
+                                <h3>Uitmesten van stallen</h3>
+                            </div>
+                        </div>
+
+                        <div class="box-services">
+                            <div class="fh5co-post to-animate">
+                                <h3>Dagelijkse Weidegang</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="box-services">
+                            <div class="fh5co-post to-animate">
+                                <h3>Persoonlijke opbergkast</h3>
+                            </div>
+                        </div>
+
+                        <div class="box-services">
+                            <div class="fh5co-post to-animate">
+                                <h3>Begeleiden van veearts/hoefsmid</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="box-services">
+                            <div class="fh5co-post to-animate">
+                                <h3>Maandelijkse groepswandeling</h3>
+                            </div>
+                        </div>
+
+                        <div class="box-services">
+                            <div class="fh5co-post to-animate">
+                                <h3>Deelname aan onze lessen</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="core-features">
+            <div class="grid2 to-animate" style="background-image: url({{ asset('images/accomodatie.jpg') }});">
+            </div>
+            <div class="grid2 fh5co-bg-color">
+                <div class="core-f">
+                    <h2 class="to-animate">Onze faciliteiten</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>+/- 50 verluchte binnenstallen</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>5 buitenstallen</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>4 grote loopstallen</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Automatische drinkbakken</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Stofvrije binnenpiste</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Verlichte Buitenpiste</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>2 wasplaatsen met warm & koud water</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Solarium</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Paddock</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Longeerpiste</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Verschillende ruime weides in de omgeving</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Voldoende springmateriaal</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Wandelroutes</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Parking</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Verwarmde Cafetaria</h3>
+                                </div>
+                            </div>
+                            <div class="core">
+                                <div class="fh5co-post to-animate">
+                                    <h3>Sanitaire voorzieningen</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fh5co-explore" data-section="explore">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 section-heading text-center">
+                    <h2 class="to-animate"><span>Bekijk enkele sfeerbeelden van onze stal</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="fh5co-project">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <div class="project-grid to-animate-2" style="background-image:  url({{ asset('images/buitenstallen.jpg') }});">
+                            <div class="desc">
+                                <h3><a href="#">Buitenstallen</a></h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="project-grid to-animate-2" style="background-image:  url({{ asset('images/piste.jpg') }});">
+                                    <div class="desc">
+                                        <h3><a href="#">Binnenpiste</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="project-grid to-animate-2" style="background-image:  url({{ asset('images/wasplaats.jpg') }});">
+                                    <div class="desc">
+                                        <h3><a href="#">Wasplaats</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="col-md-4 text-center">
+                        <div class="project-grid to-animate-2" style="background-image:  url({{ asset('images/wasplaats.png') }});">
+                            <div class="desc">
+                                <h3><a href="#">Wasplaats</a></h3>
+                            </div>
+                        </div>
+                        <div class="project-grid to-animate-2" style="background-image:  url({{ asset('images/stalpaard.jpg') }});">
+                            <div class="desc">
+                                <h3><a href="#">Stal</a></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="project-grid to-animate-2" style="background-image:  url({{ asset('images/stal.jpg') }});">
+                                    <div class="desc">
+                                        <h3><a href="#">Open stal</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="project-grid to-animate-2" style="background-image:  url({{ asset('images/spring.jpg') }});">
+                                    <div class="desc">
+                                        <h3><a href="#">Springmateriaal</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-grid to-animate-2" style="background-image:  url({{ asset('images/manege.jpg') }});">
+                            <div class="desc">
+                                <h3><a href="#">Onze ingang</a></h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </fieldset>
-        </form>
+            </div>
+        </div>
+        <div id="fh5co-counter-section" class="fh5co-counters">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 section-heading text-center">
+                        <h2 class="to-animate"><span>Some Fun Facts</span></h2>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 subtext">
+                                <h3 class="to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove. </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row to-animate">
+                    <div class="col-md-3 text-center">
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="3452" data-speed="5000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Cups of Coffee</span>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="234" data-speed="5000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Client</span>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="6542" data-speed="5000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Projects</span>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="8687" data-speed="5000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Finished Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section id="fh5co-testimony" class="fh5co-bg-color" data-section="testimony">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 section-heading text-center">
+                    <h2 class="to-animate"><span>Our Happy Clients</span></h2>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 subtext to-animate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 to-animate">
+                    <div class="wrap-testimony">
+                        <div class="owl-carousel-fullwidth">
+                            <div class="item">
+                                <div class="testimony-slide active text-center">
+                                    <figure>
+                                        <img src="images/person2.jpg" alt="user">
+                                    </figure>
+                                    <span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
+                                    <blockquote>
+                                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-slide active text-center">
+                                    <figure>
+                                        <img src="images/person3.jpg" alt="user">
+                                    </figure>
+                                    <span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
+                                    <blockquote>
+                                        <p>&ldquo;Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-slide active text-center">
+                                    <figure>
+                                        <img src="images/person2.jpg" alt="user">
+                                    </figure>
+                                    <span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
+                                    <blockquote>
+                                        <p>&ldquo;Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="getting-started getting-started-1">
+        <div class="getting-grid" style="background-image:  url(images/full_image_3.jpg);">
+            <div class="desc">
+                <h2>Getting <span>Started</span></h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+            </div>
+        </div>
+        <a href="#" class="getting-grid2">
+            <div class="call-to-action text-center">
+                <p href="#" class="sign-up">Sign Up For Free</p>
+            </div>
+        </a>
     </div>
-    <div class="overlay"></div>
 
+    <section id="fh5co-pricing" data-section="pricing">
+        <div class="fh5co-pricing">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 section-heading text-center">
+                        <h2 class="to-animate"><span>Plans Built For Every One</span></h2>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 subtext">
+                                <h3 class="to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove. </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <section id="About" class="page page-about">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="price-box to-animate">
+                            <h2 class="pricing-plan">Starter</h2>
+                            <div class="price"><sup class="currency">$</sup>7<small>/mo</small></div>
+                            <p>Basic customer support for small business</p>
+                            <hr>
+                            <ul class="pricing-info">
+                                <li>10 projects</li>
+                                <li>20 Pages</li>
+                                <li>20 Emails</li>
+                                <li>100 Images</li>
+                            </ul>
+                            <p><a href="#" class="btn btn-primary">Read More</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="price-box to-animate">
+                            <h2 class="pricing-plan">Regular</h2>
+                            <div class="price"><sup class="currency">$</sup>19<small>/mo</small></div>
+                            <p>Basic customer support for small business</p>
+                            <hr>
+                            <ul class="pricing-info">
+                                <li>15 projects</li>
+                                <li>40 Pages</li>
+                                <li>40 Emails</li>
+                                <li>200 Images</li>
+                            </ul>
+                            <p><a href="#" class="btn btn-primary">Read More</a></p>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="col-md-3 col-sm-6 to-animate">
+                        <div class="price-box popular">
+                            <div class="popular-text">Best value</div>
+                            <h2 class="pricing-plan">Plus</h2>
+                            <div class="price"><sup class="currency">$</sup>79<small>/mo</small></div>
+                            <p>Basic customer support for small business</p>
+                            <hr>
+                            <ul class="pricing-info">
+                                <li>Unlimitted projects</li>
+                                <li>100 Pages</li>
+                                <li>100 Emails</li>
+                                <li>700 Images</li>
+                            </ul>
+                            <p><a href="#" class="btn btn-primary">Read More</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="price-box to-animate">
+                            <h2 class="pricing-plan">Enterprise</h2>
+                            <div class="price"><sup class="currency">$</sup>125<small>/mo</small></div>
+                            <p>Basic customer support for small business</p>
+                            <hr>
+                            <ul class="pricing-info">
+                                <li>Unlimitted projects</li>
+                                <li>Unlimitted Pages</li>
+                                <li>Unlimitted Emails</li>
+                                <li>Unlimitted Images</li>
+                            </ul>
+                            <p><a href="#" class="btn btn-primary">Read More</a></p>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="visual">
-            <img src="{{ asset('images/about-building.jpg') }}" alt="Lake Front" />
-        </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 to-animate">
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. <a href="#">Learn More</a></p>
+                    </div>
+                </div>
 
-        <div class="page-content-middle">
-            Lakefront
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/LGtTPyyx65I?rel=0" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-
     </section>
 
+    <section id="fh5co-team" class="fh5co-bg-color" data-section="team">
+        <div class="fh5co-team">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 section-heading text-center">
+                        <h2 class="to-animate"><span>Meet The Team</span></h2>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 subtext">
+                                <h3 class="to-animate">Onze vrijwilligers staan altijd klaar om jullie te helpen. En tot het uiterste te begeleiden tijdens de lessen.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="team-box text-center to-animate-2">
+                            <div class="user"><img class="img-reponsive" src="{{ asset('images/peter2.png') }}" alt="Peter Wauters"></div>
+                            <h3>Peter wauters</h3>
+                            <span class="position">Stalhouder</span>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                        </div>
+                    </div>
 
-    <section id="Available" class="page page-available">
+                    <div class="col-md-4">
+                        <div class="team-box text-center to-animate-2">
+                            <div class="user"><img class="img-reponsive" src="https://scontent-bru2-1.xx.fbcdn.net/v/t1.0-1/p160x160/13754567_10209191779583246_6626096159450168752_n.jpg?oh=9f9eb453bcaa9d35eb88f4470af4ac69&oe=586C20C4" alt="Sofie Poot"></div>
+                            <h3>Sofie Poot</h3>
+                            <span class="position">Lesgeefster, Eigenares van Corleana</span>
+                            <p>Geeft groepslessen op zaterdagmorgend en woensdagnamiddag, en in het bezit van haar initiator diploma.</p>
+                        </div>
+                    </div>
 
-        <div class="visual">
-            <img src="{{ asset('images/about-building.jpg') }}" alt="Lake Front" />
-        </div>
-
-        <div class="page-content-middle big">
-            Available
-        </div>
-
-    </section>
-
-
-    <section id="Pictures" class="page page-photos">
-        <div class="row g3">
-            <div class="three-fourth-half">
-                <a href="#" class="fancybox" rel="gallery" title="">
-                    <img src="#" alt="#" class="back" />
-                    <span class="magnify"><i class="icon-magnify"></i></span>
-                </a>
-            </div>
-            <div class="three-fourth-half">
-                <a href="#" class="fancybox" rel="gallery" title="">
-                    <img src="#" alt="#" class="back" />
-                    <span class="magnify"><i class="icon-magnify"></i></span>
-                </a>
-            </div>
-            <div class="one-fourth">
-                <a href="#" class="fancybox" rel="gallery" title="#">
-                    <img src="#" alt="#" class="back" />
-                    <span class="magnify"><i class="icon-magnify"></i></span>
-                </a>
-                <div class="hidden">
-                    <a href="#" class="fancybox" rel="gallery" title=""></a>
-                    <a href="#" class="fancybox" rel="gallery" title=""></a>
+                    <div class="col-md-4">
+                        <div class="team-box text-center to-animate-2">
+                            <div class="user"><img class="img-reponsive" src="https://scontent-bru2-1.xx.fbcdn.net/v/t1.0-9/1800453_10203542699591867_690159729_n.jpg?oh=af80ef267e7c582dc58996f26b939793&oe=5867A590" alt="Lind Haleydt"></div>
+                            <h3>Linde Haleydt</h3>
+                            <span class="position">Lesgeefster, Eigenares van Donna</span>
+                            <p>Geeft les op zaterdagvoormiddag, alsook de drijvende kracht achter de ponykampen</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="Contact" class="page page-contact">
-        <img src="{{ asset('images/contact-bg.jpg') }}" alt="Duinen" class="visual" />
+    <section id="fh5co-blog" data-section="blog">
+        <div class="fh5co-blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 section-heading text-center">
+                        <h2 class="to-animate"><span>Read Our Blog</span></h2>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 subtext">
+                                <h3 class="to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove. </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 to-animate blog">
+                        <div class="blog-grid" style="background-image: url(images/full_image_5.jpg);">
+                            <div class="date">
+                                <span>03</span>
+                                <small>Aug</small>
+                            </div>
+                        </div>
+                        <a href="#" class="desc">
+                            <div class="desc-grid">
+                                <h3>Download Free HTML5 Template</h3>
+                            </div>
+                            <div class="reading">
+                                <i class="icon-arrow-right2"></i>
+                            </div>
+                        </a>
+                    </div>
 
-        <div class="page-content-2-col">
-            <div class="col1">
-                Contact
-            </div>
-            <div class="col2">
-
-                <form name="contact" action="#" method="post" class="validate ajax">
-                    <p class="bottom accent">* Required</p>
-                    <input type="hidden" name="lang" value="nl"/>
-                    <fieldset>
-                        <ul>
-                            <li>
-                                <label for="name">Name*</label>
-                                <input type="text" name="name" id="name" class="validate[required]" />
-                            </li>
-                            <li>
-                                <label for="phone">Phone*</label>
-                                <input type="tel" name="phone" id="phone" class="validate[required]" />
-                            </li>
-                            <li>
-                                <label for="email">Email*</label>
-                                <input type="email" name="email" id="email" class="validate[required,custom[email]]" />
-                            </li>
-                            <li>
-                                <label for="address">Address</label>
-                                <input type="text" name="address" id="address" />
-                            </li>
-                            <li>
-                                <label for="city">City</label>
-                                <input type="text" name="city" id="city" />
-                            </li>
-                            <li>
-                                <label for="message">Message</label>
-                                <textarea name="message" id="message"></textarea>
-                            </li>
-                            <li class="hidden">
-                                <label for="machine">Machine</label>
-                                <input type="text" name="machine" id="machine" value="" />
-                            </li>
-                            <li>
-                                <input type="submit" value="Sibmit" class="submit" />
-                            </li>
-                        </ul>
-                    </fieldset>
-                </form>
-            </div>
-            <div class="col-bottom-left">
-                <a href="http://www.allfin.be/" class="logo" target="_blank">
-                    <img src="{{ asset('images/allfin-logo.png') }}" alt="Allfin" />
-                </a>
-                <p>Knop</p>
+                    <div class="col-md-6 to-animate blog">
+                        <div class="blog-grid" style="background-image: url(images/full_image_4.jpg);">
+                            <div class="date">
+                                <span>04</span>
+                                <small>Aug</small>
+                            </div>
+                        </div>
+                        <a href="#" class="desc">
+                            <div class="desc-grid">
+                                <h3>Download Free HTML5 Template</h3>
+                            </div>
+                            <div class="reading">
+                                <i class="icon-arrow-right2"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-
     </section>
+
+    <section id="fh5co-faq" class="fh5co-bg-color" data-section="faq">
+        <div class="fh5co-faq">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 section-heading text-center">
+                        <h2 class="to-animate"><span>Veelgestelde vragen</span></h2>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 subtext">
+                                <h3 class="to-animate">Alles wat je moet weten om te beginnen met paardrijden</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box-faq to-animate-2">
+                            <i class="icon-check2"></i>
+                            <div class="desc">
+                                <h3>Hoe oud moet ik zijn.</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                            </div>
+                        </div>
+                        <div class="box-faq to-animate-2">
+                            <i class="icon-check2"></i>
+                            <div class="desc">
+                                <h3>Is het dragen van paardrij kledij verplicht? </h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                            </div>
+                        </div>
+                        <div class="box-faq to-animate-2">
+                            <i class="icon-check2"></i>
+                            <div class="desc">
+                                <h3>Kan ik zelf mijn pony kiezen?</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="box-faq to-animate-2">
+                            <i class="icon-check2"></i>
+                            <div class="desc">
+                                <h3>Hoeveel kost het huren van een stal?</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                            </div>
+                        </div>
+                        <div class="box-faq to-animate-2">
+                            <i class="icon-check2"></i>
+                            <div class="desc">
+                                <h3>Wanneer moet ik aanwezig zijn voor mijn les.</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                            </div>
+                        </div>
+                        <div class="box-faq to-animate-2">
+                            <i class="icon-check2"></i>
+                            <div class="desc">
+                                <h3>Kan ik ook een paard / pony huren?</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="fh5co-footer" role="contentinfo">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 to-animate">
+                    <h3 class="section-title">Ons Adres</h3>
+                    <ul class="contact-info">
+                        <li><i class="icon-map-marker"></i>Vogelzangstraat 12, 9160 Lokeren</li>
+                        <li><i class="icon-phone"></i><a href="tel:+32 (0) 475.29.57.60">+32 (0) 475.29.57.60</a></li>
+                        <li><i class="icon-envelope"></i><a href="mail:info@staldevogelzang.be">info@staldevogelzang.be</a></li>
+                        <li><i class="icon-globe2"></i><a href="{{ route('home') }}">www.staldevogelzang.be</a></li>
+                    </ul>
+                    <h3 class="section-title">Volg ons</h3>
+                    <ul class="social-media">
+                        <li><a target="_blank" href="https://www.facebook.com/groups/180597618657465/" class="facebook"><i class="icon-facebook"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-8 to-animate">
+                    <h3 class="section-title">Stuur ons een bericht</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Volledige naam</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Volledige naam">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="sr-only">Onderwerp</label>
+                            <input type="text" name="subject" class="form-control" id="subject" placeholder="Onderwerp">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="sr-only">Bericht</label>
+                            <textarea class="form-control" name="message" id="message" rows="7" placeholder="Bericht"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Verzenden">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="map" class="fh5co-map"></div>
 @stop
