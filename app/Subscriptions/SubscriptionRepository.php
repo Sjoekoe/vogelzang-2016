@@ -28,4 +28,9 @@ interface SubscriptionRepository
      * @return \App\Subscriptions\Subscription|null
      */
     public function find($id);
+
+    /**
+     * @return int
+     */
+    public function count();
 }

@@ -60,4 +60,12 @@ class EloquentSubscriptionRepository implements SubscriptionRepository
             ->where('id', $id)
             ->first();
     }
+
+    /**
+     * @return int
+     */
+    public function count()
+    {
+        return $this->subscription->count();
+    }
 }

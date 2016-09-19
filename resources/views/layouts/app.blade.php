@@ -64,12 +64,12 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
-                    <li><a href="#" data-nav-section="services"><span>Services</span></a></li>
-                    <li><a href="#" data-nav-section="explore"><span>Project</span></a></li>
-                    <li><a href="#" data-nav-section="testimony"><span>Testimony</span></a></li>
-                    <li><a href="#" data-nav-section="pricing"><span>Pricing</span></a></li>
+                    <li><a href="#" data-nav-section="testimony"><span>Over ons</span></a></li>
+                    <li><a href="#" data-nav-section="pricing"><span>Manege</span></a></li>
+                    <li><a href="#" data-nav-section="services"><span>Stallingen</span></a></li>
+                    <li><a href="#" data-nav-section="explore"><span>Impressies</span></a></li>
                     <li><a href="#" data-nav-section="team"><span>Team</span></a></li>
-                    <li><a href="#" data-nav-section="blog"><span>Blog</span></a></li>
+                    <li><a href="#" data-nav-section="blog"><span>Nieuws</span></a></li>
                     <li><a href="#" data-nav-section="faq"><span>FAQ</span></a></li>
                     <li class="call-to-action"><a class="sign-up" href="#"><span>Sign Up</span></a></li>
                     <li class="call-to-action"><a class="log-in" href="#"><span>Login</span></a></li>

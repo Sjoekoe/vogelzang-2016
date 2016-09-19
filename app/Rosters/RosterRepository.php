@@ -38,4 +38,9 @@ interface RosterRepository
      * @param \App\Rosters\Roster $roster
      */
     public function delete(Roster $roster);
+
+    /**
+     * @return int
+     */
+    public function count();
 }

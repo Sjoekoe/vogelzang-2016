@@ -14,4 +14,9 @@ interface RiderRepository
      * @return \App\Riders\Rider|null
      */
     public function find($id);
+
+    /**
+     * @return int
+     */
+    public function count();
 }

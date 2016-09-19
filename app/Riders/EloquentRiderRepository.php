@@ -33,4 +33,13 @@ class EloquentRiderRepository implements RiderRepository
             ->where('id', $id)
             ->first();
     }
+
+    /**
+     * @return int
+     */
+    public function count()
+    {
+        return $this->rider
+            ->count();
+    }
 }

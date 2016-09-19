@@ -17,50 +17,144 @@
         </div>
     </section>
 
-    <section id="fh5co-testimony" class="fh5co-bg-color" data-section="testimony">
+    <section id="fh5co-testimony" data-section="testimony">
+        <div class="row">
+            <div class="col-md-12 to-animate">
+                <div class="getting-started getting-started-1">
+                    <div class="getting-grid" style="background-image:  url({{ asset('images/manege.jpg') }});">
+                        <div class="desc"></div>
+                    </div>
+                    <a href="#" class="getting-grid2">
+                        <div class="call-to-action text-center">
+                            <p class="sign-up">Over ons</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top: 2em;">
             <div class="row">
                 <div class="col-md-12 section-heading text-center">
-                    <h2 class="to-animate"><span>Over ons</span></h2>
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2 subtext to-animate">
+                        <div class="col-md-12 subtext">
+                            <h3 class="to-animate">
+                                De opzetter van Stal de Vogelzang - Peter Wauters - was van kleins af aan actief in de paardensport. <br>
+                                Bij de LRV en op allerlei paardenmarkten was hij dan ook een vaak gezien gezicht.
+                                <br>
+                                Na enig zoeken kocht hij een boerderij met een aantal weiden in lokeren. <br>
+                                De koeienstallen maakten plaats voor ruime paardenstallen en werd er een piste aangelegd.
+                                <br>
+                                Een naam zoeken voor de paardenstal bleek niet zo moeilijk te zijn. De boerderij is gelegen in de vogelzangstraat en op de boerderij hangt er nog steeds een bord met het opschrift "De Vogelzang".
+                                <br>
+                                Recentelijk zijn er nog vernieuwingen aangebracht, en is er een grote binnenpiste gebouwd met ruime stallen.
+                            </h3>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 to-animate">
-                    <div class="getting-started getting-started-1">
-                        <div class="getting-grid" style="background-image:  url({{ asset('images/peter2.png') }});">
-                            <div class="desc"></div>
-                        </div>
-                        <a href="#" class="getting-grid2">
-                            <div class="call-to-action text-center">
-                                <p>De opzetter van Stal de Vogelzang - Peter Wauters - was van kleins af aan actief in de paardensport. <br>
-                                    Bij de LRV en op allerlei paardenmarkten was hij dan ook een vaak gezien gezicht.
-                                    <br>
-                                    Na enig zoeken kocht hij een boerderij met een aantal weiden in lokeren. <br>
-                                    De koeienstallen maakten plaats voor ruime paardenstallen en werd er een piste aangelegd.
-                                    <br>
-                                    Een naam zoeken voor de paardenstal bleek niet zo moeilijk te zijn. De boerderij is gelegen in de vogelzangstraat en op de boerderij hangt er nog steeds een bord met het opschrift "De Vogelzang".
-                                    <br>
-                                    Recentelijk zijn er nog vernieuwingen aangebracht, en is er een grote binnenpiste gebouwd met ruime stallen.
-                                </p>
-                                <p href="#" class="sign-up">
+        </div>
+    </section>
 
-                                </p>
-                            </div>
-                        </a>
+    <section id="fh5co-pricing" data-section="pricing">
+        <div class="getting-started getting-started-1">
+            <a href="#" class="getting-grid2">
+                <div class="call-to-action text-center">
+
+                    <p href="#" class="sign-up">Manege</p>
+                </div>
+            </a>
+            <div class="getting-grid" style="background-image:  url({{ asset('images/manege-2.jpg') }});">
+                <div class="desc"></div>
+            </div>
+        </div>
+        <div class="fh5co-pricing" style="margin-top: 2em;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 section-heading text-center">
+                        <div class="col-md-8 col-md-offset-2 subtext">
+                            <h3 class="to-animate">Op woensdagmiddag, vrijdagavond en zaterdag geven wij groepslessen op verschillende niveaus, van beginneling tot gevorderde,
+                                van jong tot oud.
+                                De lessen worden gegeven door onze eigen ervaren lesgevers.
+
+                                Natuurlijk bestaat er ook de mogelijkheid tot het nemen van privelessen met een van onze lesgevers.
+
+                                Deze kunnen plaatsvinden op tijdstippen buiten onze groepslessen.</h3>
+                        </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="price-box to-animate">
+                            <h2 class="pricing-plan">Groeps-les</h2>
+                            <div class="price"><sup class="currency">€</sup>16 <small>per uur</small></div>
+                            <p>Voor een enkele les met een lespony</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="price-box to-animate">
+                            <h2 class="pricing-plan">Prive-les</h2>
+                            <div class="price"><sup class="currency">€</sup>20 <small>per 1/2 uur</small></div>
+                            <p>Een one-to-one les met een lespony.</p>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="col-md-4 col-sm-6 to-animate">
+                        <div class="price-box popular">
+                            <div class="popular-text">Best value</div>
+                            <h2 class="pricing-plan">Leskaart</h2>
+                            <div class="price"><sup class="currency">€</sup>130</div>
+                            <p>Een beurtenkaart voor 10 groepslessen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="fh5co-counter-section" class="fh5co-counters">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 section-heading text-center">
+                        <h2 class="to-animate"><span>Some Fun Facts</span></h2>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 subtext">
+                                <h3 class="to-animate">Hier enkele feiten over Stal de Vogelzang</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row to-animate">
+                    <div class="col-md-4 text-center">
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="{{ $ridersCount }}" data-speed="3000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Ingeschreven ruiters</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="{{ $lessonCount }}" data-speed="3000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Lessen</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="{{ $subscriptionCount }}" data-speed="3000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Lesinschrijvingen</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="fh5co-services" data-section="services">
-        <div class="fh5co-services">
+        <div class="getting-started getting-started-1">
+            <div class="getting-grid" style="background-image:  url({{ asset('images/groepswandeling.jpg') }});">
+                <div class="desc"></div>
+            </div>
+            <a href="#" class="getting-grid2">
+                <div class="call-to-action text-center">
+                    <p href="#" class="sign-up">Pensionstal</p>
+                </div>
+            </a>
+        </div>
+        <div class="fh5co-services" style="margin-top: 2em;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 section-heading text-center">
-                        <h2 class="to-animate"><span>Pensionstallingen</span></h2>
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2 subtext">
                                 <h3 class="to-animate">U kan bij ons terecht voor het verhuur van stallingen. Dit kan voor voor zowel vol- als halfpension. Voor meer informatie kan u ons altijd contacteren. of kom gerust eens langs. </h3>
@@ -295,196 +389,9 @@
                 </div>
             </div>
         </div>
-        <div id="fh5co-counter-section" class="fh5co-counters">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 section-heading text-center">
-                        <h2 class="to-animate"><span>Some Fun Facts</span></h2>
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 subtext">
-                                <h3 class="to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove. </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row to-animate">
-                    <div class="col-md-3 text-center">
-                        <span class="fh5co-counter js-counter" data-from="0" data-to="3452" data-speed="5000" data-refresh-interval="50"></span>
-                        <span class="fh5co-counter-label">Cups of Coffee</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <span class="fh5co-counter js-counter" data-from="0" data-to="234" data-speed="5000" data-refresh-interval="50"></span>
-                        <span class="fh5co-counter-label">Client</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <span class="fh5co-counter js-counter" data-from="0" data-to="6542" data-speed="5000" data-refresh-interval="50"></span>
-                        <span class="fh5co-counter-label">Projects</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <span class="fh5co-counter js-counter" data-from="0" data-to="8687" data-speed="5000" data-refresh-interval="50"></span>
-                        <span class="fh5co-counter-label">Finished Projects</span>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
-    </section>
-    <section id="fh5co-testimony" class="fh5co-bg-color" data-section="testimony">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 section-heading text-center">
-                    <h2 class="to-animate"><span>Our Happy Clients</span></h2>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 subtext to-animate">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 to-animate">
-                    <div class="wrap-testimony">
-                        <div class="owl-carousel-fullwidth">
-                            <div class="item">
-                                <div class="testimony-slide active text-center">
-                                    <figure>
-                                        <img src="images/person2.jpg" alt="user">
-                                    </figure>
-                                    <span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-                                    <blockquote>
-                                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-slide active text-center">
-                                    <figure>
-                                        <img src="images/person3.jpg" alt="user">
-                                    </figure>
-                                    <span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-                                    <blockquote>
-                                        <p>&ldquo;Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-slide active text-center">
-                                    <figure>
-                                        <img src="images/person2.jpg" alt="user">
-                                    </figure>
-                                    <span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-                                    <blockquote>
-                                        <p>&ldquo;Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="getting-started getting-started-1">
-        <div class="getting-grid" style="background-image:  url(images/full_image_3.jpg);">
-            <div class="desc">
-                <h2>Getting <span>Started</span></h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-            </div>
-        </div>
-        <a href="#" class="getting-grid2">
-            <div class="call-to-action text-center">
-                <p href="#" class="sign-up">Sign Up For Free</p>
-            </div>
-        </a>
-    </div>
-
-    <section id="fh5co-pricing" data-section="pricing">
-        <div class="fh5co-pricing">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 section-heading text-center">
-                        <h2 class="to-animate"><span>Plans Built For Every One</span></h2>
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 subtext">
-                                <h3 class="to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove. </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="price-box to-animate">
-                            <h2 class="pricing-plan">Starter</h2>
-                            <div class="price"><sup class="currency">$</sup>7<small>/mo</small></div>
-                            <p>Basic customer support for small business</p>
-                            <hr>
-                            <ul class="pricing-info">
-                                <li>10 projects</li>
-                                <li>20 Pages</li>
-                                <li>20 Emails</li>
-                                <li>100 Images</li>
-                            </ul>
-                            <p><a href="#" class="btn btn-primary">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="price-box to-animate">
-                            <h2 class="pricing-plan">Regular</h2>
-                            <div class="price"><sup class="currency">$</sup>19<small>/mo</small></div>
-                            <p>Basic customer support for small business</p>
-                            <hr>
-                            <ul class="pricing-info">
-                                <li>15 projects</li>
-                                <li>40 Pages</li>
-                                <li>40 Emails</li>
-                                <li>200 Images</li>
-                            </ul>
-                            <p><a href="#" class="btn btn-primary">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="clearfix visible-sm-block"></div>
-                    <div class="col-md-3 col-sm-6 to-animate">
-                        <div class="price-box popular">
-                            <div class="popular-text">Best value</div>
-                            <h2 class="pricing-plan">Plus</h2>
-                            <div class="price"><sup class="currency">$</sup>79<small>/mo</small></div>
-                            <p>Basic customer support for small business</p>
-                            <hr>
-                            <ul class="pricing-info">
-                                <li>Unlimitted projects</li>
-                                <li>100 Pages</li>
-                                <li>100 Emails</li>
-                                <li>700 Images</li>
-                            </ul>
-                            <p><a href="#" class="btn btn-primary">Read More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="price-box to-animate">
-                            <h2 class="pricing-plan">Enterprise</h2>
-                            <div class="price"><sup class="currency">$</sup>125<small>/mo</small></div>
-                            <p>Basic customer support for small business</p>
-                            <hr>
-                            <ul class="pricing-info">
-                                <li>Unlimitted projects</li>
-                                <li>Unlimitted Pages</li>
-                                <li>Unlimitted Emails</li>
-                                <li>Unlimitted Images</li>
-                            </ul>
-                            <p><a href="#" class="btn btn-primary">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3 to-animate">
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. <a href="#">Learn More</a></p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </section>
 
     <section id="fh5co-team" class="fh5co-bg-color" data-section="team">
@@ -537,48 +444,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 section-heading text-center">
-                        <h2 class="to-animate"><span>Read Our Blog</span></h2>
+                        <h2 class="to-animate"><span>Het laatste niews</span></h2>
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2 subtext">
-                                <h3 class="to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove. </h3>
+                                <h3 class="to-animate">Hier een intro?</h3>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 to-animate blog">
-                        <div class="blog-grid" style="background-image: url(images/full_image_5.jpg);">
-                            <div class="date">
-                                <span>03</span>
-                                <small>Aug</small>
+                    @foreach ($articles as $article)
+                        <div class="col-md-6 to-animate blog">
+                            <div class="blog-grid" style="background-image: url({{ asset('/images/items/random/' . rand(0, 8) . '.jpg') }});">
+                                <div class="date">
+                                    <span>{{ $article->createdAt()->format('d') }}</span>
+                                    <small>{{ $article->createdAt()->format('M') }}</small>
+                                </div>
                             </div>
+                            <a href="#" class="desc">
+                                <div class="desc-grid">
+                                    <h3>{{ $article->title() }}</h3>
+                                </div>
+                                <div class="reading">
+                                    <i class="icon-arrow-right2"></i>
+                                </div>
+                            </a>
                         </div>
-                        <a href="#" class="desc">
-                            <div class="desc-grid">
-                                <h3>Download Free HTML5 Template</h3>
-                            </div>
-                            <div class="reading">
-                                <i class="icon-arrow-right2"></i>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-6 to-animate blog">
-                        <div class="blog-grid" style="background-image: url(images/full_image_4.jpg);">
-                            <div class="date">
-                                <span>04</span>
-                                <small>Aug</small>
-                            </div>
-                        </div>
-                        <a href="#" class="desc">
-                            <div class="desc-grid">
-                                <h3>Download Free HTML5 Template</h3>
-                            </div>
-                            <div class="reading">
-                                <i class="icon-arrow-right2"></i>
-                            </div>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

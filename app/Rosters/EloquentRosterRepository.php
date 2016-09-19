@@ -126,4 +126,13 @@ class EloquentRosterRepository implements RosterRepository
     {
         $roster->delete();
     }
+
+    /**
+     * @return int
+     */
+    public function count()
+    {
+        return $this->roster
+            ->count();
+    }
 }
