@@ -3,6 +3,7 @@ namespace App\Testing;
 
 use App\Articles\Article;
 use App\Contacts\Contact;
+use App\Pictures\Picture;
 use App\Riders\Rider;
 use App\Rosters\Roster;
 use App\Users\User;
@@ -93,7 +94,18 @@ trait CreatesModels
     {
         $user = $this->createUser($attributes);
         $this->be($user);
-        
+
         return $user;
+    }
+
+    /**
+     * @param array $attributes
+     * @return \App\Pictures\Picture
+     */
+    public function createPicture(array $attributes = [])
+    {
+        return $this->modelFactory->create(Picture::class, array_merge([
+            'path' => 'path_to_file',
+        ], $attributes));
     }
 }

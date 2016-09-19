@@ -5,7 +5,7 @@ use Dingo\Api\Routing\Router;
 $api = app(Router::class);
 
 $api->version('v1', function (Router $api) {
-    $api->group(['namespace' => 'App\\Api\\Http\\Controllers\\', 'middleware' => 'bindings'], function (Router $api) {
+    $api->group(['namespace' => 'App\\Api\\Http\\Controllers\\', 'middleware' => 'bindings', 'as' => 'api.'], function (Router $api) {
         $api->group(['prefix' => 'rosters'], function (Router $api) {
             $api->get('/', ['as' => 'rosters.index', 'uses' => 'RosterController@index']);
             $api->post('/', ['as' => 'rosters.store', 'uses' => 'RosterController@store']);
@@ -40,6 +40,13 @@ $api->version('v1', function (Router $api) {
             $api->get('/{article}', ['as' => 'articles.show', 'uses' => 'ArticleController@show']);
             $api->put('/{article}', ['as' => 'articles.update', 'uses' => 'ArticleController@update']);
             $api->delete('/{article}', ['as' => 'articles.delete', 'uses' => 'ArticleController@delete']);
+
+            $api->group(['prefix' => '/{article}/pictures', 'as' => 'articles.'], function (Router $api) {
+                $api->get('/', ['as' => 'pictures.index', 'uses' => 'ArticlePictureController@index']);
+                $api->post('/', ['as' => 'pictures.store', 'uses' => 'ArticlePictureController@store']);
+                $api->get('/{picture}', ['as' => 'pictures.show', 'uses' => 'ArticlePictureController@show']);
+                $api->delete('/{picture}', ['as' => 'pictures.delete', 'uses' => 'ArticlePictureController@delete']);
+            });
         });
     });
 });

@@ -3,6 +3,7 @@ namespace App\Testing;
 
 use App\Articles\Article;
 use App\Contacts\Contact;
+use App\Pictures\Picture;
 use App\Riders\Rider;
 use App\Rosters\Roster;
 use App\Users\User;
@@ -91,6 +92,22 @@ trait DefaultIncludes
             'userRelation' => [
                 'data' => $this->includedUser($article->author()),
             ],
+        ], $attributes);
+    }
+
+    /**
+     * @param \App\Pictures\Picture $picture
+     * @param array $attributes
+     * @return array
+     */
+    public function includedPicture(Picture $picture, $attributes = [])
+    {
+        return array_merge([
+            'id' => $picture->id(),
+            'path' => $picture->path(),
+            'articleRelation' => [
+                'data' => $this->includedArticle($picture->article()),
+            ]
         ], $attributes);
     }
 }

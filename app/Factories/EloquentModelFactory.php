@@ -5,6 +5,8 @@ use App\Articles\Article;
 use App\Articles\EloquentArticle;
 use App\Contacts\Contact;
 use App\Contacts\EloquentContact;
+use App\Pictures\EloquentPicture;
+use App\Pictures\Picture;
 use App\Riders\EloquentRider;
 use App\Riders\Rider;
 use App\Rosters\EloquentRoster;
@@ -26,6 +28,7 @@ class EloquentModelFactory implements ModelFactory
     private $models = [
         Article::class => EloquentArticle::class,
         Contact::class => EloquentContact::class,
+        Picture::class => EloquentPicture::class,
         Rider::class => EloquentRider::class,
         Roster::class => EloquentRoster::class,
         User::class => EloquentUser::class,

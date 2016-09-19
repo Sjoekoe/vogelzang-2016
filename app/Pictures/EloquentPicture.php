@@ -10,11 +10,24 @@ class EloquentPicture extends Model implements Picture
     use StandardModel;
 
     /**
+     * @var string
+     */
+    protected $table = self::TABLE;
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function articleRelation()
+    {
+        return $this->belongsTo(EloquentArticle::class, 'item_id', 'id');
+    }
+
+    /**
      * @return \App\Articles\Article
      */
     public function article()
     {
-        return $this->belongsTo(EloquentArticle::class, 'article_id', 'id')->first();
+        return $this->articleRelation()->first();
     }
 
     /**

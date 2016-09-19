@@ -13,6 +13,7 @@
 
 use App\Articles\EloquentArticle;
 use App\Contacts\EloquentContact;
+use App\Pictures\EloquentPicture;
 use App\Riders\EloquentRider;
 use App\Rosters\EloquentRoster;
 use App\Users\EloquentUser;
@@ -31,5 +32,8 @@ $factory->define(EloquentContact::class, function (Generator $faker) {
     return [];
 });
 $factory->define(EloquentArticle::class, function (Generator $faker) {
+    return [];
+});
+$factory->define(EloquentPicture::class, function (Generator $faker) {
     return [];
 });

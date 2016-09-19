@@ -183,6 +183,7 @@ return [
         App\Articles\ArticleServiceProvider::class,
         App\Contacts\ContactServiceProvider::class,
         App\Factories\ModelFactoryServiceProvider::class,
+        App\Pictures\PictureServiceProvider::class,
         App\Riders\RiderServiceProvider::class,
         App\Rosters\RosterServiceProvider::class,
         App\Users\UserServiceProvider::class,
