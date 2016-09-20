@@ -1,18 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Articles\ArticleRepository;
 use App\Riders\RiderRepository;
 use App\Rosters\RosterRepository;
 use App\Subscriptions\SubscriptionRepository;
 
 class HomeController extends Controller
 {
-    /**
-     * @var \App\Articles\ArticleRepository
-     */
-    private $articles;
-
     /**
      * @var \App\Riders\RiderRepository
      */
@@ -29,12 +23,10 @@ class HomeController extends Controller
     private $subscriptions;
 
     public function __construct(
-        ArticleRepository $articles, 
-        RiderRepository $riders, 
-        RosterRepository $rosters, 
+        RiderRepository $riders,
+        RosterRepository $rosters,
         SubscriptionRepository $subscriptions
     ) {
-        $this->articles = $articles;
         $this->riders = $riders;
         $this->rosters = $rosters;
         $this->subscriptions = $subscriptions;
@@ -42,12 +34,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $articles = $this->articles->findAllPaginated(2);
-        $ridersCount = $this->riders->count();
-        $lessonCount = $this->rosters->count();
-        $subscriptionCount = $this->subscriptions->count();
-        
-        return view('home.index', compact('articles', 'ridersCount', 'lessonCount', 'subscriptionCount'));
+        return view('home.index');
     }
 
     public function accommodation()
@@ -62,6 +49,15 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('home.about');
+        $ridersCount = $this->riders->count();
+        $lessonCount = $this->rosters->count();
+        $subscriptionCount = $this->subscriptions->count();
+
+        return view('home.about', compact('ridersCount', 'lessonCount', 'subscriptionCount'));
+    }
+
+    public function contact()
+    {
+        return view('home.contact');
     }
 }

@@ -1,15 +1,13 @@
 <?php
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::get('accommodation', ['as' => 'accommodation', 'uses' => 'HomeController@accommodation']);
-Route::get('manege', ['as' => 'manege', 'uses' => 'HomeController@manege']);
 Route::get('about', ['as' => 'about', 'uses' => 'HomeController@about']);
+Route::get('contact', ['as' => 'contact', 'uses' => 'HomeController@contact']);
+Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
+Route::post('login', ['as' => 'login.store', 'uses' => 'Auth\LoginController@login']);
+Route::get('dashboard', ['as' => 'dashboard.index', 'uses' => 'DashboardController@index']);
 
-Route::get('news', ['as' => 'news.index', 'uses' => 'ArticleController@index']);
 Route::get('news/{article}', ['as' => 'articles.show', 'uses' => 'ArticleController@show']);
-
-Route::get('contact', ['as' => 'contact.index', 'uses' => 'ContactController@index']);
-Route::post('contact', ['as' => 'contact.store', 'uses' => 'ContactController@store']);
 
 Route::get('/sitemap', function() {
     $file = public_path() .  '/download/sitemap.xml';  // <- Replace with the path to your .xml file

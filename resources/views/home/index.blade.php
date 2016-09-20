@@ -1,58 +1,85 @@
 @extends('layouts.app')
 
 @section('content')
-    <section id="fh5co-home" data-section="home" style="background-image: url({{ asset('images/bg_image.jpg') }});" data-stellar-background-ratio="0.5">
-        <div class="gradient"></div>
-        <div class="container">
-            <div class="text-wrap">
-                <div class="text-inner">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 text-center">
-                            <h1 class="to-animate">Stal de vogelzang</h1>
-                            <h2 class="to-animate">Waar paardrijden puur genot is!</h2>
-                        </div>
-                    </div>
-                </div>
+    <section>
+        <div id="hero-slider-section">
+            <div id="slides">
+                <ul class="slides-container">
+                    <li>
+                        <img src="{{ asset('images/bg_image.jpg') }}" alt="">
+                        <div class="overlay-slider"></div>
+                        <div class="hero-slider-content text-center">
+                            <div class="c-vertical">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <div class="hero-slider-text">
+                                                <h1 class="animated out" >Stal de vogelzang</h1>
+                                                <div class="div-line"></div>
+                                                <p class="hero animated out">Waar paardrijden puur genot is</p>
+                                            </div> <!-- End hero-text -->
+                                        </div> <!-- end col-md-6 -->
+                                    </div> <!-- end row -->
+                                </div> <!-- End container -->
+                            </div> <!-- end c-vertical -->
+                        </div> <!-- End hero-content -->
+                    </li>
+                </ul>
             </div>
-        </div>
+        </div> <!-- End hero-section -->
     </section>
 
-    <section id="fh5co-testimony" data-section="testimony">
-        <div class="row">
-            <div class="col-md-12 to-animate">
-                <div class="getting-started getting-started-1">
-                    <div class="getting-grid" style="background-image:  url({{ asset('images/manege.jpg') }});">
-                        <div class="desc"></div>
-                    </div>
-                    <a href="#" class="getting-grid2">
-                        <div class="call-to-action text-center">
-                            <p class="sign-up">Over ons</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="container" style="margin-top: 2em;">
-            <div class="row">
-                <div class="col-md-12 section-heading text-center">
+    <section>
+        <div id="about-section" class="clearfix pad-sec">
+            <div class="container">
+                <div class="title-section big-title-sec animated out" data-animation="fadeInUp" data-delay="0">
                     <div class="row">
-                        <div class="col-md-12 subtext">
-                            <h3 class="to-animate">
-                                De opzetter van Stal de Vogelzang - Peter Wauters - was van kleins af aan actief in de paardensport. <br>
-                                Bij de LRV en op allerlei paardenmarkten was hij dan ook een vaak gezien gezicht.
-                                <br>
-                                Na enig zoeken kocht hij een boerderij met een aantal weiden in lokeren. <br>
-                                De koeienstallen maakten plaats voor ruime paardenstallen en werd er een piste aangelegd.
-                                <br>
-                                Een naam zoeken voor de paardenstal bleek niet zo moeilijk te zijn. De boerderij is gelegen in de vogelzangstraat en op de boerderij hangt er nog steeds een bord met het opschrift "De Vogelzang".
-                                <br>
-                                Recentelijk zijn er nog vernieuwingen aangebracht, en is er een grote binnenpiste gebouwd met ruime stallen.
-                            </h3>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <p class="about-text">
+                                In het midden van het waasland in het kleine Heiende, ligt bla bla bla, ik heb geen inspiratie voor een verdere teks momenteel
+                            </p>
                         </div>
+                    </div> <!-- End row -->
+                </div> <!-- end title-section -->
+
+                <div class="about-boxes">
+                    <div class="row">
+
+                        <!-- about-box -->
+                        <div class="col-sm-3">
+                            <div class="about-box animated out" data-animation="fadeInLeft" data-delay="0">
+                                <h4>Ponylessen &amp; kampen</h4>
+                                <p>Uw eerste longeles, of reeds op wedstrijdniveau, onze lesgeefster kunnen u altijd verder helpen.</p>
+                            </div>
+                        </div>
+                        <!-- about-box -->
+                        <div class="col-sm-3">
+                            <div class="about-box animated out" data-animation="fadeInUp" data-delay="0">
+                                <h4>Verhuur van stallingen</h4>
+                                <p>Vol- of halpension. Bij ons bent u aan het juiste adres.</p>
+                            </div>
+                        </div>
+                        <!-- about-box -->
+                        <div class="col-sm-3">
+                            <div class="about-box animated out" data-animation="fadeInUp" data-delay="0">
+                                <h4>Verkoop van paarden</h4>
+                                <p>Op zoek naar uw nieuw droom paard of pony. Of wil je van je huidig paard vanaf. Wij kunnen u hierbij helpen.</p>
+                            </div>
+                        </div>
+                        <!-- about-box -->
+                        <div class="col-sm-3">
+                            <div class="about-box animated out" data-animation="fadeInRight" data-delay="0">
+                                <h4>Africhten van paarden.</h4>
+                                <p>Onder het zadel of voor de koets. Door onze jarenlange ervaring vormt dit geen probleem voor ons.</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-        </div>
+
+            </div> <!-- End container -->
+
+        </div> <!-- End about-section -->
     </section>
 
     <section id="fh5co-pricing" data-section="pricing">
@@ -105,34 +132,6 @@
                             <div class="price"><sup class="currency">€</sup>130</div>
                             <p>Een beurtenkaart voor 10 groepslessen.</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="fh5co-counter-section" class="fh5co-counters">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 section-heading text-center">
-                        <h2 class="to-animate"><span>Some Fun Facts</span></h2>
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 subtext">
-                                <h3 class="to-animate">Hier enkele feiten over Stal de Vogelzang</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row to-animate">
-                    <div class="col-md-4 text-center">
-                        <span class="fh5co-counter js-counter" data-from="0" data-to="{{ $ridersCount }}" data-speed="3000" data-refresh-interval="50"></span>
-                        <span class="fh5co-counter-label">Ingeschreven ruiters</span>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <span class="fh5co-counter js-counter" data-from="0" data-to="{{ $lessonCount }}" data-speed="3000" data-refresh-interval="50"></span>
-                        <span class="fh5co-counter-label">Lessen</span>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <span class="fh5co-counter js-counter" data-from="0" data-to="{{ $subscriptionCount }}" data-speed="3000" data-refresh-interval="50"></span>
-                        <span class="fh5co-counter-label">Lesinschrijvingen</span>
                     </div>
                 </div>
             </div>
@@ -388,91 +387,6 @@
                 </div>
             </div>
         </div>
-
-        </div>
-
-    </section>
-
-    <section id="fh5co-team" class="fh5co-bg-color" data-section="team">
-        <div class="fh5co-team">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 section-heading text-center">
-                        <h2 class="to-animate"><span>Meet The Team</span></h2>
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 subtext">
-                                <h3 class="to-animate">Onze vrijwilligers staan altijd klaar om jullie te helpen. En tot het uiterste te begeleiden tijdens de lessen.</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="team-box text-center to-animate-2">
-                            <div class="user"><img class="img-reponsive" src="{{ asset('images/peter2.png') }}" alt="Peter Wauters"></div>
-                            <h3>Peter wauters</h3>
-                            <span class="position">Stalhouder</span>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="team-box text-center to-animate-2">
-                            <div class="user"><img class="img-reponsive" src="https://scontent-bru2-1.xx.fbcdn.net/v/t1.0-1/p160x160/13754567_10209191779583246_6626096159450168752_n.jpg?oh=9f9eb453bcaa9d35eb88f4470af4ac69&oe=586C20C4" alt="Sofie Poot"></div>
-                            <h3>Sofie Poot</h3>
-                            <span class="position">Lesgeefster, Eigenares van Corleana</span>
-                            <p>Geeft groepslessen op zaterdagmorgend en woensdagnamiddag, en in het bezit van haar initiator diploma.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="team-box text-center to-animate-2">
-                            <div class="user"><img class="img-reponsive" src="https://scontent-bru2-1.xx.fbcdn.net/v/t1.0-9/1800453_10203542699591867_690159729_n.jpg?oh=af80ef267e7c582dc58996f26b939793&oe=5867A590" alt="Lind Haleydt"></div>
-                            <h3>Linde Haleydt</h3>
-                            <span class="position">Lesgeefster, Eigenares van Donna</span>
-                            <p>Geeft les op zaterdagvoormiddag, alsook de drijvende kracht achter de ponykampen</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="fh5co-blog" data-section="blog">
-        <div class="fh5co-blog">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 section-heading text-center">
-                        <h2 class="to-animate"><span>Het laatste niews</span></h2>
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 subtext">
-                                <h3 class="to-animate">Hier een intro?</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    @foreach ($articles as $article)
-                        <div class="col-md-6 to-animate blog">
-                            <div class="blog-grid" style="background-image: url({{ asset('/images/items/random/' . rand(0, 8) . '.jpg') }});">
-                                <div class="date">
-                                    <span>{{ $article->createdAt()->format('d') }}</span>
-                                    <small>{{ $article->createdAt()->format('M') }}</small>
-                                </div>
-                            </div>
-                            <a href="#" class="desc">
-                                <div class="desc-grid">
-                                    <h3>{{ $article->title() }}</h3>
-                                </div>
-                                <div class="reading">
-                                    <i class="icon-arrow-right2"></i>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
     </section>
 
     <section id="fh5co-faq" class="fh5co-bg-color" data-section="faq">
@@ -540,27 +454,4 @@
             </div>
         </div>
     </section>
-
-    <div id="fh5co-footer" role="contentinfo">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 to-animate">
-                    <h3 class="section-title">Ons Adres</h3>
-                    <ul class="contact-info">
-                        <li><i class="icon-map-marker"></i>Vogelzangstraat 12, 9160 Lokeren</li>
-                        <li><i class="icon-phone"></i><a href="tel:+32 (0) 475.29.57.60">+32 (0) 475.29.57.60</a></li>
-                        <li><i class="icon-envelope"></i><a href="mail:info@staldevogelzang.be">info@staldevogelzang.be</a></li>
-                        <li><i class="icon-globe2"></i><a href="{{ route('home') }}">www.staldevogelzang.be</a></li>
-                    </ul>
-                    <h3 class="section-title">Volg ons</h3>
-                    <ul class="social-media">
-                        <li><a target="_blank" href="https://www.facebook.com/groups/180597618657465/" class="facebook"><i class="icon-facebook"></i></a></li>
-                    </ul>
-                </div>
-                <contactform></contactform>
-            </div>
-        </div>
-    </div>
-    <div id="map" class="fh5co-map"></div>
 @stop
