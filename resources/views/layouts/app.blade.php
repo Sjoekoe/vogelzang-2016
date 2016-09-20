@@ -96,6 +96,7 @@
 <!-- Counters -->
 <script src="js/jquery.countTo.js"></script>
 <!-- Google Map -->
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
 <script src="js/google_map.js"></script>
 <!-- Main JS (Do not remove) -->

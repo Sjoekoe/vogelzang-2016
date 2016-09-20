@@ -59,7 +59,6 @@
         <div class="getting-started getting-started-1">
             <a href="#" class="getting-grid2">
                 <div class="call-to-action text-center">
-
                     <p href="#" class="sign-up">Manege</p>
                 </div>
             </a>
@@ -559,30 +558,7 @@
                         <li><a target="_blank" href="https://www.facebook.com/groups/180597618657465/" class="facebook"><i class="icon-facebook"></i></a></li>
                     </ul>
                 </div>
-                <div class="col-md-8 to-animate">
-                    <h3 class="section-title">Stuur ons een bericht</h3>
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name" class="sr-only">Volledige naam</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Volledige naam">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject" class="sr-only">Onderwerp</label>
-                            <input type="text" name="subject" class="form-control" id="subject" placeholder="Onderwerp">
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="sr-only">Bericht</label>
-                            <textarea class="form-control" name="message" id="message" rows="7" placeholder="Bericht"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Verzenden">
-                        </div>
-                    </form>
-                </div>
+                <contactform></contactform>
             </div>
         </div>
     </div>

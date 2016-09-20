@@ -1,7 +1,7 @@
 <?php
 namespace App\Contacts\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Dingo\Api\Http\FormRequest;
 
 class StoreFormEntryRequest extends FormRequest
 {
