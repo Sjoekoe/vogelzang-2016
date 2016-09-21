@@ -2,6 +2,8 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('about', ['as' => 'about', 'uses' => 'HomeController@about']);
+Route::get('manege', ['as' => 'manege', 'uses' => 'HomeController@manege']);
+Route::get('accommodatie', ['as' => 'accommodatie', 'uses' => 'HomeController@accommodation']);
 Route::get('contact', ['as' => 'contact', 'uses' => 'HomeController@contact']);
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
 Route::post('login', ['as' => 'login.store', 'uses' => 'Auth\LoginController@login']);

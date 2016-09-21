@@ -40,8 +40,8 @@
 
                     <!-- submit button -->
                     <div class="form-group">
-                        <input v-if="! sending" type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Verzenden" @click="sendformentry">
-                        <button class="btn btn-send-message btn-md" v-else>Verwerken... <i class="fa fa-spin fa-spinner"></i></button>
+                        <input v-if="! sending" type="submit" id="btn-submit" class="btn btn-sm btn-dark" value="Verzenden" @click="sendformentry">
+                        <button class="btn btn-sm btn-dark" v-else>Verwerken... <i class="fa fa-spin fa-spinner"></i></button>
                     </div>
 
                     <div v-if="success" id="alert">Bedankt voor je aanvraag!</div>

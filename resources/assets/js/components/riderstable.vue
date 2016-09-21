@@ -20,6 +20,12 @@
             </table>
         </div>
     </section>
+
+    <div class="panel" v-if="loading">
+        <div class="panel-body text-center">
+            Laden... <i class="fa fa-spin fa-spinner"></i>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -28,7 +34,9 @@
             return {
                 riders: [],
                 total: 0,
-                max_pages: 1
+                max_pages: 1,
+                loading: true,
+                page: 1,
             }
         },
 
@@ -37,6 +45,7 @@
                 this.total = riders.meta.pagination.total;
                 this.riders = riders.data;
                 this.max_pages = riders.meta.pagination.total_pages;
+                this.loading = false;
             }.bind(this));
 
             var vm = this;
@@ -50,7 +59,7 @@
                         $.getJSON('/api/riders?page=' + vm.page, function (riders) {
                             vm.loading = false;
                             riders.data.map(function (rider) {
-                                vm.statuses.push(rider);
+                                vm.riders.push(rider);
                             });
                         }.bind(vm));
                     }

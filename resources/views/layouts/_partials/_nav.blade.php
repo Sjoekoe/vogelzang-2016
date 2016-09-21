@@ -21,11 +21,11 @@
                     <li class="{{ Request::is('about') ? 'active' : '' }}">
                         <a href="{{ route('about') }}">Over ons</a>
                     </li>
-                    <li>
-                        <a href="#">Manege</a>
+                    <li class="{{ Request::is('manege') ? 'active' : '' }}">
+                        <a href="{{ route('manege') }}">Manege</a>
                     </li>
-                    <li>
-                        <a href="#">Stallingen</a>
+                    <li class="{{ Request::is('accommodatie') ? 'active' : '' }}">
+                        <a href="{{ route('accommodatie') }}">Stallingen</a>
                     </li>
                     <li>
                         <a href="#">Nieuws</a>
