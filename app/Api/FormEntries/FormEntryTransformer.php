@@ -18,7 +18,7 @@ class FormEntryTransformer extends TransformerAbstract
             'name' => $contact->fullName(),
             'subject' => $contact->subject(),
             'email' => $contact->email(),
-            'message' => $contact->message(),
+            'message' => nl2br($contact->message()),
         ];
     }
 }

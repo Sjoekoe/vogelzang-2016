@@ -20,6 +20,7 @@ class EloquentRiderRepository implements RiderRepository
     public function findAllPaginated($limit = 20)
     {
         return $this->rider
+            ->orderBy('firstname')
             ->paginate($limit);
     }
 

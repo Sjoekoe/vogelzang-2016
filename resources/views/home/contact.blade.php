@@ -11,9 +11,9 @@
         <div id="contact-section" class="pad-sec">
             <div class="container">
                 <contactform></contactform>
-            </div> <!-- end container -->
+            </div>
 
-        </div> <!-- End contact-section -->
+        </div>
     </section>
 
     <section>

@@ -15,10 +15,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navigation-nav">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
+                    <li class="{{ Request::is('/') ? 'active' : '' }}">
                         <a href="{{ route('home') }}">Home</a>
                     </li>
-                    <li class="active">
+                    <li class="{{ Request::is('about') ? 'active' : '' }}">
                         <a href="{{ route('about') }}">Over ons</a>
                     </li>
                     <li>
@@ -33,7 +33,7 @@
                     <li>
                         <a href="#">Faq</a>
                     </li>
-                    <li>
+                    <li class="{{ Request::is('contact') ? 'active' : '' }}">
                         <a href="{{ route('contact') }}">Contact</a>
                     </li>
                     @if (auth()->check())

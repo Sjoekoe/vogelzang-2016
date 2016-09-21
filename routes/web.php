@@ -6,6 +6,8 @@ Route::get('contact', ['as' => 'contact', 'uses' => 'HomeController@contact']);
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
 Route::post('login', ['as' => 'login.store', 'uses' => 'Auth\LoginController@login']);
 Route::get('dashboard', ['as' => 'dashboard.index', 'uses' => 'DashboardController@index']);
+Route::get('riders', ['as' => 'riders.index', 'uses' => 'RiderController@index']);
+Route::get('messages', ['as' => 'messages.index', 'uses' => 'MessageController@index']);
 
 Route::get('news/{article}', ['as' => 'articles.show', 'uses' => 'ArticleController@show']);
 

@@ -15,6 +15,8 @@ var Vue = require('vue');
  */
 
 Vue.component('contactform', require('./components/contactform.vue'));
+Vue.component('riderstable', require('./components/riderstable.vue'));
+Vue.component('messagestable', require('./components/messagestable.vue'));
 
 const app = new Vue({
     el: 'body',
