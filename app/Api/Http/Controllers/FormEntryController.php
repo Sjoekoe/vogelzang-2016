@@ -44,4 +44,11 @@ class FormEntryController extends Controller
         
         return $this->response()->noContent();
     }
+    
+    public function read(Contact $contact)
+    {
+        $contact = $this->contacts->markAsRead($contact);
+        
+        return $this->response()->item($contact, new FormEntryTransformer());
+    }
 }

@@ -19,6 +19,7 @@ class FormEntryTransformer extends TransformerAbstract
             'subject' => $contact->subject(),
             'email' => $contact->email(),
             'message' => nl2br($contact->message()),
+            'created_at' => $contact->createdAt()->format('d-m-Y'),
         ];
     }
 }

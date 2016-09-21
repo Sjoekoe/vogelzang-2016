@@ -38,6 +38,8 @@ $api->version('v1', function (Router $api) {
             $api->post('/', ['as' => 'formentries.store', 'uses' => 'FormEntryController@store']);
             $api->get('/{form_entry}', ['as' => 'formentries.show', 'uses' => 'FormEntryController@show']);
             $api->delete('/{form_entry}', ['as' => 'formentries.delete', 'uses' => 'FormEntryController@delete']);
+            
+            $api->post('/{form_entry}/read', ['as' => 'formentries.read', 'uses' => 'FormEntryController@read']);
         });
 
         $api->group(['prefix' => 'articles'], function (Router $api) {

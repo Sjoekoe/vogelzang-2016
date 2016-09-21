@@ -5709,3 +5709,8 @@ div.tagsinput span.tag {
     -o-transition: none;
     transition: none;
 }
+
+tr.highlighted {
+    font-weight: bold;
+    font-style: italic;
+}

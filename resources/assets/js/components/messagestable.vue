@@ -15,11 +15,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="message in messages">
+                    <tr v-for="message in messages" v-bind:class="{ 'highlighted' : ! message.is_read }">
                         <td>{{ message.name }}</td>
                         <td>{{ message.email }}</td>
                         <td>{{ message.subject }}</td>
-                        <td></td>
+                        <td>{{ message.created_at}}</td>
                         <td>
                             <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#showMessage" @click="fillModalData(message)">
                                 <i class="fa fa-eye"></i>
@@ -38,11 +38,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">{{ selectedSubject}} - {{ selectedName }}</h4>
+                    <h4 class="modal-title">{{ selectedSubject}} - {{ selectedName }} - <a
+                            href="mailto::{{ selectedEmail }}">{{ selectedEmail }}</a></h4>
                 </div>
-                <div class="modal-body">
-                    {{ selectedMessage }}
-                </div>
+                <div class="modal-body" v-html="selectedMessage"></div>
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
                 </div>
@@ -110,6 +109,13 @@
                 this.selectedName = message.name;
                 this.selectedMessage = message.message;
                 this.selectedSubject = message.subject;
+                this.selectedEmail = message.email;
+                message.is_read = true;
+
+                $.ajax({
+                    url: 'api/formentries/' + message.id + '/read',
+                    method: 'post',
+                })
             },
 
             setMessageToRemove: function(message) {

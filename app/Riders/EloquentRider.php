@@ -22,7 +22,7 @@ class EloquentRider extends Model implements Rider
      */
     public function firstName()
     {
-        return $this->firstname;
+        return ucfirst($this->firstname);
     }
 
     /**
@@ -30,7 +30,7 @@ class EloquentRider extends Model implements Rider
      */
     public function lastName()
     {
-        return $this->lastname;
+        return ucfirst($this->lastname);
     }
 
     /**

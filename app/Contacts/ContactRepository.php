@@ -25,4 +25,10 @@ interface ContactRepository
      * @param \App\Contacts\Contact $contact
      */
     public function delete(Contact $contact);
+
+    /**
+     * @param \App\Contacts\Contact $contact
+     * @return \App\Contacts\Contact
+     */
+    public function markAsRead(Contact $contact);
 }

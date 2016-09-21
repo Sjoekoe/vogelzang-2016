@@ -60,4 +60,17 @@ class EloquentContactRepository implements ContactRepository
     {
         $contact->delete();
     }
+
+    /**
+     * @param \App\Contacts\Contact $contact
+     * @return \App\Contacts\Contact
+     */
+    public function markAsRead(Contact $contact)
+    {
+        $contact->read = true;
+
+        $contact->save();
+
+        return $contact;
+    }
 }
