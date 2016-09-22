@@ -21,8 +21,8 @@ class ArticleTransformer extends TransformerAbstract
         return [
             'id' => $article->id(),
             'title' => $article->title(),
-            'message' => $article->message(),
-            'created_at' => $article->createdAt()->toIso8601String(),
+            'message' => nl2br($article->message()),
+            'created_at' => $article->createdAt()->format('d-m-Y'),
         ];
     }
 

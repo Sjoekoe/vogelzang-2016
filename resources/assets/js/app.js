@@ -18,6 +18,7 @@ Vue.component('contactform', require('./components/contactform.vue'));
 Vue.component('riderstable', require('./components/riderstable.vue'));
 Vue.component('messagestable', require('./components/messagestable.vue'));
 Vue.component('userstable', require('./components/userstable.vue'));
+Vue.component('newstable', require('./components/newstable.vue'));
 
 const app = new Vue({
     el: 'body',

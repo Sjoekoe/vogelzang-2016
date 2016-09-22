@@ -14,6 +14,8 @@ Route::get('riders', ['as' => 'riders.index', 'uses' => 'RiderController@index']
 Route::get('messages', ['as' => 'messages.index', 'uses' => 'MessageController@index']);
 Route::get('users', ['as' => 'users.index', 'uses' => 'UserController@index']);
 
+Route::get('articles', ['as' => 'news.index', 'uses' => 'NewsController@index']);
+
 Route::get('news', ['as' => 'articles.index', 'uses' => 'ArticleController@index']);
 Route::get('news/{article}', ['as' => 'articles.show', 'uses' => 'ArticleController@show']);
 

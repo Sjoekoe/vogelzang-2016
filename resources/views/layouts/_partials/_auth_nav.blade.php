@@ -59,6 +59,12 @@
                         <span>Berichten</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('news.index') }}">
+                        <i class="fa fa-envelope"></i>
+                        <span>Nieuws</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- sidebar menu end-->

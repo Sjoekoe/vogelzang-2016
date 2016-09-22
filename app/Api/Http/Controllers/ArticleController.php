@@ -28,7 +28,7 @@ class ArticleController extends Controller
 
     public function store(StoreArticleRequest $request)
     {
-        $article = $this->articles->create(auth()->user(), $request->all());
+        $article = $this->articles->create($this->auth()->user(), $request->all());
 
         return $this->response()->item($article, new ArticleTransformer());
     }

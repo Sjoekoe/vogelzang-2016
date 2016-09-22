@@ -44,6 +44,9 @@
 <!-- Placed js at the end of the document so the pages load faster -->
 
 <!--Core js-->
+<script>
+    window.vogelzang = window.vogelzang || {!! Info::toJson() !!};
+</script>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>

@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Dingo\Api\Provider\LaravelServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -183,6 +184,7 @@ return [
         App\Articles\ArticleServiceProvider::class,
         App\Contacts\ContactServiceProvider::class,
         App\Factories\ModelFactoryServiceProvider::class,
+        App\Jwt\JwtServiceProvider::class,
         App\Pictures\PictureServiceProvider::class,
         App\Riders\RiderServiceProvider::class,
         App\Rosters\RosterServiceProvider::class,
@@ -234,6 +236,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'Info' => \App\Info\Facades\Info::class,
 
     ],
 

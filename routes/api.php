@@ -6,6 +6,23 @@ $api = app(Router::class);
 
 $api->version('v1', function (Router $api) {
     $api->group(['namespace' => 'App\\Api\\Http\\Controllers\\', 'middleware' => 'bindings', 'as' => 'api.'], function (Router $api) {
+        $api->group(['middleware' => 'api.auth'], function (Router $api) {
+            $api->group(['prefix' => 'articles'], function (Router $api) {
+                $api->get('/', ['as' => 'articles.index', 'uses' => 'ArticleController@index']);
+                $api->post('/', ['as' => 'articles.store', 'uses' => 'ArticleController@store']);
+                $api->get('/{article}', ['as' => 'articles.show', 'uses' => 'ArticleController@show']);
+                $api->put('/{article}', ['as' => 'articles.update', 'uses' => 'ArticleController@update']);
+                $api->delete('/{article}', ['as' => 'articles.delete', 'uses' => 'ArticleController@delete']);
+
+                $api->group(['prefix' => '/{article}/pictures', 'as' => 'articles.'], function (Router $api) {
+                    $api->get('/', ['as' => 'pictures.index', 'uses' => 'ArticlePictureController@index']);
+                    $api->post('/', ['as' => 'pictures.store', 'uses' => 'ArticlePictureController@store']);
+                    $api->get('/{picture}', ['as' => 'pictures.show', 'uses' => 'ArticlePictureController@show']);
+                    $api->delete('/{picture}', ['as' => 'pictures.delete', 'uses' => 'ArticlePictureController@delete']);
+                });
+            });
+        });
+
         $api->group(['prefix' => 'rosters'], function (Router $api) {
             $api->get('/', ['as' => 'rosters.index', 'uses' => 'RosterController@index']);
             $api->post('/', ['as' => 'rosters.store', 'uses' => 'RosterController@store']);
@@ -38,23 +55,8 @@ $api->version('v1', function (Router $api) {
             $api->post('/', ['as' => 'formentries.store', 'uses' => 'FormEntryController@store']);
             $api->get('/{form_entry}', ['as' => 'formentries.show', 'uses' => 'FormEntryController@show']);
             $api->delete('/{form_entry}', ['as' => 'formentries.delete', 'uses' => 'FormEntryController@delete']);
-            
+
             $api->post('/{form_entry}/read', ['as' => 'formentries.read', 'uses' => 'FormEntryController@read']);
-        });
-
-        $api->group(['prefix' => 'articles'], function (Router $api) {
-            $api->get('/', ['as' => 'articles.index', 'uses' => 'ArticleController@index']);
-            $api->post('/', ['as' => 'articles.store', 'uses' => 'ArticleController@store']);
-            $api->get('/{article}', ['as' => 'articles.show', 'uses' => 'ArticleController@show']);
-            $api->put('/{article}', ['as' => 'articles.update', 'uses' => 'ArticleController@update']);
-            $api->delete('/{article}', ['as' => 'articles.delete', 'uses' => 'ArticleController@delete']);
-
-            $api->group(['prefix' => '/{article}/pictures', 'as' => 'articles.'], function (Router $api) {
-                $api->get('/', ['as' => 'pictures.index', 'uses' => 'ArticlePictureController@index']);
-                $api->post('/', ['as' => 'pictures.store', 'uses' => 'ArticlePictureController@store']);
-                $api->get('/{picture}', ['as' => 'pictures.show', 'uses' => 'ArticlePictureController@show']);
-                $api->delete('/{picture}', ['as' => 'pictures.delete', 'uses' => 'ArticlePictureController@delete']);
-            });
         });
     });
 });
