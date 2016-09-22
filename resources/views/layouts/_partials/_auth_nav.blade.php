@@ -14,8 +14,8 @@
         <ul class="nav pull-right top-menu">
             <!-- user login dropdown start-->
             <li class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <span class="username">{{ auth()->user()->username() }}</span>
+                <a data-toggle="dropdown" href="#">
+                    <span>{{ auth()->user()->username() }}</span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout">
@@ -25,11 +25,6 @@
                 </ul>
             </li>
             <!-- user login dropdown end -->
-            <li>
-                <div class="toggle-right-box">
-                    <div class="fa fa-bars"></div>
-                </div>
-            </li>
         </ul>
         <!--search & user info end-->
     </div>

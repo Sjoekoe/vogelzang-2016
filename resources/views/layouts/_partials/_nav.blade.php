@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Stal de vogelzang</a>
+                <a class="navbar-brand" href="{{ route('home') }}">Stal de vogelzang</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navigation-nav">
@@ -27,11 +27,11 @@
                     <li class="{{ Request::is('accommodatie') ? 'active' : '' }}">
                         <a href="{{ route('accommodatie') }}">Stallingen</a>
                     </li>
-                    <li>
-                        <a href="#">Nieuws</a>
+                    <li class="{{ Request::is('news') ? 'active' : '' }}">
+                        <a href="{{ route('articles.index') }}">Nieuws</a>
                     </li>
-                    <li>
-                        <a href="#">Faq</a>
+                    <li class="{{ Request::is('faq') ? 'active' : '' }}">
+                        <a href="{{ route('faq') }}">Faq</a>
                     </li>
                     <li class="{{ Request::is('contact') ? 'active' : '' }}">
                         <a href="{{ route('contact') }}">Contact</a>

@@ -47,6 +47,11 @@ class HomeController extends Controller
         return view('home.manege');
     }
 
+    public function faq()
+    {
+        return view('home.faq');
+    }
+
     public function about()
     {
         $ridersCount = $this->riders->count();
