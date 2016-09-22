@@ -17,7 +17,7 @@ class EloquentRiderRepository implements RiderRepository
      * @param int $limit
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function findAllPaginated($limit = 20)
+    public function findAllPaginated($limit = 50)
     {
         return $this->rider
             ->orderBy('firstname')

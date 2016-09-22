@@ -7,7 +7,7 @@ interface RiderRepository
      * @param int $limit
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function findAllPaginated($limit = 20);
+    public function findAllPaginated($limit = 50);
 
     /**
      * @param int $id

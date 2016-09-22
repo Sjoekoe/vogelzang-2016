@@ -21,7 +21,7 @@
                 <ul class="dropdown-menu extended logout">
                     <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                     <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                    <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                    <li><a href="{{ route('logout') }}"><i class="fa fa-key"></i> Log Out</a></li>
                 </ul>
             </li>
             <!-- user login dropdown end -->
@@ -32,12 +32,19 @@
 <!--header end-->
 <aside>
     <div id="sidebar" class="nav-collapse">
-        <!-- sidebar menu start-->            <div class="leftside-navigation">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
                     <a href="{{ route('dashboard.index') }}">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('users.index') }}">
+                        <i class="fa fa-users"></i>
+                        <span>Gebruikers</span>
                     </a>
                 </li>
                 <li>

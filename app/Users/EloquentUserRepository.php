@@ -17,14 +17,24 @@ class EloquentUserRepository implements UserRepository
     }
 
     /**
+     * @param string|null $q
      * @param int $limit
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function findAllUsersPaginated($limit = 20)
+    public function findAllUsersPaginated($q = null, $limit = 50)
     {
-        return $this->user
-            ->orderBy('first_name')
-            ->paginate($limit);
+        $query = $this->user
+            ->orderBy('username');
+
+        if ($q && $q !== '') {
+            $query = $query->where(function($query) use ($q) {
+                $query->where('first_name', 'LIKE', '%' . $q . '%')
+                    ->orWhere('username', 'LIKE', '%' . $q . '%')
+                    ->orWhere('last_name', 'LIKE', '%' . $q . '%');
+            });
+        }
+
+        return $query->paginate($limit);
     }
 
     /**

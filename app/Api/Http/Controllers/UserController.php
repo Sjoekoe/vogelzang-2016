@@ -7,6 +7,7 @@ use App\Users\Requests\CreateUserRequest;
 use App\Users\Requests\UpdateUserRequest;
 use App\Users\User;
 use App\Users\UserRepository;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -20,9 +21,11 @@ class UserController extends Controller
         $this->users = $users;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $users = $this->users->findAllUsersPaginated();
+        $q = $request->get('query');
+
+        $users = $this->users->findAllUsersPaginated($q);
 
         return $this->response()->paginator($users, new UserTransformer());
     }

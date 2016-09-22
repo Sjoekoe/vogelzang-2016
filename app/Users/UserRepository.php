@@ -4,10 +4,11 @@ namespace App\Users;
 interface UserRepository
 {
     /**
+     * @param string|null $q
      * @param int $limit
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function findAllUsersPaginated($limit = 20);
+    public function findAllUsersPaginated($q = null, $limit = 50);
 
     /**
      * @param array $values
