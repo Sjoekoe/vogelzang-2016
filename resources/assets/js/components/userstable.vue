@@ -77,6 +77,12 @@
                     <b>Naam: </b> {{ userToShow.last_name }} <br>
                     <b>Voornaam: </b> {{ userToShow.first_name }} <br>
                     <b>Email: </b> <a href="mailto:{{ userToShow.email }}">{{ userToShow.email }}</a>
+                    <br> <br>
+                    <h4 class="modal-title">Ruiters</h4>
+
+                    <div v-for="rider in userToShow.riderRelation.data">
+                        <b>Naam:</b> {{ rider.first_name }} {{ rider.last_name}}
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
@@ -255,7 +261,11 @@
             },
 
             setUserToShow: function(user) {
-                this.userToShow = user;
+                var vm = this;
+
+                $.getJSON('/api/users/' + user.id + '?include=riderRelation', function(user) {
+                    vm.userToShow = user.data;
+                }.bind(vm));
             }
         },
     }

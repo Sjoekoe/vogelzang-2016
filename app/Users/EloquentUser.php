@@ -138,6 +138,14 @@ class EloquentUser extends Authenticatable implements User
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function riderRelation()
+    {
+        return $this->hasMany(EloquentRider::class, 'user_id', 'id');
+    }
+
+    /**
      * @return \App\Riders\Rider[]
      */
     public function riders()
