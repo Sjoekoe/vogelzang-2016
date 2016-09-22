@@ -19,12 +19,6 @@ class RosterController extends Controller
 
     public function index()
     {
-        if (auth()->user()->isAdmin()) {
-            $rosters = $this->rosters->findAllFutureRostersPaginated();
-        } else {
-            $rosters = $this->rosters->findFutureRostersFor4Weeks();
-        }
-
         return view('rosters.index', compact('rosters'));
     }
 
@@ -63,18 +57,18 @@ class RosterController extends Controller
     public function update(RosterRequest $request, Roster $roster)
     {
         $roster = $this->rosters->update($roster, $request->all());
-        
+
         session()->put('De les is aangepast.');
-        
+
         return redirect()->route('rosters.index', compact('roster'));
     }
-    
+
     public function delete(Roster $roster)
     {
         $this->rosters->delete($roster);
-        
+
         session()->put('success', 'De les is verwijderd');
-        
+
         return redirect()->route('rosters.index');
     }
 }

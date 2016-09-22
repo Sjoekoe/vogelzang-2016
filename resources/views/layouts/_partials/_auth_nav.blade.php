@@ -42,6 +42,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('rosters.index') }}">
+                        <i class="fa fa-list"></i>
+                        <span>Lessen</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('users.index') }}">
                         <i class="fa fa-users"></i>
                         <span>Gebruikers</span>
@@ -49,7 +55,7 @@
                 </li>
                 <li>
                     <a href="{{ route('riders.index') }}">
-                        <i class="fa fa-dashboard"></i>
+                        <i class="fa fa-user"></i>
                         <span>Ruiters</span>
                     </a>
                 </li>
@@ -61,7 +67,7 @@
                 </li>
                 <li>
                     <a href="{{ route('news.index') }}">
-                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-pencil"></i>
                         <span>Nieuws</span>
                     </a>
                 </li>

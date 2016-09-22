@@ -2,6 +2,7 @@
 namespace App\Rosters;
 
 use App\Models\StandardModel;
+use App\Subscriptions\EloquentSubscription;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -68,11 +69,19 @@ class EloquentRoster extends Model implements Roster
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subscriptionRelation()
+    {
+        return $this->hasMany(EloquentSubscription::class, 'roster_id', 'id');
+    }
+
+    /**
      * @return \App\Subscriptions\Subscription[]
      */
     public function subscriptions()
     {
-        //
+        return $this->subscriptionRelation()->get();
     }
 
     /**
