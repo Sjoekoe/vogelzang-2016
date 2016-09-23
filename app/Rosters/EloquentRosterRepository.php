@@ -51,16 +51,15 @@ class EloquentRosterRepository implements RosterRepository
      */
     public function create(array $values)
     {
+        $formattedDate = $values['date'] . ' ' . $values['time'];
+
         $roster = new EloquentRoster();
-        $roster->name = $values['name'];
-        $roster->date = Carbon::createFromFormat('d/m/Y', $values['date']);
+        $roster->name = 1;
+        $roster->date = Carbon::createFromFormat('d-m-Y H:i', $formattedDate);
+        $roster->hour = 1;
 
         if (array_key_exists('type', $values)) {
             $roster->type = $values['type'];
-        }
-
-        if (array_key_exists('hour', $values)) {
-            $roster->hour = $values['hour'];
         }
 
         if (array_key_exists('limit', $values)) {

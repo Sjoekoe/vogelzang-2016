@@ -4,7 +4,7 @@ namespace App\Rosters;
 interface Roster
 {
     const TABLE = 'rosters';
-    
+
     const GROEPLES = 1;
     const OUDERLES = 2;
     const PRIVE_LES = 3;
@@ -68,6 +68,11 @@ interface Roster
      * @return bool
      */
     public function cannotBeCanceled();
+
+    /**
+     * @return bool
+     */
+    public function limitReached();
 
     /**
      * @return \Carbon\Carbon

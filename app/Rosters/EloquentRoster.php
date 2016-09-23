@@ -119,4 +119,12 @@ class EloquentRoster extends Model implements Roster
     {
         return ! $this->canStillBeCanceled();
     }
+
+    /**
+     * @return bool
+     */
+    public function limitReached()
+    {
+        return count($this->subscriptions()) >= $this->limit();
+    }
 }

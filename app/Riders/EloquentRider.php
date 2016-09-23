@@ -3,6 +3,7 @@ namespace App\Riders;
 
 use App\Models\StandardModel;
 use App\Rosters\Roster;
+use App\Subscriptions\EloquentSubscription;
 use App\Users\EloquentUser;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +11,9 @@ class EloquentRider extends Model implements Rider
 {
     use StandardModel;
 
+    /**
+     * @var string
+     */
     protected $table = self::TABLE;
 
     /**
@@ -58,11 +62,19 @@ class EloquentRider extends Model implements Rider
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subscriptionRelation()
+    {
+        return $this->hasMany(EloquentSubscription::class, 'rider_id', 'id');
+    }
+
+    /**
      * @return \App\Subscriptions\Subscription
      */
     public function subscriptions()
     {
-        //
+        return $this->subscriptionRelation()->get();
     }
 
     /**

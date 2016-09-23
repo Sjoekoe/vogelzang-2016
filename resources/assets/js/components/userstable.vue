@@ -86,7 +86,6 @@
                 </div>
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
-                    <button class="btn btn-danger" type="button" @click="removeUser(userToRemove)">Verwijderen</button>
                 </div>
             </div>
         </div>

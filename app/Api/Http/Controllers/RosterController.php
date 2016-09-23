@@ -21,7 +21,11 @@ class RosterController extends Controller
 
     public function index()
     {
-        $rosters = $this->rosters->findAllFutureRostersPaginated();
+        if ($this->auth()->user()->isAdmin()) {
+            $rosters = $this->rosters->findAllFutureRostersPaginated();
+        } else {
+            $rosters = $this->rosters->findFutureRostersFor4Weeks();
+        }
 
         return $this->response()->paginator($rosters, new RosterTransformer());
     }

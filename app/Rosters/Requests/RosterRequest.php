@@ -19,9 +19,9 @@ class RosterRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'date' => 'required|date_format:d/m/Y',
+            'date' => 'required|date_format:d-m-Y',
             'limit' => 'integer|min:0',
+            'time' => 'required|date_format:H:i',
         ];
     }
 }

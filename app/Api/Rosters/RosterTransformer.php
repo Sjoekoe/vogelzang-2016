@@ -25,6 +25,7 @@ class RosterTransformer extends TransformerAbstract
             'time' => $roster->date()->format('H:i'),
             'description' => $roster->description(),
             'limit' => $roster->limit(),
+            'limit_reached' => $roster->limitReached(),
         ];
     }
 

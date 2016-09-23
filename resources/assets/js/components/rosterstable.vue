@@ -5,7 +5,7 @@
                 <h5>Lessenrooster</h5>
             </div>
             <span class="tools pull-right">
-                <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#addRoster">
+                <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#createRoster">
                     <i class="fa fa-plus"></i> Toevoegen
                 </button>
             </span>
@@ -52,7 +52,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">{{ rosterToShow.date }} {{ rosterToShow.time}}</h4>
+                    <h4 class="modal-title">{{ rosterToShow.type}} - {{ rosterToShow.date }} om {{ rosterToShow.time }}</h4>
                 </div>
                 <div class="modal-body">
                     <div v-if="rosterToShow.subscriptionRelation.data.length" v-for="subscription in rosterToShow.subscriptionRelation.data">
@@ -60,6 +60,11 @@
                     </div>
                     <div v-if="! rosterToShow.subscriptionRelation.data.length">
                         <b>Nog geen ruiters ingeschreven!</b>
+                    </div>
+                    <div v-if="rosterToShow.description.length">
+                        <hr>
+                        <h4>Opmerkingen</h4>
+                        <div v-html="rosterToShow.description"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -86,6 +91,53 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="createRoster" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Les Toevoegen</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input v-model="date" type="text" class="datepicker form-control" name="date" placeholder="datum">
+                    </div>
+
+                    <div class="form-group">
+                        <input v-model="time" type="text" class="timepicker form-control" name="time" placeholder="Uur">
+                    </div>
+
+                    <div class="form-group">
+                        <select v-model="type" name="type" id="type" class="form-control">
+                            <option value="1">Groepsles</option>
+                            <option value="2">Ouderles</option>
+                            <option value="3">Privé-les</option>
+                            <option value="4">Springles</option>
+                            <option value="5">Wandeling</option>
+                            <option value="6">Dressuurles</option>
+                            <option value="7">Groepsles voor gevorderden</option>
+                            <option value="8">Springles voor gevorderden</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input v-model="limit" type="number" name="limit" id="limit" class="form-control" placeholder="Limiet">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea v-model="description" name="description" id="" cols="30" rows="10" class="form-control" placeholder="Opmerkingen"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
+
+                    <button v-if="creating" class="btn btn-success" type="button" disabled>Opslaan ... <i class="fa fa-spin fa-spinnen"></i></button>
+                    <button v-else @click="createRoster()" class="btn btn-success" type="button">Opslaan</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -93,12 +145,20 @@
         data: function() {
             return {
                 rosters: [],
+                errors: [],
                 total: 0,
                 max_pages: 1,
                 loading: true,
                 page: 1,
                 rosterToShow: false,
                 rosterToRemove: '',
+                date: '',
+                time: '',
+                limit: 12,
+                type: 1,
+                description: '',
+                creating: false,
+                token: window.vogelzang.auth.jwt,
             }
         },
 
@@ -113,7 +173,7 @@
                         vm.loading = true;
                         vm.page += 1;
 
-                        $.getJSON('/api/rosters?include=subscriptionRelation&page=' + vm.page , function (rosters) {
+                        $.getJSON('/api/rosters?include=subscriptionRelation&page=' + vm.page + '&token=' + vm.token , function (rosters) {
                             vm.loading = false;
                             rosters.data.map(function (roster) {
                                 vm.rosters.push(roster);
@@ -149,9 +209,50 @@
                 this.rosterToShow = roster;
             },
 
+            createRoster: function() {
+                this.creating = true;
+
+                var data = {
+                    'date': this.date,
+                    'time': this.time,
+                    'description': this.description,
+                    'type': this.type,
+                    'limit': this.limit,
+                }
+
+                var vm = this;
+
+                $.ajax({
+                    url: '/api/rosters',
+                    method: 'POST',
+                    data: data,
+                    success: function() {
+                        vm.success = true;
+
+                        vm.date = '';
+                        vm.time = '';
+                        vm.description = '';
+                        vm.type = 1;
+                        vm.limit = 12;
+                        vm.creating = false;
+
+                        vm.fetchAllRecords();
+
+                        $("#createRoster").toggleClass("in");
+                        $("body").removeClass("modal-open");
+                        $('.modal-backdrop').removeClass('in');
+
+                    }.bind(vm),
+                    error: function(errors) {
+                        vm.errors = errors.responseJSON.errors;
+                        vm.creating = false;
+                    }.bind(vm)
+                })
+            },
+
             fetchAllRecords: function() {
                 var vm = this;
-                $.getJSON('/api/rosters?include=subscriptionRelation', function(rosters) {
+                $.getJSON('/api/rosters?include=subscriptionRelation&token=' + this.token, function(rosters) {
                     vm.total = rosters.meta.pagination.total;
                     vm.rosters = rosters.data;
                     vm.max_pages = rosters.meta.pagination.total_pages;
