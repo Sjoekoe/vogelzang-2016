@@ -95,4 +95,18 @@ class EloquentUserRepository implements UserRepository
     {
         $user->delete();
     }
+
+    /**
+     * @param \App\Users\User $user
+     * @param string $password
+     * @return \App\Users\User
+     */
+    public function updatePassword(User $user, $password)
+    {
+        $user->password = Hash::make($password);
+
+        $user->save();
+
+        return $user;
+    }
 }

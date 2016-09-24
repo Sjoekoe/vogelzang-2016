@@ -43,6 +43,8 @@ $api->version('v1', function (Router $api) {
             $api->get('/{user}', ['as' => 'users.show', 'uses' => 'UserController@show']);
             $api->put('/{user}', ['as' => 'users.update', 'uses' => 'UserController@update']);
             $api->delete('/{user}', ['as' => 'users.delete', 'uses' => 'UserController@delete']);
+
+            $api->get('/{user}/reset-password', ['as' => 'users.reset-password', 'uses' => 'UserController@resetPassword']);
         });
 
         $api->group(['prefix' => 'riders'], function (Router $api) {

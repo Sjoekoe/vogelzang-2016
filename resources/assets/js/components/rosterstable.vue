@@ -276,7 +276,7 @@
                     url: 'api/rosters/' + roster.id + '/subscriptions/' + subscription.id,
                     method: 'post',
                     data: {_method: 'delete'},
-                })
+                });
             }
         },
     }

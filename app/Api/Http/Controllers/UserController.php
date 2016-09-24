@@ -55,4 +55,11 @@ class UserController extends Controller
 
         return $this->response()->noContent();
     }
+
+    public function resetPassword(User $user)
+    {
+        $user = $this->users->updatePassWord($user, 'vogelzang');
+
+        return $this->response()->item($user, new UserTransformer());
+    }
 }

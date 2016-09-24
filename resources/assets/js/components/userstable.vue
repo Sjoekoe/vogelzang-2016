@@ -32,6 +32,9 @@
                         <a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#showUser" @click="setUserToShow(user)">
                             <i class="fa fa-eye"></i>
                         </a>
+                        <a href="#" class="btn btn-warning btn-xs">
+                            <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#removeUser" @click="setUserToRemove(user)">
                             <i class="fa fa-remove"></i>
                         </a>
@@ -85,6 +88,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button v-if="resetting" disabled class="btn btn-warning"><i class="fa fa-key"></i> Een ogenblik... <i class="fa fa-spin fa-spinner"></i></button>
+                    <button v-else class="btn btn-warning" @click="resetPassword(userToShow)"><i class="fa fa-key"></i> Wachtwoord resetten</button>
+
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
                 </div>
             </div>
@@ -148,6 +154,7 @@
                 level_id: 1,
                 creating: false,
                 query: '',
+                resetting: false
             }
         },
 
@@ -265,6 +272,20 @@
                 $.getJSON('/api/users/' + user.id + '?include=riderRelation', function(user) {
                     vm.userToShow = user.data;
                 }.bind(vm));
+            },
+
+            resetPassword: function (user) {
+                this.resetting = true;
+
+                var vm = this;
+
+                $.ajax({
+                    url: '/api/users/' + user.id + '/reset-password',
+                    method: 'get',
+                    success: function (user) {
+                        vm.resetting = false
+                    }.bind(vm)
+                })
             }
         },
     }

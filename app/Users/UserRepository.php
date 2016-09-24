@@ -33,4 +33,11 @@ interface UserRepository
      * @param \App\Users\User $user
      */
     public function delete(User $user);
+
+    /**
+     * @param \App\Users\User $user
+     * @param string $password
+     * @return \App\Users\User
+     */
+    public function updatePassword(User $user, $password);
 }
