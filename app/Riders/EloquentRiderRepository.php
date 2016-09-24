@@ -1,6 +1,8 @@
 <?php
 namespace App\Riders;
 
+use App\Users\User;
+
 class EloquentRiderRepository implements RiderRepository
 {
     /**
@@ -42,5 +44,16 @@ class EloquentRiderRepository implements RiderRepository
     {
         return $this->rider
             ->count();
+    }
+
+    /**
+     * @param \App\Users\User $user
+     * @return \App\Riders\Rider
+     */
+    public function findAllForUser(User $user)
+    {
+        return $this->rider
+            ->where('user_id', $user->id())
+            ->get();
     }
 }

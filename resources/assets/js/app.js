@@ -20,6 +20,7 @@ Vue.component('messagestable', require('./components/messagestable.vue'));
 Vue.component('userstable', require('./components/userstable.vue'));
 Vue.component('newstable', require('./components/newstable.vue'));
 Vue.component('rostertable', require('./components/rosterstable.vue'));
+Vue.component('userriderstable', require('./components/userriderstable.vue'));
 
 const app = new Vue({
     el: 'body',

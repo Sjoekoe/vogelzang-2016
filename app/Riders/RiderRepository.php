@@ -1,6 +1,8 @@
 <?php
 namespace App\Riders;
 
+use App\Users\User;
+
 interface RiderRepository
 {
     /**
@@ -19,4 +21,10 @@ interface RiderRepository
      * @return int
      */
     public function count();
+
+    /**
+     * @param \App\Users\User $user
+     * @return \App\Riders\Rider
+     */
+    public function findAllForUser(User $user);
 }

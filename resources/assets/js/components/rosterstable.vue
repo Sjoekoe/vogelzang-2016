@@ -55,8 +55,12 @@
                     <h4 class="modal-title">{{ rosterToShow.type}} - {{ rosterToShow.date }} om {{ rosterToShow.time }}</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="mb15 text-center">
+                        {{ rosterToShow.subscriptionRelation.data.length }} / {{ rosterToShow.limit }}
+                        <hr>
+                    </div>
                     <div v-if="subscriptions.length" v-for="subscription in subscriptions" class="clearfix mb15">
-                        <b>Naam:</b> {{ subscription.riderRelation.data.first_name }} {{ subscription.riderRelation.data.last_name}}
+                        <b> {{ subscription.riderRelation.data.first_name }} {{ subscription.riderRelation.data.last_name}} </b>
                         <span class="pull-right" v-if="is_admin">
                             <button class="btn btn-danger btn-xs" @click="removeSubscription(rosterToShow, subscription)">
                                 <i class="fa fa-trash"></i>
@@ -70,6 +74,20 @@
                         <hr>
                         <h4>Opmerkingen</h4>
                         <div v-html="rosterToShow.description"></div>
+                    </div>
+                    <hr>
+                    <h4>Jou ruiters</h4>
+                    <div class="clearfix mb15" v-for="rider in riders">
+                        <b>{{ rider.first_name }} {{ rider.last_name }}</b>
+                        <span class="pull-right">
+
+                            <span class="clickable-span" v-if="riderSubscribedToRoster(rider, rosterToShow)" @click="unSubscribeRider(rider, rosterToShow)">
+                                <i class="fa fa-check-square-o fa-2x"></i>
+                            </span>
+                            <span v-else class="clickable-span" @click="subscribeRider(rider, rosterToShow)">
+                                <i class="fa fa-square-o fa-2x"></i>
+                            </span>
+                        </span>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -137,7 +155,7 @@
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
 
-                    <button v-if="creating" class="btn btn-success" type="button" disabled>Opslaan ... <i class="fa fa-spin fa-spinnen"></i></button>
+                    <button v-if="creating" class="btn btn-success" type="button" disabled>Opslaan ... <i class="fa fa-spin fa-spinner"></i></button>
                     <button v-else @click="createRoster()" class="btn btn-success" type="button">Opslaan</button>
                 </div>
             </div>
@@ -165,12 +183,15 @@
                 creating: false,
                 token: window.vogelzang.auth.jwt,
                 is_admin: window.vogelzang.auth.user.is_admin,
+                user_id: window.vogelzang.auth.user.id,
                 subscriptions: [],
+                riders: [],
             }
         },
 
         ready: function() {
             this.fetchAllRecords();
+            this.fetchRiders();
 
             var vm = this;
 
@@ -277,6 +298,56 @@
                     method: 'post',
                     data: {_method: 'delete'},
                 });
+            },
+
+            fetchRiders: function() {
+                var vm = this;
+                $.getJSON('/api/users/' + vm.user_id + '/riders' , function(riders) {
+                    vm.riders = riders.data;
+                }.bind(vm));
+            },
+
+            riderSubscribedToRoster: function (rider, roster) {
+                for (var i = 1; i < this.subscriptions.length; i++) {
+                    if (this.subscriptions[i].riderRelation.data.id == rider.id) {
+                        return true
+                    }
+                }
+
+                return false;
+            },
+
+            subscribeRider: function(rider, roster) {
+                var data = {
+                    'rider_id': rider.id,
+                }
+
+                var vm = this;
+
+                $.ajax({
+                    url: '/api/rosters/' + roster.id + '/subscriptions',
+                    method: 'post',
+                    data: data,
+                    success: function(subscription) {
+                        vm.findSingleRoster(subscription.data.rosterRelation.data);
+                    }.bind(vm),
+                })
+            },
+
+            unSubscribeRider: function (rider, roster) {
+
+            },
+
+            findSingleRoster: function(roster) {
+                var vm = this;
+
+                $.ajax({
+                    url: '/api/rosters/' + roster.id + '?include=subscriptionRelation',
+                    method: 'get',
+                    success: function (roster) {
+                        vm.setRosterToShow(roster.data);
+                    }.bind(vm),
+                })
             }
         },
     }

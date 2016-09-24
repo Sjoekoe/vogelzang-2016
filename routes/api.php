@@ -45,6 +45,10 @@ $api->version('v1', function (Router $api) {
             $api->delete('/{user}', ['as' => 'users.delete', 'uses' => 'UserController@delete']);
 
             $api->get('/{user}/reset-password', ['as' => 'users.reset-password', 'uses' => 'UserController@resetPassword']);
+
+            $api->group(['prefix' => '/{user}/riders', 'as' => 'users.'], function (Router $api) {
+                $api->get('/', ['as' => 'riders.index', 'uses' => 'UserRiderController@index']);
+            });
         });
 
         $api->group(['prefix' => 'riders'], function (Router $api) {
