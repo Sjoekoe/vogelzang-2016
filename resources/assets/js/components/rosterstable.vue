@@ -11,7 +11,7 @@
             </span>
         </header>
         <div class="panel-body">
-            <table class="table  table-hover general-table">
+            <table class="table  table-hover general-table table-striped">
                 <thead>
                 <tr>
                     <th>Datum</th>
@@ -55,8 +55,13 @@
                     <h4 class="modal-title">{{ rosterToShow.type}} - {{ rosterToShow.date }} om {{ rosterToShow.time }}</h4>
                 </div>
                 <div class="modal-body">
-                    <div v-if="rosterToShow.subscriptionRelation.data.length" v-for="subscription in rosterToShow.subscriptionRelation.data">
+                    <div v-if="subscriptions.length" v-for="subscription in subscriptions" class="clearfix mb15">
                         <b>Naam:</b> {{ subscription.riderRelation.data.first_name }} {{ subscription.riderRelation.data.last_name}}
+                        <span class="pull-right" v-if="is_admin">
+                            <button class="btn btn-danger btn-xs" @click="removeSubscription(rosterToShow, subscription)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </span>
                     </div>
                     <div v-if="! rosterToShow.subscriptionRelation.data.length">
                         <b>Nog geen ruiters ingeschreven!</b>
@@ -159,6 +164,8 @@
                 description: '',
                 creating: false,
                 token: window.vogelzang.auth.jwt,
+                is_admin: window.vogelzang.auth.user.is_admin,
+                subscriptions: [],
             }
         },
 
@@ -207,6 +214,7 @@
 
             setRosterToShow: function(roster) {
                 this.rosterToShow = roster;
+                this.subscriptions = roster.subscriptionRelation.data;
             },
 
             createRoster: function() {
@@ -260,6 +268,16 @@
                     vm.page = 1;
                 }.bind(vm));
             },
+
+            removeSubscription: function (roster, subscription) {
+                this.subscriptions.$remove(subscription);
+
+                $.ajax({
+                    url: 'api/rosters/' + roster.id + '/subscriptions/' + subscription.id,
+                    method: 'post',
+                    data: {_method: 'delete'},
+                })
+            }
         },
     }
 </script>

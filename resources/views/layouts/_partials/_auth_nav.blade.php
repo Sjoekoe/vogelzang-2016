@@ -36,6 +36,12 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
+                    <a href="{{ route('home') }}">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('dashboard.index') }}">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
