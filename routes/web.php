@@ -16,6 +16,7 @@ Route::get('users', ['as' => 'users.index', 'uses' => 'UserController@index']);
 
 Route::get('articles', ['as' => 'news.index', 'uses' => 'NewsController@index']);
 Route::get('rosters', ['as' => 'rosters.index', 'uses' => 'RosterController@index']);
+Route::get('setting', ['as' => 'setting.index', 'uses' => 'SettingController@index']);
 
 Route::get('news', ['as' => 'articles.index', 'uses' => 'ArticleController@index']);
 Route::get('news/{article}', ['as' => 'articles.show', 'uses' => 'ArticleController@show']);

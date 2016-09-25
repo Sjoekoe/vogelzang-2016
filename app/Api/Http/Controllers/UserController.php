@@ -4,10 +4,13 @@ namespace App\Api\Http\Controllers;
 use App\Api\Http\Controller;
 use App\Api\Users\UserTransformer;
 use App\Users\Requests\CreateUserRequest;
+use App\Users\Requests\UpdatePasswordRequest;
 use App\Users\Requests\UpdateUserRequest;
 use App\Users\User;
 use App\Users\UserRepository;
+use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -54,6 +57,17 @@ class UserController extends Controller
         $this->users->delete($user);
 
         return $this->response()->noContent();
+    }
+
+    public function updatePassword(UpdatePasswordRequest $request, Hasher $hasher, User $user)
+    {
+        if (! $hasher->check($request->get('old_password'), $user->password())) {
+            return $this->response()->error('Het oude wachtwoord is incorrect', 304);
+        }
+
+        $user = $this->users->updatePassWord($user, $request->get('password'));
+
+        return $this->response()->item($user, new UserTransformer());
     }
 
     public function resetPassword(User $user)

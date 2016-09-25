@@ -5548,4 +5548,7 @@ tr.highlighted {
 .mb15 {
   margin-bottom: 15px; }
 
+.clickable-span {
+  cursor: pointer; }
+
 /*# sourceMappingURL=bucket.css.map */
