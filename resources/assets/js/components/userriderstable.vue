@@ -15,10 +15,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="subscriptions in rider.subscriptions.data">
+                        <tr v-for="subscription in rider.subscriptionRelation.data">
                             <td>{{ subscription.rosterRelation.data.date }}</td>
-                            <td>{{ subscription.rosterRelation.data..time }}</td>
-                            <td>{{ subscription.rosterRelation.data..type }}</td>
+                            <td>{{ subscription.rosterRelation.data.time }}</td>
+                            <td>{{ subscription.rosterRelation.data.type }}</td>
                         </tr>
                         </tbody>
                     </table>

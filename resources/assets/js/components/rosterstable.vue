@@ -308,8 +308,8 @@
             },
 
             riderSubscribedToRoster: function (rider, roster) {
-                for (var i = 1; i < this.subscriptions.length; i++) {
-                    if (this.subscriptions[i].riderRelation.data.id == rider.id) {
+                for (var i = 0; i < this.subscriptions.length; i++) {
+                    if (roster.subscriptionRelation.data[i].riderRelation.data.id == rider.id) {
                         return true
                     }
                 }
@@ -330,6 +330,7 @@
                     data: data,
                     success: function(subscription) {
                         vm.findSingleRoster(subscription.data.rosterRelation.data);
+                        vm.fetchRiders();
                     }.bind(vm),
                 })
             },
