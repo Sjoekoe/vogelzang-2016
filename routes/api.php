@@ -55,6 +55,8 @@ $api->version('v1', function (Router $api) {
         $api->group(['prefix' => 'riders'], function (Router $api) {
             $api->get('/', ['as' => 'riders.index', 'uses' => 'RiderController@index']);
             $api->get('/{rider}', ['as' => 'riders.index', 'uses' => 'RiderController@show']);
+
+            $api->get('/{rider}/rosters/{roster}', ['uses' => 'RiderController@getSubscription']);
         });
 
         $api->group(['prefix' => 'formentries'], function (Router $api) {

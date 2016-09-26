@@ -81,10 +81,10 @@
                         <b>{{ rider.first_name }} {{ rider.last_name }}</b>
                         <span class="pull-right">
 
-                            <span class="clickable-span" v-if="riderSubscribedToRoster(rider, rosterToShow)" @click="unSubscribeRider(rider, rosterToShow)">
+                            <span class="btn btn-success clickable-span" v-if="riderSubscribedToRoster(rider, rosterToShow)" @click="unSubscribeRider(rider, rosterToShow)">
                                 <i class="fa fa-check-square-o fa-2x"></i>
                             </span>
-                            <span v-else class="clickable-span" @click="subscribeRider(rider, rosterToShow)">
+                            <span v-else class="btn btn-warning clickable-span" @click="subscribeRider(rider, rosterToShow)">
                                 <i class="fa fa-square-o fa-2x"></i>
                             </span>
                         </span>
@@ -331,12 +331,17 @@
                     success: function(subscription) {
                         vm.findSingleRoster(subscription.data.rosterRelation.data);
                         vm.fetchRiders();
+                        vm.fetchAllRecords();
                     }.bind(vm),
                 })
             },
 
             unSubscribeRider: function (rider, roster) {
+                var vm = this;
 
+                $.getJSON('/api/riders/' + rider.id + '/rosters/' + roster.id , function(subscription) {
+                    vm.removeSubscription(roster, subscription.data);
+                }.bind(vm));
             },
 
             findSingleRoster: function(roster) {
@@ -349,6 +354,21 @@
                         vm.setRosterToShow(roster.data);
                     }.bind(vm),
                 })
+            },
+
+            removeSubscription: function(roster, subscription) {
+                var vm = this;
+
+                $.ajax({
+                    url: 'api/rosters/' + roster.id + '/subscriptions/' + subscription.id,
+                    method: 'post',
+                    data: {_method: 'delete'},
+                    success: function() {
+                        vm.findSingleRoster(roster);
+                        vm.fetchRiders();
+                        vm.fetchAllRecords();
+                    }.bind(vm)
+                });
             }
         },
     }

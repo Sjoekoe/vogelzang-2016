@@ -42,7 +42,7 @@
                         <input type="password" name="old_password" id="old_password" v-model="old_password" class="form-control">
                     </div>
                     <div class="form-group pull-right">
-                        <button v-if="updating_password" class="btn warning" disabled>Wijzigen... <i class="fa fa-spin fa-spinner"></i></button>
+                        <button v-if="updating_password" class="btn btn-warning" disabled>Wijzigen... <i class="fa fa-spin fa-spinner"></i></button>
                         <button v-else @click="updatePassword()" class="btn btn-warning">Wachtwoord wijzigen</button>
                     </div>
                 </form>

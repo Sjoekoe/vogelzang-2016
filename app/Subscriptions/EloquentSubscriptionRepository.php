@@ -1,6 +1,7 @@
 <?php
 namespace App\Subscriptions;
 
+use App\Riders\Rider;
 use App\Rosters\Roster;
 
 class EloquentSubscriptionRepository implements SubscriptionRepository
@@ -67,5 +68,18 @@ class EloquentSubscriptionRepository implements SubscriptionRepository
     public function count()
     {
         return $this->subscription->count();
+    }
+
+    /**
+     * @param \App\Riders\Rider $rider
+     * @param \App\Rosters\Roster $roster
+     * @return \App\Subscriptions\Subscription
+     */
+    public function findByRiderAndRoster(Rider $rider, Roster $roster)
+    {
+        return $this->subscription
+            ->where('rider_id', $rider->id())
+            ->where('roster_id', $roster->id())
+            ->first();
     }
 }

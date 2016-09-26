@@ -1,6 +1,7 @@
 <?php
 namespace App\Subscriptions;
 
+use App\Riders\Rider;
 use App\Rosters\Roster;
 
 interface SubscriptionRepository
@@ -33,4 +34,11 @@ interface SubscriptionRepository
      * @return int
      */
     public function count();
+
+    /**
+     * @param \App\Riders\Rider $rider
+     * @param \App\Rosters\Roster $roster
+     * @return \App\Subscriptions\Subscription
+     */
+    public function findByRiderAndRoster(Rider $rider, Roster $roster);
 }
