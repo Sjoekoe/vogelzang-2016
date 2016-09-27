@@ -13,6 +13,7 @@ Route::get('dashboard', ['as' => 'dashboard.index', 'uses' => 'DashboardControll
 Route::get('riders', ['as' => 'riders.index', 'uses' => 'RiderController@index']);
 Route::get('messages', ['as' => 'messages.index', 'uses' => 'MessageController@index']);
 Route::get('users', ['as' => 'users.index', 'uses' => 'UserController@index']);
+Route::get('announcements', ['as' => 'announcements.index', 'uses' => 'AnnouncementController@index']);
 
 Route::get('articles', ['as' => 'news.index', 'uses' => 'NewsController@index']);
 Route::get('rosters', ['as' => 'rosters.index', 'uses' => 'RosterController@index']);

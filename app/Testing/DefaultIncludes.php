@@ -37,10 +37,12 @@ trait DefaultIncludes
     {
         return array_merge([
             'id' => $roster->id(),
-            'type' => $roster->type(),
-            'date' => $roster->date()->toIso8601String(),
+            'type' => config('rosters.name.' . $roster->type()),
+            'date' => $roster->date()->format('l d-m-Y'),
+            'time' => $roster->date()->format('H:i'),
             'description' => $roster->description(),
             'limit' => $roster->limit(),
+            'limit_reached' => $roster->limitReached(),
         ], $attributes);
     }
 
@@ -75,6 +77,7 @@ trait DefaultIncludes
             'subject' => $contact->subject(),
             'message' => $contact->message(),
             'is_read' => $contact->isRead(),
+            'created_at' => $contact->createdAt()->format('d-m-Y'),
         ], $attributes);
     }
 

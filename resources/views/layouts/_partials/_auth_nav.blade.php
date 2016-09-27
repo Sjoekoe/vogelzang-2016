@@ -76,6 +76,12 @@
                         <span>Nieuws</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('announcements.index') }}">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Aankondigingen</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- sidebar menu end-->

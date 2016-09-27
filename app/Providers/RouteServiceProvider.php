@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Announcements\AnnouncementRouteBinding;
 use App\Articles\ArticleRouteBinding;
 use App\Contacts\ContactRouteBinding;
 use App\Pictures\PictureRouteBinding;
@@ -30,6 +31,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Route::bind('announcement', AnnouncementRouteBinding::class);
         Route::bind('article', ArticleRouteBinding::class);
         Route::bind('form_entry', ContactRouteBinding::class);
         Route::bind('picture', PictureRouteBinding::class);

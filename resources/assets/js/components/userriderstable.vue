@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-md-6" v-for="rider in riders">
+        <div class="col-md-12" v-for="rider in riders">
             <section class="panel">
                 <header class="panel-heading">
                     Toekomstige lessen voor {{ rider.first_name }} {{ rider.last_name }}

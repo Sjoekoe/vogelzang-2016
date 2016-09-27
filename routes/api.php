@@ -67,5 +67,15 @@ $api->version('v1', function (Router $api) {
 
             $api->post('/{form_entry}/read', ['as' => 'formentries.read', 'uses' => 'FormEntryController@read']);
         });
+
+        $api->group(['prefix' => 'announcements', 'as' => 'announcements.'], function (Router $api) {
+            $api->get('/', ['as' => 'index', 'uses' => 'AnnouncementController@index']);
+        });
+
+        $api->group(['prefix' => 'admin/announcements', 'as' => 'admin.announcements.'], function(Router $api) {
+            $api->get('/', ['as' => 'index', 'uses' => 'Admin\AnnouncementController@index']);
+            $api->post('/', ['as' => 'store', 'uses' => 'Admin\AnnouncementController@store']);
+            $api->delete('/{announcement}', ['as' => 'delete', 'uses' => 'Admin\AnnouncementController@delete']);
+        });
     });
 });

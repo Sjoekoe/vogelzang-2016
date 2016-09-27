@@ -181,6 +181,7 @@ return [
         /*
          * Own Service Providers...
          */
+        App\Announcements\AnnouncementServiceProvider::class,
         App\Articles\ArticleServiceProvider::class,
         App\Contacts\ContactServiceProvider::class,
         App\Factories\ModelFactoryServiceProvider::class,

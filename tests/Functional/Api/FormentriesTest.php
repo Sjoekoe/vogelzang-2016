@@ -2,6 +2,7 @@
 
 use App\Contacts\Contact;
 use App\Testing\DefaultIncludes;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class FormentriesTest extends \TestCase
@@ -47,6 +48,7 @@ class FormentriesTest extends \TestCase
                 'email' => 'test@person.com',
                 'subject' => 'this is a subject',
                 'message' => 'this is a message',
+                'created_at' => Carbon::now()->format('d-m-Y'),
             ],
         ]);
     }

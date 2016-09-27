@@ -23,7 +23,7 @@ class UsersTest extends \TestCase
                         'count' => 1,
                         'current_page' => 1,
                         'links' => [],
-                        'per_page' => 20,
+                        'per_page' => 50,
                         'total_pages' => 1,
                         'total' => 1,
                     ],

@@ -81,11 +81,11 @@
                         <b>{{ rider.first_name }} {{ rider.last_name }}</b>
                         <span class="pull-right">
 
-                            <span class="btn btn-success clickable-span" v-if="riderSubscribedToRoster(rider, rosterToShow)" @click="unSubscribeRider(rider, rosterToShow)">
-                                <i class="fa fa-check-square-o fa-2x"></i>
+                            <span class="btn btn-success btn-xs clickable-span" v-if="riderSubscribedToRoster(rider, rosterToShow)" @click="unSubscribeRider(rider, rosterToShow)">
+                                <i class="fa fa-check-square-o"></i>
                             </span>
-                            <span v-else class="btn btn-warning clickable-span" @click="subscribeRider(rider, rosterToShow)">
-                                <i class="fa fa-square-o fa-2x"></i>
+                            <span v-else class="btn btn-success btn-xs clickable-span" @click="subscribeRider(rider, rosterToShow)">
+                                <i class="fa fa-square-o"></i>
                             </span>
                         </span>
                     </div>
