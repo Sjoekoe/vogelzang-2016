@@ -31,7 +31,7 @@
                         <a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#showRoster" @click="setRosterToShow(roster)">
                             <i class="fa fa-eye"></i>
                         </a>
-                        <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#removeRoster" @click="setRosterToRemove(roster)">
+                        <a v-if="is_admin" href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#removeRoster" @click="setRosterToRemove(roster)">
                             <i class="fa fa-remove"></i>
                         </a>
                     </td>
@@ -76,18 +76,29 @@
                         <div v-html="rosterToShow.description"></div>
                     </div>
                     <hr>
-                    <h4>Jou ruiters</h4>
-                    <div class="clearfix mb15" v-for="rider in riders">
-                        <b>{{ rider.first_name }} {{ rider.last_name }}</b>
-                        <span class="pull-right">
+                    <div v-if="rosterToShow.can_be_canceled">
+                        <h4>Jou ruiters</h4>
+                        <div class="clearfix mb15" v-for="rider in riders">
+                            <b>{{ rider.first_name }} {{ rider.last_name }}</b>
+                            <span class="pull-right">
 
                             <span class="btn btn-success btn-xs clickable-span" v-if="riderSubscribedToRoster(rider, rosterToShow)" @click="unSubscribeRider(rider, rosterToShow)">
                                 <i class="fa fa-check-square-o"></i>
                             </span>
-                            <span v-else class="btn btn-success btn-xs clickable-span" @click="subscribeRider(rider, rosterToShow)">
+
+
+                            <span v-else class="btn btn-success btn-xs clickable-span" @click="subscribeRider(rider, rosterToShow)" v-if="! rosterToShow.limit_reached">
                                 <i class="fa fa-square-o"></i>
                             </span>
                         </span>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning" v-if="! rosterToShow.can_be_canceled">
+                        De les vindt plaats in minder dan 12 uur. Om in te schrijven of te annuleren, gelieve contact op te nemen met de vogelzang.
+                    </div>
+                    <div class="alert alert-info" v-if="rosterToShow.limit_reached">
+                        De limiet voor deze les is bereikt.
                     </div>
                 </div>
                 <div class="modal-footer">

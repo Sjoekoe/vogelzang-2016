@@ -97,15 +97,7 @@ class EloquentRoster extends Model implements Roster
      */
     public function canStillBeCanceled()
     {
-        $hour = explode(':', trans('days.hours')[$this->hour]);
-        $parsedDate = strtotime($this->date);
-
-        $lessonHour = Carbon::createFromDate(date('Y', $parsedDate), date('m', $parsedDate), date('d', $parsedDate))
-            ->hour($hour[0])->minute($hour[1])->second(0);
-
-        $today = Carbon::now();
-
-        if (($lessonHour->diffInHours($today) < 12) || $today > $lessonHour) {
+        if (Carbon::now()->addHours(12) > $this->date()) {
             return false;
         }
 
