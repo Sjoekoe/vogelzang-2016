@@ -1,7 +1,8 @@
 <?php
 namespace App\Rosters\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+
+use Dingo\Api\Http\FormRequest;
 
 class RosterRequest extends FormRequest
 {
@@ -20,7 +21,7 @@ class RosterRequest extends FormRequest
     {
         return [
             'date' => 'required|date_format:d-m-Y',
-            'limit' => 'integer|min:0',
+            'limit' => 'required|min:0',
             'time' => 'required|date_format:H:i',
         ];
     }

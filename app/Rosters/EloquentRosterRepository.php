@@ -93,16 +93,11 @@ class EloquentRosterRepository implements RosterRepository
      */
     public function update(Roster $roster, array $values)
     {
-        $roster->name = $values['name'];
-
-        $roster->date = Carbon::createFromFormat('d/m/Y', $values['date']);
+        $formattedDate = $values['date'] . ' ' . $values['time'];
+        $roster->date = Carbon::createFromFormat('d-m-Y H:i', $formattedDate);
 
         if (array_key_exists('type', $values)) {
             $roster->type = $values['type'];
-        }
-
-        if (array_key_exists('hour', $values)) {
-            $roster->hour = $values['hour'];
         }
 
         if (array_key_exists('limit', $values)) {

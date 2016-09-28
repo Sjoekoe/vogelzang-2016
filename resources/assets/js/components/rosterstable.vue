@@ -31,6 +31,9 @@
                         <a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#showRoster" @click="setRosterToShow(roster)">
                             <i class="fa fa-eye"></i>
                         </a>
+                        <a href="#" v-if="is_admin" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#updateRoster" @click="setRosterToShow(roster)">
+                            <i class="fa fa-pencil"></i>
+                        </a>
                         <a v-if="is_admin" href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#removeRoster" @click="setRosterToRemove(roster)">
                             <i class="fa fa-remove"></i>
                         </a>
@@ -121,6 +124,53 @@
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
                     <button @click="removeRoster(rosterToRemove)" class="btn btn-danger" type="button">Verwijderen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="updateRoster" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Les Wijzigen</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input v-model="date" type="text" class="datepicker form-control" name="date" placeholder="datum">
+                    </div>
+
+                    <div class="form-group">
+                        <input v-model="time" type="text" class="timepicker form-control" name="time" placeholder="Uur">
+                    </div>
+
+                    <div class="form-group">
+                        <select v-model="type" name="type" class="form-control">
+                            <option value="1">Groepsles</option>
+                            <option value="2">Ouderles</option>
+                            <option value="3">Privé-les</option>
+                            <option value="4">Springles</option>
+                            <option value="5">Wandeling</option>
+                            <option value="6">Dressuurles</option>
+                            <option value="7">Groepsles voor gevorderden</option>
+                            <option value="8">Springles voor gevorderden</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input v-model="limit" type="number" name="limit" class="form-control" placeholder="Limiet">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea v-model="description" name="description" cols="30" rows="10" class="form-control" placeholder="Opmerkingen" v-html="description"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
+
+                    <button v-if="creating" class="btn btn-success" type="button" disabled>>ijzigen ... <i class="fa fa-spin fa-spinner"></i></button>
+                    <button v-else @click="updateRoster(rosterToShow)" class="btn btn-success" type="button">Wijzigen</button>
                 </div>
             </div>
         </div>
@@ -247,6 +297,11 @@
             setRosterToShow: function(roster) {
                 this.rosterToShow = roster;
                 this.subscriptions = roster.subscriptionRelation.data;
+                this.date = roster.date_for_validation;
+                this.time = roster.time;
+                this.limit = roster.limit;
+                this.type = roster.type_not_formatted;
+                this.description = roster.description;
             },
 
             createRoster: function() {
@@ -380,6 +435,47 @@
                         vm.fetchAllRecords();
                     }.bind(vm)
                 });
+            },
+
+            updateRoster: function(roster) {
+                this.creating = true;
+
+                var data = {
+                    'date': this.date,
+                    'time': this.time,
+                    'description': this.description,
+                    'type': this.type,
+                    'limit': this.limit,
+                }
+
+                var vm = this;
+
+                $.ajax({
+                    url: '/api/rosters/' + roster.id,
+                    method: 'PUT',
+                    data: data,
+                    success: function() {
+                        vm.success = true;
+
+                        vm.date = '';
+                        vm.time = '';
+                        vm.description = '';
+                        vm.type = 1;
+                        vm.limit = 12;
+                        vm.creating = false;
+
+                        vm.fetchAllRecords();
+
+                        $("#updateRoster").toggleClass("in");
+                        $("body").removeClass("modal-open");
+                        $('.modal-backdrop').removeClass('in');
+
+                    }.bind(vm),
+                    error: function(errors) {
+                        vm.errors = errors.responseJSON.errors;
+                        vm.creating = false;
+                    }.bind(vm)
+                })
             }
         },
     }
