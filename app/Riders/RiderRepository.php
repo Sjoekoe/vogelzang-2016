@@ -6,10 +6,11 @@ use App\Users\User;
 interface RiderRepository
 {
     /**
+     * @param string $search
      * @param int $limit
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function findAllPaginated($limit = 50);
+    public function findAllPaginated($search = '', $limit = 50);
 
     /**
      * @param int $id

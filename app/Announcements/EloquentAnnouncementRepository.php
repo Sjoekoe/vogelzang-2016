@@ -24,7 +24,7 @@ class EloquentAnnouncementRepository implements AnnouncementRepository
     {
         $announcement = new EloquentAnnouncement();
         $announcement->body = $values['body'];
-        $announcement->visible = true;
+        $announcement->show = true;
         $announcement->user_id = $user->id();
 
         $announcement->save();
@@ -44,9 +44,9 @@ class EloquentAnnouncementRepository implements AnnouncementRepository
         }
 
         if (array_key_exists('visible', $values)) {
-            $announcement->visible = true;
+            $announcement->show = true;
         } else {
-            $announcement->visible = false;
+            $announcement->show = false;
         }
 
         $announcement->save();
@@ -68,7 +68,7 @@ class EloquentAnnouncementRepository implements AnnouncementRepository
     public function findAllVisible()
     {
         return $this->announcement
-            ->where('visible', true)
+            ->where('show', true)
             ->latest()
             ->get();
     }

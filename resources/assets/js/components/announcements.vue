@@ -1,5 +1,5 @@
 <template>
-    <div v-if="announcements.length" class="alert alert-info" v-html="announcements[iterator].body">
+    <div v-if="announcements.length" class="alert alert-info text-center" v-html="announcements[iterator].body">
     </div>
 </template>
 

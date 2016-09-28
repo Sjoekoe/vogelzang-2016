@@ -255,7 +255,6 @@
                 this.loading = true;
 
                 if (this.query === '') {
-                    console.log('here')
                     this.fetchAllRecords();
                 } else {
                     $.getJSON('/api/users?query=' + this.query, function(users) {

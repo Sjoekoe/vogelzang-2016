@@ -16,14 +16,23 @@ class EloquentRiderRepository implements RiderRepository
     }
 
     /**
+     * @param string $search
      * @param int $limit
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function findAllPaginated($limit = 50)
+    public function findAllPaginated($search = '', $limit = 50)
     {
-        return $this->rider
-            ->orderBy('firstname')
-            ->paginate($limit);
+        $query = $this->rider
+            ->orderBy('firstname');
+
+        if ($search && $search !== '') {
+            $query = $query->where(function($query) use ($search) {
+                $query->where('firstname', 'LIKE', '%' . $search . '%')
+                    ->orWhere('lastname', 'LIKE', '%' . $search . '%');
+            });
+        }
+
+        return $query->paginate($limit);
     }
 
     /**

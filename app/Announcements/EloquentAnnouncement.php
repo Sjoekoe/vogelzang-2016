@@ -49,7 +49,7 @@ class EloquentAnnouncement extends Model implements Announcement
      */
     public function visible()
     {
-        return $this->visible;
+        return $this->show;
     }
 
     /**

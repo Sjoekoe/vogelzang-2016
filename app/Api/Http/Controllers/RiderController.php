@@ -8,6 +8,7 @@ use App\Riders\Rider;
 use App\Riders\RiderRepository;
 use App\Rosters\Roster;
 use App\Subscriptions\SubscriptionRepository;
+use Illuminate\Http\Request;
 
 class RiderController extends Controller
 {
@@ -27,9 +28,11 @@ class RiderController extends Controller
         $this->subscriptions = $subscriptions;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $riders = $this->riders->findAllPaginated();
+        $q = $request->get('query');
+
+        $riders = $this->riders->findAllPaginated($q);
 
         return $this->response()->paginator($riders, new RiderTransformer());
     }

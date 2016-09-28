@@ -18,7 +18,7 @@ class CreateAnnouncementsTable extends Migration
         Schema::create(Announcement::TABLE, function (Blueprint $table) {
             $table->increments('id');
             $table->text('body');
-            $table->boolean('visible');
+            $table->boolean('show');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on(User::TABLE)->onDelete('cascade');
             $table->timestamps();

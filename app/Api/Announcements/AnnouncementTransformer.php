@@ -20,7 +20,7 @@ class AnnouncementTransformer extends TransformerAbstract
     {
         return [
             'id' => $announcement->id(),
-            'body' => $announcement->body(),
+            'body' => nl2br($announcement->body()),
             'visible' => (bool) $announcement->visible(),
             'created_at' => $announcement->createdAt()->format('d-m-Y'),
         ];
