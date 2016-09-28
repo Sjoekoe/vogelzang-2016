@@ -32,7 +32,7 @@
                         <a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#showUser" @click="setUserToShow(user)">
                             <i class="fa fa-eye"></i>
                         </a>
-                        <a href="#" class="btn btn-warning btn-xs">
+                        <a href="#" class="btn btn-warning btn-xs" @click="setUserToEdit(user)" data-toggle="modal" data-target="#editUser">
                             <i class="fa fa-pencil"></i>
                         </a>
                         <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#removeUser" @click="setUserToRemove(user)">
@@ -115,7 +115,7 @@
                         <input type="text" name="last_name" id="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" id="email" v-model="email", class="form-control" placeholder="Email">
+                        <input type="email" name="email" id="email" v-model="email" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <select name="level_id" id="level_id" v-model="level_id" class="form-control">
@@ -130,6 +130,44 @@
 
                     <button v-if="creating" disabled class="btn btn-primary" type="button">Aanmaken <i class="fa fa-spin fa-spinner"></i></button>
                     <button v-else class="btn btn-primary" type="button" @click="addUser()">Toevoegen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">{{ userToEdit.username }} wijzigen</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input disabled type="text" name="username" id="username" v-model="username" class="form-control" placeholder="Gebruikersnaam">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="first_name" id="first_name" v-model="first_name" class="form-control" placeholder="Voornaam">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="last_name" id="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" v-model="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <select name="level_id" id="level_id" v-model="level_id" class="form-control">
+                            <option value="1">Gebruiker</option>
+                            <option value="2">Lesgever</option>
+                            <option value="3">Admin</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
+
+                    <button v-if="creating" disabled class="btn btn-primary" type="button">Wijzigen <i class="fa fa-spin fa-spinner"></i></button>
+                    <button v-else class="btn btn-primary" type="button" @click="editUser(userToEdit)">Wijzigen</button>
                 </div>
             </div>
         </div>
@@ -154,7 +192,8 @@
                 level_id: 1,
                 creating: false,
                 query: '',
-                resetting: false
+                resetting: false,
+                userToEdit: '',
             }
         },
 
@@ -283,6 +322,57 @@
                     method: 'get',
                     success: function (user) {
                         vm.resetting = false
+                    }.bind(vm)
+                })
+            },
+
+            setUserToEdit: function(user) {
+                this.userToEdit = user;
+                this.username = user.username;
+                this.first_name = user.first_name;
+                this.last_name = user.last_name;
+                this.level_id = user.level;
+                this.email = user.email;
+            },
+
+            editUser: function(user) {
+                this.creating = true;
+
+                var data = {
+                    "username": this.username,
+                    'email': this.email,
+                    'first_name': this.first_name,
+                    'last_name': this.last_name,
+                    'level_id': this.level_id,
+                };
+
+                var vm = this;
+
+                $.ajax({
+                    url: '/api/users/' + user.id,
+                    method: 'PUT',
+                    data: data,
+                    success: function() {
+                        vm.success = true;
+
+                        vm.name = '';
+                        vm.email = '';
+                        vm.first_name = '';
+                        vm.last_name = '';
+                        vm.username = '';
+                        vm.level_id = 1;
+                        vm.creating = false;
+
+                        vm.fetchAllRecords();
+
+                        $("#editUser").toggleClass("in");
+                        $("body").removeClass("modal-open");
+                        $('.modal-backdrop').removeClass('in');
+
+                    }.bind(vm),
+                    error: function(errors) {
+                        vm.errors = errors.responseJSON.errors;
+                        vm.sending = false;
                     }.bind(vm)
                 })
             }

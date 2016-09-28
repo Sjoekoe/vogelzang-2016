@@ -86,7 +86,7 @@ class EloquentUser extends Authenticatable implements User
      */
     public function level()
     {
-        $this->level_id;
+        return $this->level_id;
     }
 
     /**

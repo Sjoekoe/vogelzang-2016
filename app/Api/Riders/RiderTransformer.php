@@ -43,7 +43,8 @@ class RiderTransformer extends TransformerAbstract
     /**
      * @param \App\Riders\Rider $rider
      * @return \League\Fractal\Resource\Collection
-     */public function includeSubscriptionRelation(Rider $rider)
+     */
+    public function includeSubscriptionRelation(Rider $rider)
     {
         return $this->collection($rider->subscriptions(), new SubscriptionTransformer());
     }

@@ -25,6 +25,7 @@ class UserTransformer extends TransformerAbstract
             'first_name' => $user->firstName(),
             'last_name' => $user->lastName(),
             'active' => (bool) $user->active(),
+            'level' => $user->level(),
         ];
     }
 
