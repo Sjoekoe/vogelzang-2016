@@ -39,7 +39,6 @@
         methods: {
             fetchAllRecords: function() {
                 $.getJSON('/api/announcements', function (announcements) {
-                    console.log(announcements);
                     this.announcements = announcements.data;
                     this.total = announcements.data.length;
                 }.bind(this));
