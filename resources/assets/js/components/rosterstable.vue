@@ -17,6 +17,7 @@
                     <th>Datum</th>
                     <th>Uur</th>
                     <th>Les</th>
+                    <th>Niveau</th>
                     <th>Inschrijvingen</th>
                     <th>Acties</th>
                 </tr>
@@ -26,6 +27,7 @@
                     <td>{{ roster.date }}</td>
                     <td>{{ roster.time }}</td>
                     <td>{{ roster.type }}</td>
+                    <td>{{ roster.level }}</td>
                     <td>{{ roster.subscriptionRelation.data.length }} / {{ roster.limit }}</td>
                     <td>
                         <a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#showRoster" @click="setRosterToShow(roster)">
@@ -146,6 +148,14 @@
                     </div>
 
                     <div class="form-group">
+                        <select v-model="level" name="type" class="form-control">
+                            <option value="1">Beginners</option>
+                            <option value="2">Half-Gevorderden</option>
+                            <option value="3">Gevorderden</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <select v-model="type" name="type" class="form-control">
                             <option value="1">Groepsles</option>
                             <option value="2">Ouderles</option>
@@ -190,6 +200,14 @@
 
                     <div class="form-group">
                         <input v-model="time" type="text" class="timepicker form-control" name="time" placeholder="Uur">
+                    </div>
+
+                    <div class="form-group">
+                        <select v-model="level" name="type" class="form-control">
+                            <option value="1">Beginners</option>
+                            <option value="2">Half-Gevorderden</option>
+                            <option value="3">Gevorderden</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -240,6 +258,7 @@
                 time: '',
                 limit: 12,
                 type: 1,
+                level: 1,
                 description: '',
                 creating: false,
                 token: window.vogelzang.auth.jwt,
@@ -313,6 +332,7 @@
                     'description': this.description,
                     'type': this.type,
                     'limit': this.limit,
+                    'level': this.level,
                 }
 
                 var vm = this;
@@ -330,6 +350,7 @@
                         vm.type = 1;
                         vm.limit = 12;
                         vm.creating = false;
+                        vm.level = 1;
 
                         vm.fetchAllRecords();
 
@@ -446,6 +467,7 @@
                     'description': this.description,
                     'type': this.type,
                     'limit': this.limit,
+                    'level': this.level,
                 }
 
                 var vm = this;
@@ -463,6 +485,7 @@
                         vm.type = 1;
                         vm.limit = 12;
                         vm.creating = false;
+                        vm.level = 1;
 
                         vm.fetchAllRecords();
 

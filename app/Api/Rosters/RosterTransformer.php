@@ -29,6 +29,8 @@ class RosterTransformer extends TransformerAbstract
             'limit_reached' => $roster->limitReached(),
             'can_be_canceled' => (bool) $roster->canStillBeCanceled(),
             'type_not_formatted' => $roster->type(),
+            'level' => $roster->readableLevel(),
+            'level_id' => $roster->level(),
         ];
     }
 

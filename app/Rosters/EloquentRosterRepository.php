@@ -57,6 +57,7 @@ class EloquentRosterRepository implements RosterRepository
         $roster->name = 1;
         $roster->date = Carbon::createFromFormat('d-m-Y H:i', $formattedDate);
         $roster->hour = 1;
+        $roster->level = $values['level'];
 
         if (array_key_exists('type', $values)) {
             $roster->type = $values['type'];
@@ -95,6 +96,7 @@ class EloquentRosterRepository implements RosterRepository
     {
         $formattedDate = $values['date'] . ' ' . $values['time'];
         $roster->date = Carbon::createFromFormat('d-m-Y H:i', $formattedDate);
+        $roster->level = $values['level'];
 
         if (array_key_exists('type', $values)) {
             $roster->type = $values['type'];

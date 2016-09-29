@@ -119,4 +119,29 @@ class EloquentRoster extends Model implements Roster
     {
         return count($this->subscriptions()) >= $this->limit();
     }
+
+    /**
+     * @return int
+     */
+    public function level()
+    {
+        return $this->level;
+    }
+
+    /**
+     * @return string
+     */
+    public function readableLevel()
+    {
+        switch ($this->level()) {
+            case self::BEGINNERS:
+                return 'Beginners';
+
+            case self::HALF_GEVORDERDEN:
+                return 'Half Gevorderden';
+
+            case self::GEVORDERDEN:
+                return 'Gevorderden';
+        }
+    }
 }

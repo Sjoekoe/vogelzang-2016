@@ -14,6 +14,10 @@ interface Roster
     const GROEPSLES_GEVORDERDEN = 7;
     const SPRINGLES_GEVORDERDEN = 8;
 
+    const BEGINNERS = 1;
+    const HALF_GEVORDERDEN = 2;
+    const GEVORDERDEN = 3;
+
     /**
      * @return int
      */
@@ -73,6 +77,16 @@ interface Roster
      * @return bool
      */
     public function limitReached();
+
+    /**
+     * @return int
+     */
+    public function level();
+
+    /**
+     * @return string
+     */
+    public function readableLevel();
 
     /**
      * @return \Carbon\Carbon

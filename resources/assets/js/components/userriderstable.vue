@@ -3,7 +3,7 @@
         <div class="col-md-12" v-for="rider in riders">
             <section class="panel">
                 <header class="panel-heading">
-                    Toekomstige lessen voor {{ rider.first_name }} {{ rider.last_name }}
+                    Toekomstige lessen voor <b>{{ rider.first_name }} {{ rider.last_name }}</b>
                 </header>
                 <div class="panel-body">
                     <table class="table table-hover general-table">
