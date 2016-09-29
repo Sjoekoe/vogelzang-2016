@@ -1,6 +1,7 @@
 <?php
 namespace App\Api\Riders;
 
+use App\Api\Rosters\RosterTransformer;
 use App\Api\Subscriptions\SubscriptionTransformer;
 use App\Api\Users\UserTransformer;
 use App\Riders\Rider;
@@ -16,7 +17,7 @@ class RiderTransformer extends TransformerAbstract
     /**
      * @var array
      */
-    protected $availableIncludes = ['subscriptionRelation'];
+    protected $availableIncludes = ['subscriptionRelation', 'rosterRelation'];
 
     /**
      * @param \App\Riders\Rider $rider
@@ -47,5 +48,14 @@ class RiderTransformer extends TransformerAbstract
     public function includeSubscriptionRelation(Rider $rider)
     {
         return $this->collection($rider->subscriptions(), new SubscriptionTransformer());
+    }
+
+    /**
+     * @param \App\Riders\Rider $rider
+     * @return \League\Fractal\Resource\Collection
+     */
+    public function includeRosterRelation(Rider $rider)
+    {
+        return $this->collection($rider->rosters(), new RosterTransformer());
     }
 }

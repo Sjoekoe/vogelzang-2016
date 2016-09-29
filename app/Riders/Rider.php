@@ -44,6 +44,11 @@ interface Rider
     public function hasNoSubscriptionForRoster(Roster $roster);
 
     /**
+     * @return \App\Rosters\Roster
+     */
+    public function rosters();
+
+    /**
      * @return \Carbon\Carbon
      */
     public function createdAt();

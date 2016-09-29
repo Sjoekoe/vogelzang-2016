@@ -2,9 +2,12 @@
 namespace App\Riders;
 
 use App\Models\StandardModel;
+use App\Rosters\EloquentRoster;
 use App\Rosters\Roster;
 use App\Subscriptions\EloquentSubscription;
+use App\Subscriptions\Subscription;
 use App\Users\EloquentUser;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class EloquentRider extends Model implements Rider
@@ -90,5 +93,18 @@ class EloquentRider extends Model implements Rider
         }
 
         return true;
+    }
+
+    public function rosterRelation()
+    {
+        return $this->belongsToMany(EloquentRoster::class, Subscription::TABLE, 'rider_id', 'roster_id');
+    }
+
+    /**
+     * @return \App\Rosters\Roster
+     */
+    public function rosters()
+    {
+        return $this->rosterRelation()->where('date', '>=', Carbon::now())->orderBy('date')->get();
     }
 }

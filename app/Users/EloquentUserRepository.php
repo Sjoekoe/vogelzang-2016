@@ -48,6 +48,7 @@ class EloquentUserRepository implements UserRepository
         $user->last_name = $values['last_name'];
         $user->email = $values['email'];
         $user->username = $values['username'];
+        $user->phone = array_key_exists('phone', $values) ? $values['phone'] : '';
         $user->password = Hash::make('vogelzang');
         $user->password_temp = '';
         $user->code = Str::random(30);
@@ -71,6 +72,7 @@ class EloquentUserRepository implements UserRepository
         $user->last_name = $values['last_name'];
         $user->email = $values['email'];
         $user->username = $values['username'];
+        $user->phone = array_key_exists('phone', $values) ? $values['phone'] : '';
 
         $user->save();
 

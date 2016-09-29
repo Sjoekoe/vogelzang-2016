@@ -3,7 +3,7 @@
         <header class="panel-heading">
             {{ total }} ruiters geregistreerd.
             <span class="tools pull-right">
-                <input class="form-control" type="text" name="search" id="search" v-on:keyUp="searchRider()" v-model="query" placeholder="Zoeken...">
+                <input class="form-control" type="text" name="search" id="search" v-on:keyUp="searchRider()" debounce="50" v-model="query" placeholder="Zoeken...">
             </span>
         </header>
         <div class="panel-body">
@@ -52,6 +52,8 @@
                     <br>
                     <b>Gebruikersnaam: </b> {{ riderToShow.userRelation.data.username }} <br>
                     <b>Email: </b> <a href="mailto:{{ riderToShow.userRelation.data.email }}">{{ riderToShow.userRelation.data.email }}</a>
+                    <br>
+                    <b>Telefoon: </b> {{ riderToShow.userRelation.data.phone }}
                 </div>
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>

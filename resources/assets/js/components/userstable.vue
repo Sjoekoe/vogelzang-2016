@@ -3,7 +3,7 @@
         <header class="panel-heading">
             {{ total }} gebruikers geregistreerd.
             <span class="tools pull-right">
-                <input type="text" name="search" id="serach" v-on:keyUp="searchUser()" v-model="query">
+                <input type="text" name="search" id="serach" v-on:keyUp="searchUser()" debounce="50" v-model="query">
                 <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#addUser">
                     <i class="fa fa-plus"></i> Toevoegen
                 </button>
@@ -17,6 +17,7 @@
                     <th>Voornaam</th>
                     <th>Achternaam</th>
                     <th>Email</th>
+                    <th>Telefoon</th>
                     <th>Active</th>
                     <th>Acties</th>
                 </tr>
@@ -27,6 +28,7 @@
                     <td>{{ user.first_name }}</td>
                     <td>{{ user.last_name }}</td>
                     <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+                    <td>{{ user.phone }}</td>
                     <td><i v-bind:class="{ 'fa fa-check text-success' : user.active, 'fa fa-remove text-danger' : ! user.active }"></i></td>
                     <td>
                         <a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#showUser" @click="setUserToShow(user)">
@@ -79,7 +81,8 @@
                 <div class="modal-body">
                     <b>Naam: </b> {{ userToShow.last_name }} <br>
                     <b>Voornaam: </b> {{ userToShow.first_name }} <br>
-                    <b>Email: </b> <a href="mailto:{{ userToShow.email }}">{{ userToShow.email }}</a>
+                    <b>Email: </b> <a href="mailto:{{ userToShow.email }}">{{ userToShow.email }}</a> <br>
+                    <b>Telefoon: </b> {{ userToShow.phone }}
                     <br> <br>
                     <h4 class="modal-title">Ruiters</h4>
 
@@ -115,6 +118,9 @@
                         <input type="text" name="last_name" id="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
                     </div>
                     <div class="form-group">
+                        <input type="text" name="phone" v-model="phone" class="form-control" placeholder="Telefoon">
+                    </div>
+                    <div class="form-group">
                         <input type="email" name="email" id="email" v-model="email" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group">
@@ -144,19 +150,22 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <input disabled type="text" name="username" id="username" v-model="username" class="form-control" placeholder="Gebruikersnaam">
+                        <input disabled type="text" name="username" v-model="username" class="form-control" placeholder="Gebruikersnaam">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="first_name" id="first_name" v-model="first_name" class="form-control" placeholder="Voornaam">
+                        <input type="text" name="first_name" v-model="first_name" class="form-control" placeholder="Voornaam">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="last_name" id="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
+                        <input type="text" name="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" id="email" v-model="email" class="form-control" placeholder="Email">
+                        <input type="text" name="phone" v-model="phone" class="form-control" placeholder="Telefoon">
                     </div>
                     <div class="form-group">
-                        <select name="level_id" id="level_id" v-model="level_id" class="form-control">
+                        <input type="email" name="email" v-model="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <select name="level_id" v-model="level_id" class="form-control">
                             <option value="1">Gebruiker</option>
                             <option value="2">Lesgever</option>
                             <option value="3">Admin</option>
@@ -187,6 +196,7 @@
                 userToShow: '',
                 username: '',
                 email: '',
+                phone: '',
                 first_name: '',
                 last_name: '',
                 level_id: 1,
@@ -249,6 +259,7 @@
                     'first_name': this.first_name,
                     'last_name': this.last_name,
                     'level_id': this.level_id,
+                    'phone': this.phone,
                 }
 
                 var vm = this;
@@ -262,6 +273,7 @@
 
                         vm.name = '';
                         vm.email = '';
+                        vm.phone = '';
                         vm.creating = false;
 
                         vm.fetchAllRecords();
@@ -333,6 +345,7 @@
                 this.last_name = user.last_name;
                 this.level_id = user.level;
                 this.email = user.email;
+                this.phone = user.phone;
             },
 
             editUser: function(user) {
@@ -344,6 +357,7 @@
                     'first_name': this.first_name,
                     'last_name': this.last_name,
                     'level_id': this.level_id,
+                    'phone': this.phone,
                 };
 
                 var vm = this;

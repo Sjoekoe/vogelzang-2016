@@ -15,10 +15,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="subscription in rider.subscriptionRelation.data">
-                            <td>{{ subscription.rosterRelation.data.date }}</td>
-                            <td>{{ subscription.rosterRelation.data.time }}</td>
-                            <td>{{ subscription.rosterRelation.data.type }}</td>
+                        <tr v-for="roster in rider.rosterRelation.data">
+                            <td>{{ roster.date }}</td>
+                            <td>{{ roster.time }}</td>
+                            <td>{{ roster.type }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -45,7 +45,7 @@
         },
 
         ready: function() {
-            $.getJSON('/api/users/' + this.user_id + '/riders?include=subscriptionRelation' , function(riders) {
+            $.getJSON('/api/users/' + this.user_id + '/riders?include=rosterRelation' , function(riders) {
                 this.riders = riders.data;
             }.bind(this));
         },

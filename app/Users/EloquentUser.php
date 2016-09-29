@@ -152,4 +152,12 @@ class EloquentUser extends Authenticatable implements User
     {
         return $this->hasMany(EloquentRider::class, 'user_id', 'id')->get();
     }
+
+    /**
+     * @return string
+     */
+    public function telephone()
+    {
+        return $this->phone;
+    }
 }
