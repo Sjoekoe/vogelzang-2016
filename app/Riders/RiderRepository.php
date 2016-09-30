@@ -28,4 +28,11 @@ interface RiderRepository
      * @return \App\Riders\Rider
      */
     public function findAllForUser(User $user);
+
+    /**
+     * @param \App\Users\User $user
+     * @param array $values
+     * @return \App\Riders\Rider
+     */
+    public function create(User $user, array $values);
 }

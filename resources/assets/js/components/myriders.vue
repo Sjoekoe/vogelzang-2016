@@ -1,0 +1,126 @@
+<template>
+    <section class="panel">
+        <header class="panel-heading">
+            Mijn ruiters
+            <span class="tools pull-right">
+                <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#addRider">
+                    <i class="fa fa-plus"></i> Toevoegen
+                </button>
+            </span>
+        </header>
+        <div class="panel-body">
+            <table class="table  table-hover general-table">
+                <thead>
+                    <tr>
+                        <th>Voornaam</th>
+                        <th>Achternaam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="rider in riders">
+                        <td>{{ rider.first_name }}</td>
+                        <td>{{ rider.last_name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="panel" v-if="loading">
+        <div class="panel-body text-center">
+            Laden... <i class="fa fa-spin fa-spinner"></i>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addRider" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Ruiter toevoegen</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" name="first_name" id="first_name" v-model="first_name" class="form-control" placeholder="Voornaam">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="last_name" id="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
+
+                    <button v-if="creating" disabled class="btn btn-primary" type="button">Aanmaken <i class="fa fa-spin fa-spinner"></i></button>
+                    <button v-else class="btn btn-primary" type="button" @click="addRider()">Toevoegen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        data: function() {
+            return {
+                riders: [],
+                loading: true,
+                riderToShow: '',
+                user_id: window.vogelzang.auth.user.id,
+                first_name: '',
+                last_name: '',
+                creating: false,
+                token: window.vogelzang.auth.jwt,
+            }
+        },
+
+        ready: function() {
+            this.fetchAllRecords();
+        },
+
+        methods: {
+            fetchAllRecords: function() {
+                $.getJSON('/api/users/' + this.user_id + '/riders', function(riders) {
+                    this.riders = riders.data;
+                    this.loading = false;
+                }.bind(this));
+            },
+
+            setRiderToShow: function(rider) {
+                var vm = this;
+
+                $.getJSON('/api/riders/' + rider.id + '?include=subscriptionRelation', function(result) {
+                    vm.riderToShow = result.data;
+                }.bind(vm));
+            },
+
+            addRider: function() {
+                this.creating = true;
+
+                var data = {
+                    "first_name": this.first_name,
+                    "last_name": this.last_name,
+                };
+
+                var vm = this;
+
+                $.ajax({
+                    url: '/api/users/' + vm.user_id + '/riders?token=' + vm.token,
+                    method: 'POST',
+                    data: data,
+                    success: function(rider) {
+                        vm.first_name = '';
+                        vm.last_name = '';
+
+                        vm.fetchAllRecords();
+
+                        $("#addRider").toggleClass("in");
+                        $("body").removeClass("modal-open");
+                        $('.modal-backdrop').removeClass('in');
+
+                        vm.creating = false;
+                    }.bind(vm)
+                })
+            }
+        },
+    }
+</script>

@@ -49,6 +49,7 @@ $api->version('v1', function (Router $api) {
 
             $api->group(['prefix' => '/{user}/riders', 'as' => 'users.'], function (Router $api) {
                 $api->get('/', ['as' => 'riders.index', 'uses' => 'UserRiderController@index']);
+                $api->post('/', ['as' => 'riders.store', 'uses' => 'UserRiderController@store']);
             });
         });
 

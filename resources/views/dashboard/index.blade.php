@@ -2,5 +2,6 @@
 
 @section('content')
     <announcements></announcements>
+
     <userriderstable></userriderstable>
 @stop

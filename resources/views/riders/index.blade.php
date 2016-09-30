@@ -1,9 +1,14 @@
 @extends('layouts.auth')
 
 @section('content')
-    <div class="row">
-        <div class="col-sm-12">
-            <riderstable></riderstable>
+
+    <my-riderstable></my-riderstable>
+
+    @if(auth()->user()->isAdmin())
+        <div class="row">
+            <div class="col-sm-12">
+                <riderstable></riderstable>
+            </div>
         </div>
-    </div>
+    @endif
 @stop

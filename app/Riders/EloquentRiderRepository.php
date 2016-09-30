@@ -65,4 +65,21 @@ class EloquentRiderRepository implements RiderRepository
             ->where('user_id', $user->id())
             ->get();
     }
+
+    /**
+     * @param \App\Users\User $user
+     * @param array $values
+     * @return \App\Riders\Rider
+     */
+    public function create(User $user, array $values)
+    {
+        $rider = new EloquentRider();
+        $rider->firstname = $values['first_name'];
+        $rider->lastname = $values['last_name'];
+        $rider->user_id = $user->id();
+
+        $rider->save();
+
+        return $rider;
+    }
 }

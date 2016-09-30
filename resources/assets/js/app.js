@@ -24,6 +24,7 @@ Vue.component('userriderstable', require('./components/userriderstable.vue'));
 Vue.component('settingstable', require('./components/settingstable.vue'));
 Vue.component('announcements', require('./components/announcements.vue'));
 Vue.component('adminannouncementstable', require('./components/adminannouncements.vue'));
+Vue.component('my-riderstable', require('./components/myriders.vue'))
 
 const app = new Vue({
     el: 'body',
