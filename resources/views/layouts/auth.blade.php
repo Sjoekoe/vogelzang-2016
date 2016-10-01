@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/bucket.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bucket-responsive.css') }}">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]>

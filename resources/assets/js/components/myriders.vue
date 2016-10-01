@@ -41,9 +41,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="first_name" class="control-label">Voornaam</label>
                         <input type="text" name="first_name" id="first_name" v-model="first_name" class="form-control" placeholder="Voornaam">
                     </div>
                     <div class="form-group">
+                        <label for="last_name" class="control-label">Achternaam</label>
                         <input type="text" name="last_name" id="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
                     </div>
                 </div>

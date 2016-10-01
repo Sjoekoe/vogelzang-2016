@@ -64,6 +64,7 @@
                         {{ rosterToShow.subscriptionRelation.data.length }} / {{ rosterToShow.limit }}
                         <hr>
                     </div>
+                    <h4 class="text-center">Ingeschreven ruiters</h4>
                     <div v-if="subscriptions.length" v-for="subscription in subscriptions" class="clearfix mb15">
                         <b> {{ subscription.riderRelation.data.first_name }} {{ subscription.riderRelation.data.last_name}} </b>
                         <span class="pull-right" v-if="is_admin">
@@ -77,12 +78,12 @@
                     </div>
                     <div v-if="rosterToShow.description.length">
                         <hr>
-                        <h4>Opmerkingen</h4>
+                        <h4 class="text-center">Opmerkingen</h4>
                         <div v-html="rosterToShow.description"></div>
                     </div>
                     <hr>
                     <div v-if="rosterToShow.can_be_canceled">
-                        <h4>Jou ruiters</h4>
+                        <h4 class="text-center">Jou ruiters</h4>
                         <div class="clearfix mb15" v-for="rider in riders">
                             <b>{{ rider.first_name }} {{ rider.last_name }}</b>
                             <span class="pull-right">

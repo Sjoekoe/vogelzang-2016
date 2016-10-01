@@ -6,6 +6,10 @@
         <a href="{{ route('dashboard.index') }}" class="logo">
             Stal de vogelzang
         </a>
+
+        <div class="sidebar-toggle-box">
+            <div class="fa fa-bars"></div>
+        </div>
     </div>
     <!--logo end-->
 
