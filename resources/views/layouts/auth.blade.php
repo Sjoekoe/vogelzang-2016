@@ -5,7 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="ThemeBucket">
+    <meta name="author" content="Vogelzang">
     <link rel="shortcut icon" href="images/favicon.png">
 
     <title>Stal de vogelzang</title>
@@ -42,9 +42,6 @@
 
 </section>
 
-<!-- Placed js at the end of the document so the pages load faster -->
-
-<!--Core js-->
 <script>
     window.vogelzang = window.vogelzang || {!! Info::toJson() !!};
 </script>
@@ -54,7 +51,6 @@
 <script src="{{ asset('js/scrollTo.js') }}"></script>
 <script src="{{ asset('js/niceScroll.js') }}"></script>
 
-<!--common script init for all pages-->
 <script src="{{ asset('js/bucket.js') }}"></script>
 
 </body>

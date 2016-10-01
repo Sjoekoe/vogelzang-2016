@@ -3,6 +3,7 @@ namespace App\Api\Http\Controllers;
 
 use App\Api\Http\Controller;
 use App\Api\Users\UserTransformer;
+use App\Notifications\UserCreated;
 use App\Users\Requests\CreateUserRequest;
 use App\Users\Requests\UpdatePasswordRequest;
 use App\Users\Requests\UpdateUserRequest;
@@ -11,6 +12,7 @@ use App\Users\UserRepository;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Newsletter\Newsletter;
 
 class UserController extends Controller
 {
@@ -19,9 +21,15 @@ class UserController extends Controller
      */
     private $users;
 
-    public function __construct(UserRepository $users)
+    /**
+     * @var \Spatie\Newsletter\Newsletter
+     */
+    private $newsletter;
+
+    public function __construct(UserRepository $users, Newsletter $newsletter)
     {
         $this->users = $users;
+        $this->newsletter = $newsletter;
     }
 
     public function index(Request $request)
@@ -36,6 +44,10 @@ class UserController extends Controller
     public function store(CreateUserRequest $request)
     {
         $user = $this->users->create($request->all());
+
+        $response = $this->newsletter->subscribe($request->get('email'));
+        //dd($response);
+        $user->notify(new UserCreated());
 
         return $this->response()->item($user, new UserTransformer());
     }
@@ -55,6 +67,10 @@ class UserController extends Controller
     public function delete(User $user)
     {
         $this->users->delete($user);
+
+        if ($this->newsletter->hasMember($user->email())) {
+            $this->newsletter->unsubscribe($user->email());
+        }
 
         return $this->response()->noContent();
     }

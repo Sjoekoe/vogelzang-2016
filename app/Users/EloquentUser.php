@@ -160,4 +160,14 @@ class EloquentUser extends Authenticatable implements User
     {
         return $this->phone;
     }
+
+    /**
+     * Route notifications for the mail channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForMail()
+    {
+        return $this->email();
+    }
 }
