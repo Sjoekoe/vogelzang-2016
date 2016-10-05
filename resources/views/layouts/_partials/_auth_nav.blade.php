@@ -56,36 +56,41 @@
                         <span>Lessen</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('users.index') }}">
-                        <i class="fa fa-users"></i>
-                        <span>Gebruikers</span>
-                    </a>
-                </li>
+
+                @if (auth()->user()->isAdmin())
+                    <li>
+                        <a href="{{ route('users.index') }}">
+                            <i class="fa fa-users"></i>
+                            <span>Gebruikers</span>
+                        </a>
+                    </li>
+                @endif
                 <li>
                     <a href="{{ route('riders.index') }}">
                         <i class="fa fa-user"></i>
                         <span>Ruiters</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('messages.index') }}">
-                        <i class="fa fa-envelope-o"></i>
-                        <span>Berichten</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('news.index') }}">
-                        <i class="fa fa-pencil"></i>
-                        <span>Nieuws</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('announcements.index') }}">
-                        <i class="fa fa-bullhorn"></i>
-                        <span>Aankondigingen</span>
-                    </a>
-                </li>
+                @if (auth()->user()->isAdmin())
+                    <li>
+                        <a href="{{ route('messages.index') }}">
+                            <i class="fa fa-envelope-o"></i>
+                            <span>Berichten</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('news.index') }}">
+                            <i class="fa fa-pencil"></i>
+                            <span>Nieuws</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('announcements.index') }}">
+                            <i class="fa fa-bullhorn"></i>
+                            <span>Aankondigingen</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
         <!-- sidebar menu end-->

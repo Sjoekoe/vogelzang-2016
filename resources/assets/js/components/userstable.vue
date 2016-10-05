@@ -272,6 +272,9 @@
                         vm.success = true;
 
                         vm.name = '';
+                        vm.first_name = '';
+                        vm.last_name = '';
+                        vm.username = '';
                         vm.email = '';
                         vm.phone = '';
                         vm.creating = false;
@@ -374,6 +377,7 @@
                         vm.first_name = '';
                         vm.last_name = '';
                         vm.username = '';
+                        vm.phon = '';
                         vm.level_id = 1;
                         vm.creating = false;
 

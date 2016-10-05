@@ -4,7 +4,7 @@
             <div class="col-md-6">
                 <h5>Lessenrooster</h5>
             </div>
-            <span class="tools pull-right">
+            <span class="tools pull-right" v-if="is_admin">
                 <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#createRoster">
                     <i class="fa fa-plus"></i> Toevoegen
                 </button>
