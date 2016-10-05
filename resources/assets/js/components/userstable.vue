@@ -3,7 +3,7 @@
         <header class="panel-heading">
             {{ total }} gebruikers geregistreerd.
             <span class="tools pull-right">
-                <input type="text" name="search" id="serach" v-on:keyUp="searchUser()" debounce="50" v-model="query">
+                <input type="text" name="search" id="serach" v-on:keyUp="searchUser()" debounce="50" v-model="query" placeholder="Zoeken...">
                 <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#addUser">
                     <i class="fa fa-plus"></i> Toevoegen
                 </button>

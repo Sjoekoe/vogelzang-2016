@@ -1,9 +1,15 @@
 <template>
-    <div v-if="announcements.length" class="alert alert-info text-center">
-        <span class="pull-left">
-            <i class="fa fa-bullhorn fa-2x"></i>
-        </span>
-        <span v-html="announcements[iterator].body" class="fader"></span>
+    <div v-if="announcements.length" class="alert alert-info clearfix">
+        <span class="alert-icon"><i class="fa fa-bullhorn"></i></span>
+        <div class="notification-info fader">
+            <ul class="clearfix notification-meta">
+                <li class="pull-left notification-sender"><span><a href="#">{{ announcements[iterator].userRelation.data.username }}</a></span></li>
+                <li class="pull-right notification-time">{{ announcements[iterator].created_at }}</li>
+            </ul>
+            <p v-html="announcements[iterator].body">
+                Urgent meeting for next proposal
+            </p>
+        </div>
     </div>
 </template>
 
@@ -25,7 +31,7 @@
 
                 $('.fader').fadeOut('500', function() {
                     var newIterator = vm.iterator + 1;
-
+                    
                     if (newIterator > vm.total - 1) {
                         newIterator = 0;
                     }
