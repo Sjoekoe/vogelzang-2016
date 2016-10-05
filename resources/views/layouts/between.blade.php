@@ -31,28 +31,20 @@
 
 <body>
 
-<section id="container" >
-    @include('layouts._partials._auth_nav')
-    <section id="main-content">
-        <section class="wrapper">
-            <announcements></announcements>
+    <section id="container" >
             @yield('content')
-        </section>
     </section>
-    <!--right sidebar end-->
 
-</section>
+    <script>
+        window.vogelzang = window.vogelzang || {!! Info::toJson() !!};
+    </script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/scrollTo.js') }}"></script>
+    <script src="{{ asset('js/niceScroll.js') }}"></script>
 
-<script>
-    window.vogelzang = window.vogelzang || {!! Info::toJson() !!};
-</script>
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/scrollTo.js') }}"></script>
-<script src="{{ asset('js/niceScroll.js') }}"></script>
-
-<script src="{{ asset('js/bucket.js') }}"></script>
+    <script src="{{ asset('js/bucket.js') }}"></script>
 
 </body>
 </html>
