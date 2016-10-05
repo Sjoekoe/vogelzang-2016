@@ -12,25 +12,6 @@
         </div>
     </div>
     <!--logo end-->
-
-    <div class="top-nav clearfix">
-        <!--search & user info start-->
-        <ul class="nav pull-right top-menu">
-            <!-- user login dropdown start-->
-            <li class="dropdown">
-                <a data-toggle="dropdown" href="#">
-                    <span>{{ auth()->user()->username() }}</span>
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu extended logout">
-                    <li><a href="{{ route('setting.index') }}"><i class="fa fa-cog"></i> Settings</a></li>
-                    <li><a href="{{ route('logout') }}"><i class="fa fa-key"></i> Log Out</a></li>
-                </ul>
-            </li>
-            <!-- user login dropdown end -->
-        </ul>
-        <!--search & user info end-->
-    </div>
 </header>
 <!--header end-->
 <aside>
@@ -91,6 +72,18 @@
                         </a>
                     </li>
                 @endif
+                <li>
+                    <a href="{{ route('setting.index') }}">
+                        <i class="fa fa-cog"></i>
+                        <span>Mijn gegevens</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('logout') }}">
+                        <i class="fa fa-key"></i>
+                        <span>Uitloggen</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- sidebar menu end-->
