@@ -6,9 +6,7 @@
                 <li class="pull-left notification-sender"><span><a href="#">{{ announcements[iterator].userRelation.data.username }}</a></span></li>
                 <li class="pull-right notification-time">{{ announcements[iterator].created_at }}</li>
             </ul>
-            <p v-html="announcements[iterator].body">
-                Urgent meeting for next proposal
-            </p>
+            <p v-html="announcements[iterator].body"></p>
         </div>
     </div>
 </template>
@@ -31,7 +29,7 @@
 
                 $('.fader').fadeOut('500', function() {
                     var newIterator = vm.iterator + 1;
-                    
+
                     if (newIterator > vm.total - 1) {
                         newIterator = 0;
                     }
