@@ -12,6 +12,7 @@
                     <tr>
                         <th>Voornaam</th>
                         <th>Achternaam</th>
+                        <th>Leeftijd</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -19,6 +20,7 @@
                     <tr v-for="rider in riders">
                         <td>{{ rider.first_name }}</td>
                         <td>{{ rider.last_name }}</td>
+                        <td>{{ rider.age }}</td>
                         <td>
                             <a href="#" class="btn btn-info btn-xs" @click="setRiderToShow(rider)" data-toggle="modal" data-target="#showRider">
                                 <i class="fa fa-eye"></i>

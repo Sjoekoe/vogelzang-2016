@@ -5,6 +5,7 @@ use App\Api\Rosters\RosterTransformer;
 use App\Api\Subscriptions\SubscriptionTransformer;
 use App\Api\Users\UserTransformer;
 use App\Riders\Rider;
+use Carbon\Carbon;
 use League\Fractal\TransformerAbstract;
 
 class RiderTransformer extends TransformerAbstract
@@ -29,8 +30,9 @@ class RiderTransformer extends TransformerAbstract
             'id' => $rider->id(),
             'first_name' => $rider->firstName(),
             'last_name' => $rider->lastName(),
-            'birth_day' => $rider->birthDay()->format('d M'),
+            'birth_day' => $rider->birthDay()->format('d F'),
             'age' => $rider->age(),
+            'is_celebrating' => (bool) $rider->birthDay()->format('d-m') == Carbon::now()->format('d-m'),
         ];
     }
 

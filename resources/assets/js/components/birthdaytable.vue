@@ -1,7 +1,7 @@
 <template id="riderstable">
     <section class="panel">
         <header class="panel-heading">
-            {{ total }} ruiters jarig in .
+            {{ total }} ruiters jarig in {{ month }}.
         </header>
         <div class="panel-body">
             <table class="table  table-hover general-table">
@@ -14,8 +14,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="rider in riders">
-                    <td>{{ rider.first_name }}</td>
+                <tr v-for="rider in riders" v-bind:class="{ highlight: rider.is_celebrating }">
+                    <td><i class="fa fa-birthday-cake" v-if="rider.is_celebrating"></i> {{ rider.first_name }}</td>
                     <td>{{ rider.last_name }}</td>
                     <td>{{ rider.birth_day }}</td>
                     <td>{{ rider.age }}</td>
@@ -39,11 +39,28 @@
                 riders: [],
                 total: 0,
                 loading: true,
+                month: '',
             }
         },
 
         ready: function() {
             this.fetchAllRecords();
+
+            var d = new Date();
+            var month = new Array();
+            month[0] = "januari";
+            month[1] = "februari";
+            month[2] = "maart";
+            month[3] = "april";
+            month[4] = "mei";
+            month[5] = "juni";
+            month[6] = "juli";
+            month[7] = "augustus";
+            month[8] = "september";
+            month[9] = "oktober";
+            month[10] = "november";
+            month[11] = "december";
+            this.month = month[d.getMonth()];
         },
 
         methods: {

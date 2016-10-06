@@ -317,7 +317,7 @@ ul.sidebar-menu li a.active i {
 
 a.logo {
   font-size: 18px;
-  color: whitesmoke;
+  color: #2e2e2e;
   float: left;
   margin: 25px 0 0 25px;
   text-transform: uppercase; }
@@ -5550,5 +5550,12 @@ tr.highlighted {
 
 .clickable-span {
   cursor: pointer; }
+
+tr.highlight {
+  background-color: #fea352;
+  color: whitesmoke; }
+  tr.highlight:hover {
+    background-color: #fea352 !important;
+    color: whitesmoke; }
 
 /*# sourceMappingURL=bucket.css.map */
