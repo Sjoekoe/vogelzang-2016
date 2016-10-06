@@ -2,6 +2,8 @@
 namespace App\Riders;
 
 use App\Users\User;
+use Carbon\Carbon;
+use DB;
 
 class EloquentRiderRepository implements RiderRepository
 {
@@ -81,5 +83,17 @@ class EloquentRiderRepository implements RiderRepository
         $rider->save();
 
         return $rider;
+    }
+
+    /**
+     * @return \App\Riders\Rider[]
+     */
+    public function findByBirthday()
+    {
+        $month = Carbon::now()->month;
+
+        return $this->rider
+            ->whereRaw('MONTH(birth_day) =  ?', $month)
+            ->get();
     }
 }

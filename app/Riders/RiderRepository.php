@@ -35,4 +35,9 @@ interface RiderRepository
      * @return \App\Riders\Rider
      */
     public function create(User $user, array $values);
+
+    /**
+     * @return \App\Riders\Rider[]
+     */
+    public function findByBirthday();
 }

@@ -29,6 +29,8 @@ class RiderTransformer extends TransformerAbstract
             'id' => $rider->id(),
             'first_name' => $rider->firstName(),
             'last_name' => $rider->lastName(),
+            'birth_day' => $rider->birthDay()->format('d M'),
+            'age' => $rider->age(),
         ];
     }
 

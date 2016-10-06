@@ -107,4 +107,20 @@ class EloquentRider extends Model implements Rider
     {
         return $this->rosterRelation()->where('date', '>=', Carbon::now())->orderBy('date')->get();
     }
+
+    /**
+     * @return \Carbon\Carbon
+     */
+    public function birthDay()
+    {
+        return Carbon::parse($this->birth_day);
+    }
+
+    /**
+     * @return int
+     */
+    public function age()
+    {
+        return $this->birthDay()->startOfDay()->diffInYears();
+    }
 }

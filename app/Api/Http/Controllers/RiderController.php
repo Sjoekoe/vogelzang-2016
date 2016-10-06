@@ -48,4 +48,11 @@ class RiderController extends Controller
 
         return $this->response()->item($subscription, new SubscriptionTransformer());
     }
+
+    public function birthdays()
+    {
+        $riders = $this->riders->findByBirthday();
+
+        return $this->response()->collection($riders, new RiderTransformer());
+    }
 }

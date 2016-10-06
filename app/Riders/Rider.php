@@ -51,6 +51,16 @@ interface Rider
     /**
      * @return \Carbon\Carbon
      */
+    public function birthDay();
+
+    /**
+     * @return int
+     */
+    public function age();
+
+    /**
+     * @return \Carbon\Carbon
+     */
     public function createdAt();
 
     /**
