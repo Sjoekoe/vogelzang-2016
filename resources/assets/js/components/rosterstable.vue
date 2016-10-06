@@ -142,7 +142,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="date" class="control-label">Datum</label>
-                        <input v-model="date" id="date" type="text" class="datepicker form-control" name="date" placeholder="datum">
+                        <input v-model="date" id="date" type="text" class="default-date-picker form-control" name="date" placeholder="datum">
                     </div>
 
                     <div class="form-group">
@@ -203,7 +203,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="date" class="control-label">Datum</label>
-                        <input v-model="date" type="text" class="datepicker form-control" name="date" placeholder="datum">
+                        <input v-model="date" type="text" class="default-date-picker form-control" name="date" placeholder="datum">
                     </div>
 
                     <div class="form-group">

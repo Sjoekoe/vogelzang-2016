@@ -17,6 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/bucket.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bucket-responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]>
@@ -51,8 +52,15 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/scrollTo.js') }}"></script>
 <script src="{{ asset('js/niceScroll.js') }}"></script>
+<script src="{{ asset('js/datepicker.js') }}"></script>
 
 <script src="{{ asset('js/bucket.js') }}"></script>
+<script>
+    $('.default-date-picker').datepicker({
+        format: 'dd-mm-yyyy',
+        weekStart: 1
+    });
+</script>
 
 </body>
 </html>
