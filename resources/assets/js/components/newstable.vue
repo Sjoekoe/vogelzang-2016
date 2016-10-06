@@ -60,9 +60,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="title">Titel</label>
                         <input type="text" name="title" id="title" v-model="title" class="form-control" placeholder="Onderwerp">
                     </div>
                     <div class="form-group">
+                        <label for="message">Bericht</label>
                         <textarea name="message" id="message" cols="30" rows="10" class="form-control" v-model="message" placeholder="Bericht..."></textarea>
                     </div>
                 </div>

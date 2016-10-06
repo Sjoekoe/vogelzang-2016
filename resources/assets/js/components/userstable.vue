@@ -109,21 +109,27 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="username">Gebruikersnaam</label>
                         <input type="text" name="username" id="username" v-model="username" class="form-control" placeholder="Gebruikersnaam">
                     </div>
                     <div class="form-group">
+                        <label for="first_name">Voornaam</label>
                         <input type="text" name="first_name" id="first_name" v-model="first_name" class="form-control" placeholder="Voornaam">
                     </div>
                     <div class="form-group">
+                        <label for="last_name">Achternaam</label>
                         <input type="text" name="last_name" id="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="phone" v-model="phone" class="form-control" placeholder="Telefoon">
+                        <label for="phone">Telefoon</label>
+                        <input type="text" id="phone" name="phone" v-model="phone" class="form-control" placeholder="Telefoon">
                     </div>
                     <div class="form-group">
+                        <label for="email">Email</label>
                         <input type="email" name="email" id="email" v-model="email" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group">
+                        <label for="level_id">Rol</label>
                         <select name="level_id" id="level_id" v-model="level_id" class="form-control">
                             <option value="1">Gebruiker</option>
                             <option value="2">Lesgever</option>
@@ -150,21 +156,27 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="username">Gebruikersnaam</label>
                         <input disabled type="text" name="username" v-model="username" class="form-control" placeholder="Gebruikersnaam">
                     </div>
                     <div class="form-group">
+                        <label for="first_name">Voornaam</label>
                         <input type="text" name="first_name" v-model="first_name" class="form-control" placeholder="Voornaam">
                     </div>
                     <div class="form-group">
+                        <label for="last_name">Achternaam</label>
                         <input type="text" name="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
                     </div>
                     <div class="form-group">
+                        <label for="phone">Telefoon</label>
                         <input type="text" name="phone" v-model="phone" class="form-control" placeholder="Telefoon">
                     </div>
                     <div class="form-group">
+                        <label for="email">Email</label>
                         <input type="email" name="email" v-model="email" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group">
+                        <label for="level_id">Rol</label>
                         <select name="level_id" v-model="level_id" class="form-control">
                             <option value="1">Gebruiker</option>
                             <option value="2">Lesgever</option>

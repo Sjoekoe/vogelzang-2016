@@ -45,6 +45,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="body" class="control-label">Bericht</label>
                         <textarea name="body" id="body" cols="30" rows="10" v-model="body" class="form-control"></textarea>
                     </div>
                 </div>

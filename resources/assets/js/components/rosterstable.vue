@@ -141,15 +141,18 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <input v-model="date" type="text" class="datepicker form-control" name="date" placeholder="datum">
+                        <label for="date" class="control-label">Datum</label>
+                        <input v-model="date" id="date" type="text" class="datepicker form-control" name="date" placeholder="datum">
                     </div>
 
                     <div class="form-group">
+                        <label for="time" class="control-label">Uur</label>
                         <input v-model="time" type="text" class="timepicker form-control" name="time" placeholder="Uur">
                     </div>
 
                     <div class="form-group">
-                        <select v-model="level" name="type" class="form-control">
+                        <label for="level" class="control-label">Niveau</label>
+                        <select v-model="level" id="level" name="level" class="form-control">
                             <option value="1">Beginners</option>
                             <option value="2">Half-Gevorderden</option>
                             <option value="3">Gevorderden</option>
@@ -157,7 +160,8 @@
                     </div>
 
                     <div class="form-group">
-                        <select v-model="type" name="type" class="form-control">
+                        <label for="type" class="control-label">Type</label>
+                        <select v-model="type" id="type" name="type" class="form-control">
                             <option value="1">Groepsles</option>
                             <option value="2">Ouderles</option>
                             <option value="3">Privé-les</option>
@@ -170,17 +174,19 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="limit" class="control-label">Limiet</label>
                         <input v-model="limit" type="number" name="limit" class="form-control" placeholder="Limiet">
                     </div>
 
                     <div class="form-group">
-                        <textarea v-model="description" name="description" cols="30" rows="10" class="form-control" placeholder="Opmerkingen" v-html="description"></textarea>
+                        <label for="description" class="control-label">Opmerkingen</label>
+                        <textarea v-model="description" id="description" name="description" cols="30" rows="10" class="form-control" placeholder="Opmerkingen" v-html="description"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
 
-                    <button v-if="creating" class="btn btn-success" type="button" disabled>>ijzigen ... <i class="fa fa-spin fa-spinner"></i></button>
+                    <button v-if="creating" class="btn btn-success" type="button" disabled>Wijzigen ... <i class="fa fa-spin fa-spinner"></i></button>
                     <button v-else @click="updateRoster(rosterToShow)" class="btn btn-success" type="button">Wijzigen</button>
                 </div>
             </div>
@@ -196,15 +202,18 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="date" class="control-label">Datum</label>
                         <input v-model="date" type="text" class="datepicker form-control" name="date" placeholder="datum">
                     </div>
 
                     <div class="form-group">
+                        <label for="time" class="control-label">Uur</label>
                         <input v-model="time" type="text" class="timepicker form-control" name="time" placeholder="Uur">
                     </div>
 
                     <div class="form-group">
-                        <select v-model="level" name="type" class="form-control">
+                        <label for="level" class="control-label">Niveau</label>
+                        <select v-model="level" name="level" class="form-control">
                             <option value="1">Beginners</option>
                             <option value="2">Half-Gevorderden</option>
                             <option value="3">Gevorderden</option>
@@ -212,7 +221,8 @@
                     </div>
 
                     <div class="form-group">
-                        <select v-model="type" name="type" id="type" class="form-control">
+                        <label for="type" class="control-label">Type</label>
+                        <select v-model="type" name="type" class="form-control">
                             <option value="1">Groepsles</option>
                             <option value="2">Ouderles</option>
                             <option value="3">Privé-les</option>
@@ -225,10 +235,12 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="limit" class="control-label">Limiet</label>
                         <input v-model="limit" type="number" name="limit" id="limit" class="form-control" placeholder="Limiet">
                     </div>
 
                     <div class="form-group">
+                        <label for="description" class="control-label">Opmerkingen</label>
                         <textarea v-model="description" name="description" id="" cols="30" rows="10" class="form-control" placeholder="Opmerkingen"></textarea>
                     </div>
                 </div>
