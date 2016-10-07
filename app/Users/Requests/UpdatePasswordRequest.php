@@ -1,7 +1,7 @@
 <?php
 namespace App\Users\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Dingo\Api\Http\FormRequest;
 
 class UpdatePasswordRequest extends FormRequest
 {

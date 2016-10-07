@@ -1,7 +1,6 @@
 <?php
 namespace App\Rosters\Requests;
 
-
 use Dingo\Api\Http\FormRequest;
 
 class RosterRequest extends FormRequest

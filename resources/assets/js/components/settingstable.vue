@@ -7,18 +7,22 @@
                     <div class="form-group">
                         <label for="username">Gebruikersnaam</label>
                         <input disabled type="text" name="username" id="username" class="form-control" v-model="username">
+                        <p class="text-danger" v-if="errors.username">{{ errors.username[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="name">Voornaam</label>
                         <input type="text" name="name" id="name" class="form-control" v-model="first_name">
+                        <p class="text-danger" v-if="errors.name">{{ errors.name[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="last_name">Achternaam</label>
                         <input type="text" name="last_name" id="last_name" class="form-control" v-model="last_name">
+                        <p class="text-danger" v-if="errors.last_name">{{ errors.last_name[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" class="form-control" v-model="email">
+                        <p class="text-danger" v-if="errors.email">{{ errors.email[0] }}</p>
                     </div>
                     <div class="form-group pull-right">
                         <button v-if="updating" class="btn btn-success" disabled>Opslaan... <i class="fa fa-spin fa-spinner"></i></button>
@@ -32,14 +36,17 @@
                     <div class="form-group">
                         <label for="password">Nieuw wachtwoord</label>
                         <input type="password" name="password" id="password" v-model="password" class="form-control">
+                        <p class="text-danger" v-if="errors.password">{{ errors.password[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="password_confirmation">Confirmeer wachtwoord</label>
                         <input type="password" name="password_confirmation" id="password_confirmation" v-model="password_confirmation" class="form-control">
+                        <p class="text-danger" v-if="errors.password_confirmation">{{ errors.password_confirmation[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="old_password">Huidig wachtwoord</label>
                         <input type="password" name="old_password" id="old_password" v-model="old_password" class="form-control">
+                        <p class="text-danger" v-if="errors.old_password">{{ errors.old_password[0] }}</p>
                     </div>
                     <div class="form-group pull-right">
                         <button v-if="updating_password" class="btn btn-warning" disabled>Wijzigen... <i class="fa fa-spin fa-spinner"></i></button>
@@ -68,6 +75,7 @@
                 password_confirmation: '',
                 old_password: '',
                 updating_password: false,
+                errors: [],
             }
         },
 

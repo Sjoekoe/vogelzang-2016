@@ -62,15 +62,19 @@
                     <div class="form-group">
                         <label for="title">Titel</label>
                         <input type="text" name="title" id="title" v-model="title" class="form-control" placeholder="Onderwerp">
+                        <p class="text-danger" v-if="errors.title">{{ errors.title[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="message">Bericht</label>
                         <textarea name="message" id="message" cols="30" rows="10" class="form-control" v-model="message" placeholder="Bericht..."></textarea>
+                        <p class="text-danger" v-if="errors.message">{{ errors.message[0] }}</p>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
-                    <button class="btn btn-success" @click="createMessage()">Opslaan</button>
+
+                    <button class="btn btn-success" disabled v-if="creating">Opslaan... <i class="fa fa-spin fa-spinner"></i></button>
+                    <button class="btn btn-success" @click="createMessage()" v-else>Opslaan</button>
                 </div>
             </div>
         </div>
@@ -106,7 +110,8 @@
                 message: '',
                 creating: false,
                 success: false,
-                token: window.vogelzang.auth.jwt
+                token: window.vogelzang.auth.jwt,
+                errors: [],
             }
         },
 
@@ -169,7 +174,7 @@
                     }.bind(vm),
                     error: function (errors) {
                         vm.errors = errors.responseJSON.errors;
-                        vm.sending = false;
+                        vm.creating = false;
                     }.bind(vm)
                 })
             },

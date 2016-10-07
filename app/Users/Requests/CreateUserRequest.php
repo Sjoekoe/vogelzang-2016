@@ -2,7 +2,7 @@
 namespace App\Users\Requests;
 
 use App\Users\User;
-use Illuminate\Foundation\Http\FormRequest;
+use Dingo\Api\Http\FormRequest;
 
 class CreateUserRequest extends FormRequest
 {

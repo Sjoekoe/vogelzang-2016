@@ -47,6 +47,7 @@
                     <div class="form-group">
                         <label for="body" class="control-label">Bericht</label>
                         <textarea name="body" id="body" cols="30" rows="10" v-model="body" class="form-control"></textarea>
+                        <p class="text-danger" v-if="errors.body">{{ errors.body[0] }}</p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -87,7 +88,8 @@
                 creating: false,
                 body: '',
                 token: window.vogelzang.auth.jwt,
-                announcementToRemove: ''
+                announcementToRemove: '',
+                errors: [],
             }
         },
 
@@ -124,7 +126,7 @@
                     }.bind(vm),
                     error: function(errors) {
                         vm.errors = errors.responseJSON.errors;
-                        vm.sending = false;
+                        vm.creating = false;
                     }.bind(vm)
                 })
             },

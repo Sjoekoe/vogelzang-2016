@@ -143,11 +143,13 @@
                     <div class="form-group">
                         <label for="date" class="control-label">Datum</label>
                         <input v-model="date" id="date" type="text" class="default-date-picker form-control" name="date" placeholder="datum">
+                        <p class="text-danger" v-if="errors.date">{{ errors.date[0] }}</p>
                     </div>
 
                     <div class="form-group">
                         <label for="time" class="control-label">Uur</label>
                         <input v-model="time" type="text" class="timepicker form-control" name="time" placeholder="Uur">
+                        <p class="text-danger" v-if="errors.time">{{ errors.time[0] }}</p>
                     </div>
 
                     <div class="form-group">
@@ -176,6 +178,7 @@
                     <div class="form-group">
                         <label for="limit" class="control-label">Limiet</label>
                         <input v-model="limit" type="number" name="limit" class="form-control" placeholder="Limiet">
+                        <p class="text-danger" v-if="errors.limit">{{ errors.limit[0] }}</p>
                     </div>
 
                     <div class="form-group">
@@ -204,11 +207,13 @@
                     <div class="form-group">
                         <label for="date" class="control-label">Datum</label>
                         <input v-model="date" type="text" class="default-date-picker form-control" name="date" placeholder="datum">
+                        <p class="text-danger" v-if="errors.date">{{ errors.date[0] }}</p>
                     </div>
 
                     <div class="form-group">
                         <label for="time" class="control-label">Uur</label>
                         <input v-model="time" type="text" class="timepicker form-control" name="time" placeholder="Uur">
+                        <p class="text-danger" v-if="errors.time">{{ errors.time[0] }}</p>
                     </div>
 
                     <div class="form-group">
@@ -237,6 +242,7 @@
                     <div class="form-group">
                         <label for="limit" class="control-label">Limiet</label>
                         <input v-model="limit" type="number" name="limit" id="limit" class="form-control" placeholder="Limiet">
+                        <p class="text-danger" v-if="errors.limit">{{ errors.limit[0] }}</p>
                     </div>
 
                     <div class="form-group">

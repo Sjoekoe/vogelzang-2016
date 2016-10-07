@@ -111,22 +111,27 @@
                     <div class="form-group">
                         <label for="username">Gebruikersnaam</label>
                         <input type="text" name="username" id="username" v-model="username" class="form-control" placeholder="Gebruikersnaam">
+                        <p class="text-danger" v-if="errors.username">{{ errors.username[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="first_name">Voornaam</label>
                         <input type="text" name="first_name" id="first_name" v-model="first_name" class="form-control" placeholder="Voornaam">
+                        <p class="text-danger" v-if="errors.first_name">{{ errors.first_name[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="last_name">Achternaam</label>
                         <input type="text" name="last_name" id="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
+                        <p class="text-danger" v-if="errors.last_name">{{ errors.last_name[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="phone">Telefoon</label>
                         <input type="text" id="phone" name="phone" v-model="phone" class="form-control" placeholder="Telefoon">
+                        <p class="text-danger" v-if="errors.phone">{{ errors.phone[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" v-model="email" class="form-control" placeholder="Email">
+                        <p class="text-danger" v-if="errors.email">{{ errors.email[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="level_id">Rol</label>
@@ -158,22 +163,27 @@
                     <div class="form-group">
                         <label for="username">Gebruikersnaam</label>
                         <input disabled type="text" name="username" v-model="username" class="form-control" placeholder="Gebruikersnaam">
+                        <p class="text-danger" v-if="errors.username">{{ errors.username[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="first_name">Voornaam</label>
                         <input type="text" name="first_name" v-model="first_name" class="form-control" placeholder="Voornaam">
+                        <p class="text-danger" v-if="errors.first_name">{{ errors.first_name[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="last_name">Achternaam</label>
                         <input type="text" name="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
+                        <p class="text-danger" v-if="errors.last_name">{{ errors.last_name[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="phone">Telefoon</label>
                         <input type="text" name="phone" v-model="phone" class="form-control" placeholder="Telefoon">
+                        <p class="text-danger" v-if="errors.phone">{{ errors.phone[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" name="email" v-model="email" class="form-control" placeholder="Email">
+                        <p class="text-danger" v-if="errors.email">{{ errors.email[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="level_id">Rol</label>
@@ -216,6 +226,7 @@
                 query: '',
                 resetting: false,
                 userToEdit: '',
+                errors: [],
             }
         },
 
@@ -300,7 +311,7 @@
                     }.bind(vm),
                     error: function(errors) {
                         vm.errors = errors.responseJSON.errors;
-                        vm.sending = false;
+                        vm.creating = false;
                     }.bind(vm)
                 })
             },
@@ -402,7 +413,7 @@
                     }.bind(vm),
                     error: function(errors) {
                         vm.errors = errors.responseJSON.errors;
-                        vm.sending = false;
+                        vm.creating = false;
                     }.bind(vm)
                 })
             }

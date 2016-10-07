@@ -1,7 +1,7 @@
 <?php
 namespace App\Articles\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Dingo\Api\Http\FormRequest;
 
 class StoreArticleRequest extends FormRequest
 {

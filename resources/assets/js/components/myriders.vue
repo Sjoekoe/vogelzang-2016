@@ -43,10 +43,12 @@
                     <div class="form-group">
                         <label for="first_name" class="control-label">Voornaam</label>
                         <input type="text" name="first_name" id="first_name" v-model="first_name" class="form-control" placeholder="Voornaam">
+                        <p class="text-danger" v-if="errors.first_name">{{ errors.first_name[0] }}</p>
                     </div>
                     <div class="form-group">
                         <label for="last_name" class="control-label">Achternaam</label>
                         <input type="text" name="last_name" id="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
+                        <p class="text-danger" v-if="errors.last_name">{{ errors.last_name[0] }}</p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -72,6 +74,7 @@
                 last_name: '',
                 creating: false,
                 token: window.vogelzang.auth.jwt,
+                errors: [],
             }
         },
 
@@ -119,6 +122,10 @@
                         $("body").removeClass("modal-open");
                         $('.modal-backdrop').removeClass('in');
 
+                        vm.creating = false;
+                    }.bind(vm),
+                    error: function(errors) {
+                        vm.errors = errors.responseJSON.errors;
                         vm.creating = false;
                     }.bind(vm)
                 })
