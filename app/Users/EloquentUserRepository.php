@@ -30,7 +30,8 @@ class EloquentUserRepository implements UserRepository
             $query = $query->where(function($query) use ($q) {
                 $query->where('first_name', 'LIKE', '%' . $q . '%')
                     ->orWhere('username', 'LIKE', '%' . $q . '%')
-                    ->orWhere('last_name', 'LIKE', '%' . $q . '%');
+                    ->orWhere('last_name', 'LIKE', '%' . $q . '%')
+                    ->orWhere('email', 'LIKE', '%' . $q . '%');
             });
         }
 

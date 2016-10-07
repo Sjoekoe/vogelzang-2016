@@ -79,6 +79,7 @@ class EloquentRiderRepository implements RiderRepository
         $rider->firstname = $values['first_name'];
         $rider->lastname = $values['last_name'];
         $rider->user_id = $user->id();
+        $rider->birth_day = Carbon::createFromFormat('d-m-Y', $values['birth_day']);
 
         $rider->save();
 

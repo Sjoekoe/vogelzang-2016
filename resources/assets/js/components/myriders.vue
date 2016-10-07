@@ -50,6 +50,11 @@
                         <input type="text" name="last_name" id="last_name" v-model="last_name" class="form-control" placeholder="Achternaam">
                         <p class="text-danger" v-if="errors.last_name">{{ errors.last_name[0] }}</p>
                     </div>
+                    <div class="form-group">
+                        <label for="birth_day" class="control-label">Geboorte datum</label>
+                        <input type="text" name="birth_day" id="birth_day" v-model="birth_day" class="form-control default-date-picker" placeholder="Geboortedatum">
+                        <p class="text-danger" v-if="errors.birth_day">{{ errors.birth_day[0] }}</p>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
@@ -72,6 +77,7 @@
                 user_id: window.vogelzang.auth.user.id,
                 first_name: '',
                 last_name: '',
+                birth_day: '',
                 creating: false,
                 token: window.vogelzang.auth.jwt,
                 errors: [],
@@ -104,6 +110,7 @@
                 var data = {
                     "first_name": this.first_name,
                     "last_name": this.last_name,
+                    "birth_day": this.birth_day,
                 };
 
                 var vm = this;

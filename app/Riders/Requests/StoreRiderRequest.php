@@ -21,6 +21,7 @@ class StoreRiderRequest extends FormRequest
         return [
             'first_name' => 'required',
             'last_name' => 'required',
+            'birth_day' => 'required|date_format:d-m-Y'
         ];
     }
 }
