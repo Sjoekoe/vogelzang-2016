@@ -87,6 +87,22 @@ class EloquentRiderRepository implements RiderRepository
     }
 
     /**
+     * @param \App\Riders\Rider $rider
+     * @param array $values
+     * @return \App\Riders\Rider
+     */
+    public function update(Rider $rider, array $values)
+    {
+        $rider->firstname = $values['first_name'];
+        $rider->lastname = $values['last_name'];
+        $rider->birth_day = Carbon::createFromFormat('d-m-Y', $values['birth_day']);
+
+        $rider->save();
+
+        return $rider;
+    }
+
+    /**
      * @return \App\Riders\Rider[]
      */
     public function findByBirthday()

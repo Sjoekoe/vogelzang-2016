@@ -37,6 +37,13 @@ interface RiderRepository
     public function create(User $user, array $values);
 
     /**
+     * @param \App\Riders\Rider $rider
+     * @param array $values
+     * @return \App\Riders\Rider
+     */
+    public function update(Rider $rider, array $values);
+
+    /**
      * @return \App\Riders\Rider[]
      */
     public function findByBirthday();

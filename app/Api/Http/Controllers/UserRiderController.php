@@ -4,6 +4,7 @@ namespace App\Api\Http\Controllers;
 use App\Api\Http\Controller;
 use App\Api\Riders\RiderTransformer;
 use App\Riders\Requests\StoreRiderRequest;
+use App\Riders\Rider;
 use App\Riders\RiderRepository;
 use App\Users\User;
 
@@ -29,6 +30,13 @@ class UserRiderController extends Controller
     public function store(StoreRiderRequest $request)
     {
         $rider = $this->riders->create($this->auth()->user(), $request->all());
+
+        return $this->response()->item($rider, new RiderTransformer());
+    }
+
+    public function update(StoreRiderRequest $request, User $user, Rider $rider)
+    {
+        $rider = $this->riders->update($rider, $request->all());
 
         return $this->response()->item($rider, new RiderTransformer());
     }

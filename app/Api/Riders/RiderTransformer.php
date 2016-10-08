@@ -31,6 +31,7 @@ class RiderTransformer extends TransformerAbstract
             'first_name' => $rider->firstName(),
             'last_name' => $rider->lastName(),
             'birth_day' => $rider->birthDay()->format('d F'),
+            'normal_formatted_birthday' => $rider->birthDay()->format('d-m-Y'),
             'age' => $rider->age(),
             'is_celebrating' => $rider->birthDay()->format('d-m') == Carbon::now()->format('d-m') ? true : false,
         ];
