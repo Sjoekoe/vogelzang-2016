@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-md-12" v-for="rider in riders">
+        <div class="{{ class }}" v-for="rider in riders">
             <section class="panel">
                 <header class="panel-heading">
                     Toekomstige lessen voor <b>{{ rider.first_name }} {{ rider.last_name }}</b>
@@ -41,12 +41,20 @@
             return {
                 riders: [],
                 user_id: window.vogelzang.auth.user.id,
+                class: 'col-md-12',
             }
         },
 
         ready: function() {
             $.getJSON('/api/users/' + this.user_id + '/riders?include=rosterRelation' , function(riders) {
                 this.riders = riders.data;
+                var length = (12 / riders.data.length);
+
+                if (length < 4) {
+                    length = 4;
+                }
+
+                this.class = 'col-md-' + length;
             }.bind(this));
         },
 
