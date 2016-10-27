@@ -45,7 +45,7 @@ class UserController extends Controller
     {
         $user = $this->users->create($request->all());
 
-        $response = $this->newsletter->subscribe($request->get('email'));
+        $this->newsletter->subscribe($request->get('email'));
 
         $user->notify(new UserCreated());
 
