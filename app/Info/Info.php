@@ -1,7 +1,7 @@
 <?php
 namespace App\Info;
 
-use App\JWT\TokenGenerator;
+use App\Jwt\TokenGenerator;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Contracts\Config\Repository as Config;
 use Illuminate\Contracts\Support\Jsonable;
@@ -15,7 +15,7 @@ class Info implements Jsonable
     private $auth;
 
     /**
-     * @var \App\JWT\TokenGenerator
+     * @var \App\Jwt\TokenGenerator
      */
     private $jwt;
 
