@@ -6,6 +6,7 @@ use App\Api\Http\Controller;
 use App\Contacts\Contact;
 use App\Contacts\ContactRepository;
 use App\Contacts\Requests\StoreFormEntryRequest;
+use App\Mailers\AppMailer;
 
 class FormEntryController extends Controller
 {
@@ -14,9 +15,15 @@ class FormEntryController extends Controller
      */
     private $contacts;
 
-    public function __construct(ContactRepository $contacts)
+    /**
+     * @var \App\Mailers\AppMailer
+     */
+    private $mailer;
+
+    public function __construct(ContactRepository $contacts, AppMailer $mailer)
     {
         $this->contacts = $contacts;
+        $this->mailer = $mailer;
     }
 
     public function index()
@@ -30,6 +37,8 @@ class FormEntryController extends Controller
     {
         $formEntry = $this->contacts->create($request->all());
 
+        $this->mailer->contactFormWasFilledIn($formEntry);
+
         return $this->response()->item($formEntry, new FormEntryTransformer());
     }
 
@@ -37,18 +46,18 @@ class FormEntryController extends Controller
     {
         return $this->response()->item($formEntry, new FormEntryTransformer());
     }
-    
+
     public function delete(Contact $formEntry)
     {
         $this->contacts->delete($formEntry);
-        
+
         return $this->response()->noContent();
     }
-    
+
     public function read(Contact $contact)
     {
         $contact = $this->contacts->markAsRead($contact);
-        
+
         return $this->response()->item($contact, new FormEntryTransformer());
     }
 }

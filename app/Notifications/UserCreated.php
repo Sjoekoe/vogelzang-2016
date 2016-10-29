@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
@@ -39,10 +38,11 @@ class UserCreated extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting('Beste ' . $notifiable->firstName())
-                    ->line('Welkom bij stal de vogelzang.')
-                    ->action('Log hier in', route('login'))
-                    ->line('Je kan inloggen met je email en vogelzang als wachtwoord.');
+            ->subject('Welkom bij stal de vogelzang!')
+            ->greeting('Beste ' . $notifiable->firstName())
+            ->line('Welkom bij stal de vogelzang.')
+            ->action('Log hier in', route('login'))
+            ->line('Je kan inloggen met je email en vogelzang als wachtwoord.');
     }
 
     /**
