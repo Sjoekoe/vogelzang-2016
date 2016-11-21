@@ -27,6 +27,7 @@ class UserTransformer extends TransformerAbstract
             'last_name' => $user->lastName(),
             'active' => (bool) $user->active(),
             'level' => $user->level(),
+            'created_at' => $user->createdAt()->format('d-m-Y'),
         ];
     }
 

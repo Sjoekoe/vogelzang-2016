@@ -6,3 +6,4 @@ Homestead.json
 Homestead.yaml
 .env
 .vagrant/
+.vagrant/machines/default/virtualbox/action_set_name

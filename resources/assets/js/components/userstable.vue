@@ -82,7 +82,8 @@
                     <b>Naam: </b> {{ userToShow.last_name }} <br>
                     <b>Voornaam: </b> {{ userToShow.first_name }} <br>
                     <b>Email: </b> <a href="mailto:{{ userToShow.email }}">{{ userToShow.email }}</a> <br>
-                    <b>Telefoon: </b> {{ userToShow.phone }}
+                    <b>Telefoon: </b> {{ userToShow.phone }} <br>
+                    <b>Lid sinds: </b> {{ userToShow.created_at }}
                     <br> <br>
                     <h4 class="modal-title">Ruiters</h4>
 
