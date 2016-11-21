@@ -14,13 +14,14 @@ Route::get('riders', ['as' => 'riders.index', 'uses' => 'RiderController@index']
 Route::get('messages', ['as' => 'messages.index', 'uses' => 'MessageController@index']);
 Route::get('users', ['as' => 'users.index', 'uses' => 'UserController@index']);
 Route::get('announcements', ['as' => 'announcements.index', 'uses' => 'AnnouncementController@index']);
+Route::get('veelgestelde-vragen', ['as' => 'faq.index', 'uses' => 'FaqController@index']);
 
 Route::get('articles', ['as' => 'news.index', 'uses' => 'NewsController@index']);
 Route::get('rosters', ['as' => 'rosters.index', 'uses' => 'RosterController@index']);
 Route::get('setting', ['as' => 'setting.index', 'uses' => 'SettingController@index']);
 
-Route::get('news', ['as' => 'articles.index', 'uses' => 'ArticleController@index']);
-Route::get('news/{article}', ['as' => 'articles.show', 'uses' => 'ArticleController@show']);
+Route::get('nieuws', ['as' => 'articles.index', 'uses' => 'ArticleController@index']);
+Route::get('nieuws/{article}', ['as' => 'articles.show', 'uses' => 'ArticleController@show']);
 
 Route::get('/sitemap', function() {
     $file = public_path() .  '/download/sitemap.xml';  // <- Replace with the path to your .xml file

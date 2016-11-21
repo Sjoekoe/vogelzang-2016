@@ -2,20 +2,21 @@
 
 @section('content')
     <section>
-        <div id="blog-head" data-stellar-background-ratio="0" style="background-position: 50% 0%;">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-md-8">
-                        <div class="head-title">
-                            <h2 class="head-blog-title">Nieuws</h2>
-                            <h4 class="head-blog-subtitle">Het laatste nieuws over en voor de vogelzangers.</h4>
-                        </div> <!-- end subsection-text -->
-                    </div> <!-- end col-md-8 -->
-
-                </div> <!-- end row -->
-            </div> <!-- end container -->
-        </div>
+        <div id="hero-section" class="home-hero-2" data-stellar-background-ratio="0" style="background: url({{ asset('images/bg_image.jpg') }} ) no-repeat center center fixed;">
+            <div class="hero-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <div class="hero-text">
+                                <h1>Nieuws</h1>
+                                <div class="div-line"></div>
+                                <p class="hero">Het laatste nieuws over en voor de vogelzangers.</p>
+                            </div>
+                        </div> <!-- end col-md-6 -->
+                    </div> <!-- end row -->
+                </div> <!-- End container -->
+            </div> <!-- End hero-content -->
+        </div> <!-- End hero-section -->
     </section>
 
     <section>
@@ -27,20 +28,17 @@
                     @foreach ($articles as $article)
                         <!-- Blog post -->
                         <article class="blog-post">
-                            <div class="blog-media">
-                                <img src="{{ asset('/images/items/random/' . rand(0, 8) . '.jpg') }}" alt="" width="600px">
-                            </div> <!-- end blog-media -->
                             <div class="blog-item-body">
-                                <h3 class="entry-title p-name"><a href="post-image.html" class="u-url">{{ $article->title() }}</a></h3>
+                                <h3 class="entry-title p-name">{{ $article->title() }}</h3>
 
                                 <div class="blog-entry-meta">
-                                    <a href="#"><i class="fa fa-clock-o"></i> {{ $article->createdAt('d M') }}</a>
+                                    <i class="fa fa-clock-o"></i> {{ $article->createdAt('d M') }}
                                     <span class="separator">&nbsp;</span>
-                                    <a href="#"><i class="fa fa-user"></i> {{ $article->author()->username() }}</a>
+                                    <i class="fa fa-user"></i> {{ $article->author()->username() }}
                                 </div>
 
                                 <div class="blog-entry-body">
-                                    <p>{!! $article->message() !!}</p>
+                                    <p>{!! nl2br($article->message()) !!}</p>
                                 </div>
                             </div> <!-- end blog-item-body -->
                         </article>

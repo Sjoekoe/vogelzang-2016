@@ -26,6 +26,7 @@ Vue.component('announcements', require('./components/announcements.vue'));
 Vue.component('adminannouncementstable', require('./components/adminannouncements.vue'));
 Vue.component('my-riderstable', require('./components/myriders.vue'));
 Vue.component('birthdaytable', require('./components/birthdaytable.vue'));
+Vue.component('faqtable', require('./components/faqtable.vue'));
 
 const app = new Vue({
     el: 'body',

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Faqs\FaqRepository;
 use App\Riders\RiderRepository;
 use App\Rosters\RosterRepository;
 use App\Subscriptions\SubscriptionRepository;
@@ -22,14 +23,21 @@ class HomeController extends Controller
      */
     private $subscriptions;
 
+    /**
+     * @var \App\Faqs\FaqRepository
+     */
+    private $faqs;
+
     public function __construct(
         RiderRepository $riders,
         RosterRepository $rosters,
-        SubscriptionRepository $subscriptions
+        SubscriptionRepository $subscriptions,
+        FaqRepository $faqs
     ) {
         $this->riders = $riders;
         $this->rosters = $rosters;
         $this->subscriptions = $subscriptions;
+        $this->faqs = $faqs;
     }
 
     public function index()
@@ -49,7 +57,9 @@ class HomeController extends Controller
 
     public function faq()
     {
-        return view('home.faq');
+        $faqs = $this->faqs->all();
+
+        return view('home.faq', compact('faqs'));
     }
 
     public function about()

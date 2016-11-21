@@ -22,58 +22,20 @@
     <section>
         <div id="about-team" class="pad-t-100">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom: 30px;">
-                        <div class="title-section">
-                            <h3>Hoe oud moet ik zijn?</h3>
-                        </div>
-                        <p>
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-                        </p>
-                    </div> <!-- end col-md-6 -->
-                    <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom: 30px;">
-                        <div class="title-section">
-                            <h3>Is het dragen van paardrij kledij verplicht?</h3>
-                        </div>
-                        <p>
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-                        </p>
-                    </div> <!-- end col-md-6 -->
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom: 30px;">
-                        <div class="title-section">
-                            <h3>Kan ik zelf mijn pony kiezen?</h3>
-                        </div>
-                        <p>
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-                        </p>
-                    </div> <!-- end col-md-6 -->
-                    <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom: 30px;">
-                        <div class="title-section">
-                            <h3>Hoeveel kost het huren van een stal?</h3>
-                        </div>
-                        <p>
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-                        </p>
-                    </div> <!-- end col-md-6 -->
-                    <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom: 30px;">
-                        <div class="title-section">
-                            <h3>Wanneer moet ik aanwezig zijn voor mijn les.</h3>
-                        </div>
-                        <p>
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-                        </p>
-                    </div> <!-- end col-md-6 -->
-                    <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom: 30px;">
-                        <div class="title-section">
-                            <h3>Kan ik ook een paard / pony huren?</h3>
-                        </div>
-                        <p>
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-                        </p>
-                    </div> <!-- end col-md-6 -->
-                </div> <!-- end row -->
+                @foreach($faqs->chunk(2) as $faqChunk)
+                    <div class="row">
+                        @foreach($faqChunk as $faq)
+                            <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom: 30px;">
+                                <div class="title-section">
+                                    <h3>{{ $faq->title() }}</h3>
+                                </div>
+                                <p>
+                                    {!! $faq->content() !!}
+                                </p>
+                            </div> <!-- end col-md-6 -->
+                        @endforeach
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

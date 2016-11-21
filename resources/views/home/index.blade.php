@@ -32,15 +32,15 @@
     <section>
         <div id="about-section" class="clearfix pad-sec">
             <div class="container">
-                <div class="title-section big-title-sec animated out" data-animation="fadeInUp" data-delay="0">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <p class="about-text">
-                                In het midden van het waasland in het kleine Heiende, ligt bla bla bla, ik heb geen inspiratie voor een verdere teks momenteel
-                            </p>
-                        </div>
-                    </div> <!-- End row -->
-                </div> <!-- end title-section -->
+                {{--<div class="title-section big-title-sec animated out" data-animation="fadeInUp" data-delay="0">--}}
+                    {{--<div class="row">--}}
+                        {{--<div class="col-sm-8 col-sm-offset-2">--}}
+                            {{--<p class="about-text">--}}
+                                {{--In het midden van het waasland in het kleine Heiende, ligt bla bla bla, ik heb geen inspiratie voor een verdere teks momenteel--}}
+                            {{--</p>--}}
+                        {{--</div>--}}
+                    {{--</div> <!-- End row -->--}}
+                {{--</div> <!-- end title-section -->--}}
 
                 <div class="about-boxes">
                     <div class="row">

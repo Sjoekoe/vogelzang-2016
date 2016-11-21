@@ -71,6 +71,12 @@
                             <span>Aankondigingen</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('faq.index') }}">
+                            <i class="fa fa-question"></i>
+                            <span>Veelgestelde vragen</span>
+                        </a>
+                    </li>
                 @endif
                 <li>
                     <a href="{{ route('setting.index') }}">

@@ -71,6 +71,12 @@ $api->version('v1', function (Router $api) {
             $api->post('/{form_entry}/read', ['as' => 'formentries.read', 'uses' => 'FormEntryController@read']);
         });
 
+        $api->group(['prefix' => 'faqs', 'as' => 'faqs.'], function (Router $api) {
+            $api->get('/', ['as' => 'index', 'uses' => 'FaqController@index']);
+            $api->post('/', ['as' => 'store', 'uses' => 'FaqController@store']);
+            $api->delete('/{faq}', ['as' => 'delete', 'uses' => 'FaqController@delete']);
+        });
+
         $api->group(['prefix' => 'announcements', 'as' => 'announcements.'], function (Router $api) {
             $api->get('/', ['as' => 'index', 'uses' => 'AnnouncementController@index']);
         });

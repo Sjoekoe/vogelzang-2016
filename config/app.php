@@ -186,6 +186,7 @@ return [
         App\Articles\ArticleServiceProvider::class,
         App\Contacts\ContactServiceProvider::class,
         App\Factories\ModelFactoryServiceProvider::class,
+        App\Faqs\FaqServiceProvider::class,
         App\Jwt\JwtServiceProvider::class,
         App\Pictures\PictureServiceProvider::class,
         App\Riders\RiderServiceProvider::class,
