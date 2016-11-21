@@ -14,11 +14,11 @@
     <meta name="author" content="Hans Jonckers" />
 
     <!-- Facebook and Twitter integration -->
-    <meta property="og:title" content=""/>
-    <meta property="og:image" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:site_name" content=""/>
-    <meta property="og:description" content=""/>
+    <meta property="og:title" content="Stal de vogelzang"/>
+    <meta property="og:image" content="{{ asset('images/bg_image.jpg') }}"/>
+    <meta property="og:url" content="{{ Request::url() }}"/>
+    <meta property="og:site_name" content="Stal de vogelzang"/>
+    <meta property="og:description" content="Waar paardrijden puur genot is."/>
     <meta name="twitter:title" content="" />
     <meta name="twitter:image" content="" />
     <meta name="twitter:url" content="" />
