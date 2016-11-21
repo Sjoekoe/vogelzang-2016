@@ -11,7 +11,7 @@
             </span>
         </header>
         <div class="panel-body">
-            <table class="table  table-hover general-table table-striped">
+            <table class="table table-hover general-table table-striped table-responsive">
                 <thead>
                 <tr>
                     <th>Datum</th>
@@ -341,7 +341,7 @@
                 this.type = roster.type_not_formatted;
                 this.description = roster.description;
             },
-
+            
             createRoster: function() {
                 this.creating = true;
 
