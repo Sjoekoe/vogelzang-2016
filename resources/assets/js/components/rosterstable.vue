@@ -109,7 +109,6 @@
                 </div>
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-default" type="button">Sluiten</button>
-                    <button v-if="is_admin" class="btn btn-info"><i class="fa fa-print"></i> Afdrukken</button>
                 </div>
             </div>
         </div>
