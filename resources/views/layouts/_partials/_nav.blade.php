@@ -27,7 +27,7 @@
                     <li class="{{ Request::is('accommodatie') ? 'active' : '' }}">
                         <a href="{{ route('accommodatie') }}">Stallingen</a>
                     </li>
-                    <li class="{{ Request::is('news') ? 'active' : '' }}">
+                    <li class="{{ Request::is('nieuws') ? 'active' : '' }}">
                         <a href="{{ route('articles.index') }}">Nieuws</a>
                     </li>
                     <li class="{{ Request::is('faq') ? 'active' : '' }}">
