@@ -88,13 +88,13 @@
                             <b>{{ rider.first_name }} {{ rider.last_name }}</b>
                             <span class="pull-right">
 
-                            <span class="btn btn-success btn-xs clickable-span" v-if="riderSubscribedToRoster(rider, rosterToShow)" @click="unSubscribeRider(rider, rosterToShow)">
-                                <i class="fa fa-check-square-o"></i>
+                            <span class="btn btn-warning btn-xs clickable-span" v-if="riderSubscribedToRoster(rider, rosterToShow)" @click="unSubscribeRider(rider, rosterToShow)">
+                                Uitschrijven
                             </span>
 
 
                             <span v-else class="btn btn-success btn-xs clickable-span" @click="subscribeRider(rider, rosterToShow)" v-if="! rosterToShow.limit_reached">
-                                <i class="fa fa-square-o"></i>
+                                Inschrijven
                             </span>
                         </span>
                         </div>
@@ -341,7 +341,7 @@
                 this.type = roster.type_not_formatted;
                 this.description = roster.description;
             },
-            
+
             createRoster: function() {
                 this.creating = true;
 
