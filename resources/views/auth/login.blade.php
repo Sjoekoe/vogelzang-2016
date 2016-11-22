@@ -6,14 +6,17 @@
         <h2 class="form-signin-heading">Inloggen</h2>
         <div class="login-wrap">
             <div class="user-login-info">
-                <input type="text" name="username" class="form-control" placeholder="Gebruikernaam" autofocus>
+                <input type="text" name="username" class="form-control" placeholder="Gebruikersnaam of Email" autofocus>
+                @if ($errors->has('username'))
+                    <span id="username" class="text-danger">{{ $errors->first('username') }}</span>
+                @endif
                 <input type="password" name="password" class="form-control" placeholder="Wachtwoord">
             </div>
-            <label class="checkbox">
-                <span class="pull-right">
-                    <a data-toggle="modal" href="#myModal"> Wachtwoord vergeten?</a>
-                </span>
-            </label>
+            {{--<label class="checkbox">--}}
+                {{--<span class="pull-right">--}}
+                    {{--<a data-toggle="modal" href="#myModal"> Wachtwoord vergeten?</a>--}}
+                {{--</span>--}}
+            {{--</label>--}}
             <button class="btn btn-lg btn-login btn-block" type="submit">Log in</button>
         </div>
 

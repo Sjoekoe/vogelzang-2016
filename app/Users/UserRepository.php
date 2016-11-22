@@ -30,6 +30,12 @@ interface UserRepository
     public function find($id);
 
     /**
+     * @param string $login
+     * @return \App\Users\User|null
+     */
+    public function findByUsernameOrEmail($login);
+
+    /**
      * @param \App\Users\User $user
      */
     public function delete(User $user);

@@ -55,7 +55,7 @@ class EloquentUserRepository implements UserRepository
         $user->code = Str::random(30);
         $user->remember_token = '';
         $user->level_id = $values['level_id'];
-        $user->active = false;
+        $user->active = true;
 
         $user->save();
 
@@ -88,6 +88,18 @@ class EloquentUserRepository implements UserRepository
     {
         return $this->user
             ->where('id', $id)
+            ->first();
+    }
+
+    /**
+     * @param string $login
+     * @return \App\Users\User|null
+     */
+    public function findByUsernameOrEmail($login)
+    {
+        return $this->user
+            ->where('email', $login)
+            ->orWhere('username', $login)
             ->first();
     }
 

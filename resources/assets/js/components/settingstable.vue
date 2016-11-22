@@ -24,6 +24,11 @@
                         <input type="email" name="email" id="email" class="form-control" v-model="email">
                         <p class="text-danger" v-if="errors.email">{{ errors.email[0] }}</p>
                     </div>
+                    <div class="form-group">
+                        <label for="phone">Telefoon</label>
+                        <input type="phone" name="phone" id="phone" class="form-control" v-model="phone">
+                        <p class="text-danger" v-if="errors.phone">{{ errors.phone[0] }}</p>
+                    </div>
                     <div class="form-group pull-right">
                         <button v-if="updating" class="btn btn-success" disabled>Opslaan... <i class="fa fa-spin fa-spinner"></i></button>
                         <button v-else class="btn btn-success" @click="updateUser()">Opslaan</button>
@@ -69,6 +74,7 @@
                 last_name: '',
                 email: '',
                 username: '',
+                phone: '',
                 updating: false,
                 errors: [],
                 password: '',
@@ -86,6 +92,7 @@
                 this.last_name = user.data.last_name;
                 this.email = user.data.email;
                 this.username = user.data.username;
+                this.phone = user.data.phone;
             }.bind(this));
         },
 
@@ -98,6 +105,7 @@
                     "last_name": this.last_name,
                     "email": this.email,
                     "username": this.username,
+                    "phone": this.phone,
                 }
 
                 var vm = this;
