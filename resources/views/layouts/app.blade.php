@@ -56,7 +56,7 @@
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2">
                             <p class="copyright">
-                                &copy; {{ date('Y') }} Stal de vogelzang
+                                &copy; {{ date('Y') }} Stal de vogelzang - Images by <a href="https://www.flickr.com/photos/linaheirwegh/" target="_blank">Lina</a>
                             </p>
                         </div> <!-- End col-sm-8 -->
                     </div> <!-- End row -->

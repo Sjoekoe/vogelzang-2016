@@ -104,7 +104,7 @@
 
                     <div class="col-md-6">
                         <div class="features-image animated fadeInUp in" data-animation="fadeInUp" data-delay="0">
-                            <img src="{{ asset('images/wasplaats.png') }}" alt="">
+                            <img src="{{ asset('images/correke.jpg') }}" height="500" alt="">
                         </div> <!-- end features-image -->
                     </div> <!-- end col-md-6 -->
 
