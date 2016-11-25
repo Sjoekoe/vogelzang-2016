@@ -97,7 +97,7 @@ class EloquentRoster extends Model implements Roster
      */
     public function canStillBeCanceled()
     {
-        if (Carbon::now()->addHours(12) > $this->date()) {
+        if (Carbon::now()->addHours(2) > $this->date()) {
             return false;
         }
 

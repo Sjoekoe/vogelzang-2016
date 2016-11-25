@@ -29,7 +29,7 @@
                     <td>{{ roster.type }}</td>
                     <td>{{ roster.level }}</td>
                     <td>{{ roster.subscriptionRelation.data.length }} / {{ roster.limit }}</td>
-                    <td>
+                    <td class="buttons-cell">
                         <a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#showRoster" @click="setRosterToShow(roster)">
                             <i class="fa fa-eye"></i>
                         </a>
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="alert alert-warning" v-if="! rosterToShow.can_be_canceled">
-                        De les vindt plaats in minder dan 12 uur. Om in te schrijven of te annuleren, gelieve contact op te nemen met de vogelzang.
+                        De les vindt plaats in minder dan 2 uur. Om in te schrijven of te annuleren, gelieve contact op te nemen met de vogelzang.
                     </div>
                     <div class="alert alert-info" v-if="rosterToShow.limit_reached">
                         De limiet voor deze les is bereikt.

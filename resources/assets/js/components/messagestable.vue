@@ -20,7 +20,7 @@
                         <td>{{ message.email }}</td>
                         <td>{{ message.subject }}</td>
                         <td>{{ message.created_at}}</td>
-                        <td>
+                        <td class="buttons-cell">
                             <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#showMessage" @click="fillModalData(message)">
                                 <i class="fa fa-eye"></i>
                             </a>

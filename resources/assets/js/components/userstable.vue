@@ -30,7 +30,7 @@
                     <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
                     <td>{{ user.phone }}</td>
                     <td><i v-bind:class="{ 'fa fa-check text-success' : user.active, 'fa fa-remove text-danger' : ! user.active }"></i></td>
-                    <td>
+                    <td class="buttons-cell">
                         <a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#showUser" @click="setUserToShow(user)">
                             <i class="fa fa-eye"></i>
                         </a>
@@ -87,8 +87,10 @@
                     <br> <br>
                     <h4 class="modal-title">Ruiters</h4>
 
-                    <div v-for="rider in userToShow.riderRelation.data">
-                        <b>Naam:</b> {{ rider.first_name }} {{ rider.last_name}}
+                    <div v-if="! userToShow == ''">
+                        <div v-for="rider in userToShow.riderRelation.data">
+                            <b>Naam:</b> {{ rider.first_name }} {{ rider.last_name}}
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

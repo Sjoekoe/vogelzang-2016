@@ -5561,4 +5561,7 @@ tr.highlight {
 .datepicker {
   z-index: 1151 !important; }
 
+td.buttons-cell a {
+  margin-right: 5px; }
+
 /*# sourceMappingURL=bucket.css.map */

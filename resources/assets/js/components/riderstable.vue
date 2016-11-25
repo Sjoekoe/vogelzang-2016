@@ -21,7 +21,7 @@
                         <td>{{ rider.first_name }}</td>
                         <td>{{ rider.last_name }}</td>
                         <td>{{ rider.age }}</td>
-                        <td>
+                        <td class="buttons-cell">
                             <a href="#" class="btn btn-info btn-xs" @click="setRiderToShow(rider)" data-toggle="modal" data-target="#showRider">
                                 <i class="fa fa-eye"></i>
                             </a>
@@ -40,7 +40,7 @@
 
     <div class="modal fade" id="showRider" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" v-if="! riderToShow == ''">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">{{ riderToShow.first_name }}  {{ riderToShow.last_name}}</h4>
