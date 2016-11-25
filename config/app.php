@@ -189,6 +189,7 @@ return [
         App\Faqs\FaqServiceProvider::class,
         App\Jwt\JwtServiceProvider::class,
         App\Pictures\PictureServiceProvider::class,
+        App\Reservations\ReservationServiceProvider::class,
         App\Riders\RiderServiceProvider::class,
         App\Rosters\RosterServiceProvider::class,
         App\Subscriptions\SubscriptionServiceProvider::class,
