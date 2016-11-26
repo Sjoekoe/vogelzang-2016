@@ -37,6 +37,10 @@ $api->version('v1', function (Router $api) {
             });
         });
 
+        $api->group(['prefix' => 'reservations', 'as' => 'reservations.'], function (Router $api) {
+            $api->get('/', ['as' => 'index', 'uses' => 'ReservationController@index']);
+        });
+
         $api->group(['prefix' => 'users'], function (Router $api) {
             $api->get('/', ['as' => 'users.index', 'uses' => 'UserController@index']);
             $api->post('/', ['as' => 'users.store', 'uses' => 'UserController@store']);

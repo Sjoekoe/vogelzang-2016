@@ -24,6 +24,14 @@ class EloquentReservation extends Model implements Reservation
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function userRelation()
+    {
+        return $this->belongsTo(EloquentUser::class, 'user_id', 'id');
+    }
+
+    /**
      * @return \Carbon\Carbon
      */
     public function start()
@@ -65,5 +73,13 @@ class EloquentReservation extends Model implements Reservation
             case self::ANDERE:
                 return 'Andere reden';
         }
+    }
+
+    /**
+     * @return int
+     */
+    public function rawType()
+    {
+        return $this->type;
     }
 }

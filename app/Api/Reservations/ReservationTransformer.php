@@ -22,10 +22,12 @@ class ReservationTransformer extends TransformerAbstract
     {
         return [
             'id' => $reservation->id(),
-            'start' => $reservation->start(),
-            'end' => $reservation->end(),
+            'start_time' => $reservation->start()->format('H:i'),
+            'end_time' => $reservation->end()->format('H:i'),
             'type' => $reservation->type(),
+            'raw_type' => $reservation->rawType(),
             'comment' => $reservation->comment(),
+            'week_day' => $reservation->start()->format('d'),
         ];
     }
 

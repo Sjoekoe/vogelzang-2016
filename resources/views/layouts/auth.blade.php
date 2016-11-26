@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/bucket.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bucket-responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
 

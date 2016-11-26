@@ -16,6 +16,7 @@ require('laravel-elixir-vue');
 elixir(mix => {
     mix.sass('style.scss')
     .sass('bucket.scss')
+    .sass('calendar.scss')
     .sass('bootstrap.scss')
        .webpack('app.js');
 });

@@ -41,6 +41,11 @@ interface Reservation
     public function type();
 
     /**
+     * @return int
+     */
+    public function rawType();
+
+    /**
      * @return \Carbon\Carbon
      */
     public function createdAt();

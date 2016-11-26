@@ -6,6 +6,8 @@
  */
 
 //require('./bootstrap');
+require('lodash');
+require('moment');
 var Vue = require('vue');
 
 /**
@@ -27,6 +29,7 @@ Vue.component('adminannouncementstable', require('./components/adminannouncement
 Vue.component('my-riderstable', require('./components/myriders.vue'));
 Vue.component('birthdaytable', require('./components/birthdaytable.vue'));
 Vue.component('faqtable', require('./components/faqtable.vue'));
+Vue.component('reservationcalendar', require('./components/reservationcalendar.vue'));
 
 const app = new Vue({
     el: 'body',

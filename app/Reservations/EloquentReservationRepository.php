@@ -1,6 +1,8 @@
 <?php
 namespace App\Reservations;
 
+use Carbon\Carbon;
+
 class EloquentReservationRepository implements ReservationRepository
 {
     /**
@@ -18,7 +20,12 @@ class EloquentReservationRepository implements ReservationRepository
      */
     public function findAll()
     {
+        $start = Carbon::now()->startOfDay();
+        $end = Carbon::now()->addWeek()->endOfDay();
+
         return $this->reservation
+            ->where('start', '>', $start)
+            ->where('end', '<', $end)
             ->orderBy('start')
             ->get();
     }
