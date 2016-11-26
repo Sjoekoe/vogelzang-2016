@@ -118,15 +118,15 @@ class EloquentUser extends Authenticatable implements User
      */
     public function isAdmin()
     {
-        return $this->level_id == 3;
+        return $this->level_id == self::ADMIN;
     }
 
     /**
      * @return bool
      */
-    public function isModerator()
+    public function isTeacher()
     {
-        return $this->level_id == self::MODERATOR;
+        return $this->level_id == self::TEACHER;
     }
 
     /**
@@ -134,7 +134,15 @@ class EloquentUser extends Authenticatable implements User
      */
     public function hasPrivileges()
     {
-        return $this->isAdmin() || $this->isModerator();
+        return $this->isAdmin() || $this->isTeacher();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOwner()
+    {
+        return $this->level_id >= self::OWNER;
     }
 
     /**

@@ -5,8 +5,9 @@ interface User
 {
     const TABLE = 'users';
 
-    const ADMIN = 3;
-    const MODERATOR = 2;
+    const ADMIN = 4;
+    const TEACHER = 3;
+    const OWNER = 2;
     const USER = 1;
 
     /**
@@ -72,12 +73,17 @@ interface User
     /**
      * @return bool
      */
-    public function isModerator();
+    public function isTeacher();
 
     /**
      * @return bool
      */
     public function hasPrivileges();
+
+    /**
+     * @return bool
+     */
+    public function isOwner();
 
     /**
      * @return \App\Riders\Rider[]

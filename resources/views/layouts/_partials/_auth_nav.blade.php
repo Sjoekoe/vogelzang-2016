@@ -38,12 +38,14 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="{{ route('reservations.index') }}">
-                        <i class="fa fa-calendar"></i>
-                        <span>Piste reserveren</span>
-                    </a>
-                </li>
+                @if (auth()->user()->isOwner())
+                    <li>
+                        <a href="{{ route('reservations.index') }}">
+                            <i class="fa fa-calendar"></i>
+                            <span>Piste reserveren</span>
+                        </a>
+                    </li>
+                @endif
 
                 @if (auth()->user()->isAdmin())
                     <li>

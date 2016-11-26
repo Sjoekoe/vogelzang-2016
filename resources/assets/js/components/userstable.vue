@@ -140,8 +140,9 @@
                         <label for="level_id">Rol</label>
                         <select name="level_id" id="level_id" v-model="level_id" class="form-control">
                             <option value="1">Gebruiker</option>
-                            <option value="2">Lesgever</option>
-                            <option value="3">Admin</option>
+                            <option value="2">Eigenaar</option>
+                            <option value="3">Lesgever</option>
+                            <option value="4">Admin</option>
                         </select>
                     </div>
                 </div>
@@ -192,8 +193,9 @@
                         <label for="level_id">Rol</label>
                         <select name="level_id" v-model="level_id" class="form-control">
                             <option value="1">Gebruiker</option>
-                            <option value="2">Lesgever</option>
-                            <option value="3">Admin</option>
+                            <option value="2">Eigenaar</option>
+                            <option value="3">Lesgever</option>
+                            <option value="4">Admin</option>
                         </select>
                     </div>
                 </div>
