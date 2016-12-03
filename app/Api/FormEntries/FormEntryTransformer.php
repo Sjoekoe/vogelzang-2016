@@ -1,5 +1,5 @@
 <?php
-namespace App\Api\FormEntries;
+namespace app\Api\FormEntries;
 
 use App\Contacts\Contact;
 use League\Fractal\TransformerAbstract;

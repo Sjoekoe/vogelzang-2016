@@ -96,8 +96,7 @@
                     $.each(group, function (index, reservations) {
                         if (index == day) {
                             $.each(reservations, function (index, reservation) {
-                                console.log(reservation);
-                                html += '<li class="single-event" data-start="' + reservation.start_time + '" data-end="' + reservation.end_time + '"  data-content="event-rowing-workout" data-event="event-' + reservation.raw_type +'">'
+                                html += '<li class="single-event" data-start="' + reservation.start_time + '" data-end="' + reservation.end_time + '"  data-content="' + reservation.comment + '" data-event="event-' + reservation.raw_type +'">'
                                 html += '<a href="#0">';
                                 html += '<em class="event-name">' + reservation.type + '</em>';
                                 html += '</a>';
@@ -176,7 +175,7 @@
 
                 SchedulePlan.prototype.initEvents = function() {
                     var self = this;
-                    console.log(this.singleEvents);
+
                     this.singleEvents.each(function(){
                         //create the .event-date element for each event
                         var durationLabel = '<span class="event-date">'+$(this).data('start')+' - '+$(this).data('end')+'</span>';
@@ -228,11 +227,13 @@
                     this.modalHeader.find('.event-date').text(event.find('.event-date').text());
                     this.modal.attr('data-event', event.parent().attr('data-event'));
 
+                    this.modalBody.find('.event-info').html('<div class="event-info"><div>' + event.parent().attr('data-content') + '</div></div>');
                     //update event content
-                    this.modalBody.find('.event-info').load(event.parent().attr('data-content')+'.html .event-info > *', function(data){
+                    self.element.addClass('content-loaded');
+                    //this.modalBody.find('.event-info').html(event.parent().attr('data-content'), function(data){
                         //once the event content has been loaded
-                        self.element.addClass('content-loaded');
-                    });
+                      //  self.element.addClass('content-loaded');
+                    //});
 
                     this.element.addClass('modal-is-open');
 

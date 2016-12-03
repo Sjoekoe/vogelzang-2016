@@ -10,7 +10,7 @@ class ArticlesTest extends \TestCase
     use DefaultIncludes, DatabaseTransactions;
 
     /** @test */
-    function it_can_get_all_articles_paginated()
+    public function it_can_get_all_articles_paginated()
     {
         $user = $this->createUser();
         $article = $this->createArticle(['user_id' => $user->id()]);
@@ -34,7 +34,7 @@ class ArticlesTest extends \TestCase
     }
 
     /** @test */
-    function it_can_create_an_article()
+    public function it_can_create_an_article()
     {
         $user = $this->loginAsUser();
 
@@ -55,7 +55,7 @@ class ArticlesTest extends \TestCase
     }
 
     /** @test */
-    function it_can_show_a_message()
+    public function it_can_show_a_message()
     {
         $user = $this->createUser();
         $article = $this->createArticle([
@@ -69,35 +69,45 @@ class ArticlesTest extends \TestCase
     }
 
     /** @test */
-    function it_can_update_an_article()
+    public function it_can_update_an_article()
     {
         $user = $this->createUser();
         $article = $this->createArticle([
             'user_id' => $user->id(),
         ]);
 
-        $this->put('/api/articles/' . $article->id(), [
-            'title' => 'Updated title',
-            'message' => 'updated message',
-        ])->seeJsonEquals([
-            'data' => $this->includedArticle($article, [
+        $this->put(
+            '/api/articles/' . $article->id(), [
                 'title' => 'Updated title',
                 'message' => 'updated message',
-            ]),
-        ]);
+            ]
+        )->seeJsonEquals(
+            [
+                'data' => $this->includedArticle(
+                    $article, [
+                        'title' => 'Updated title',
+                        'message' => 'updated message',
+                    ]
+                ),
+            ]
+        );
     }
 
     /** @test */
-    function it_can_remove_an_article()
+    public function it_can_remove_an_article()
     {
         $user = $this->createUser();
-        $article = $this->createArticle([
-            'user_id' => $user->id(),
-        ]);
+        $article = $this->createArticle(
+            [
+                'user_id' => $user->id(),
+            ]
+        );
 
-        $this->seeInDatabase(Article::TABLE, [
-            'id' => $article->id(),
-        ]);
+        $this->seeInDatabase(
+            Article::TABLE, [
+                'id' => $article->id(),
+            ]
+        );
 
         $this->delete('/api/articles/' . $article->id())
             ->assertNoContent();

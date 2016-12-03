@@ -1,6 +1,7 @@
 <?php
 namespace App\Reservations;
 
+use App\Users\User;
 use Carbon\Carbon;
 
 class EloquentReservationRepository implements ReservationRepository
@@ -47,5 +48,24 @@ class EloquentReservationRepository implements ReservationRepository
     public function delete(Reservation $reservation)
     {
         $reservation->delete();
+    }
+
+    /**
+     * @param \App\Users\User $user
+     * @param array $values
+     * @return \App\Reservations\Reservation
+     */
+    public function create(User $user, array $values)
+    {
+        $reservation = new EloquentReservation();
+        $reservation->user_id = $user->id();
+        $reservation->type = $values['type'];
+        $reservation->comment = $values['comment'];
+        $reservation->start = Carbon::createFromFormat('d-m-Y H:i', $values['date'] . ' ' . $values['start_time']);
+        $reservation->end = Carbon::createFromFormat('d-m-Y H:i', $values['date'] . ' ' . $values['end_time']);
+
+        $reservation->save();
+
+        return $reservation;
     }
 }
