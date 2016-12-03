@@ -10,7 +10,7 @@
     <title>Stal de vogelzang</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Waar paardrijden puur genot is!" />
-    <meta name="keywords" content="stal manege vogelzang paarden pony's pony paard lokeren sport" />
+    <meta name="keywords" content="stal manege vogelzang paarden pony's pony paard Lokeren sport" />
     <meta name="author" content="Hans Jonckers" />
 
     <!-- Facebook and Twitter integration -->

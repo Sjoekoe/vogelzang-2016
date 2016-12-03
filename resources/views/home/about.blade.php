@@ -32,7 +32,7 @@
                             De oprichter van Stal de Vogelzang - Peter Wauters - was van kleins af aan actief in de paardensport. <br>
                             Bij de LRV en op allerlei paardenmarkten was hij dan ook een vaak gezien gezicht.
                             <br>
-                            Na enig zoeken kocht hij een boerderij met een aantal weiden in lokeren. <br>
+                            Na enig zoeken kocht hij een boerderij met een aantal weiden in Lokeren. <br>
                             De koeienstallen maakten plaats voor ruime paardenstallen en werd er een piste aangelegd.
                             <br>
                             Een naam zoeken voor de paardenstal bleek niet zo moeilijk te zijn. De boerderij is gelegen in de vogelzangstraat en op de boerderij hangt er nog steeds een bord met het opschrift "De Vogelzang".
