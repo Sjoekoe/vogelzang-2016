@@ -194,7 +194,7 @@
                             <h3>Verhuur van stallen</h3>
                         </div>
                         <p>
-                            U kan bij ons terecht voor het verhuur van stallingen. Dit kan voor voor zowel vol- als halfpension.
+                            U kan bij ons terecht voor het verhuur van stallingen.
                             <br>
                             Voor meer informatie kan u ons altijd contacteren. of kom gerust eens langs.
                         </p>

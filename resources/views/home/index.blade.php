@@ -2,30 +2,20 @@
 
 @section('content')
     <section>
-        <div id="hero-slider-section">
-            <div id="slides">
-                <ul class="slides-container">
-                    <li>
-                        <img src="{{ asset('images/bg_image.jpg') }}" alt="">
-                        <div class="overlay-slider"></div>
-                        <div class="hero-slider-content text-center">
-                            <div class="c-vertical">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-8 col-md-offset-2">
-                                            <div class="hero-slider-text">
-                                                <h1 class="animated out" >Stal de vogelzang</h1>
-                                                <div class="div-line"></div>
-                                                <p class="hero animated out">Waar paardrijden puur genot is</p>
-                                            </div> <!-- End hero-text -->
-                                        </div> <!-- end col-md-6 -->
-                                    </div> <!-- end row -->
-                                </div> <!-- End container -->
-                            </div> <!-- end c-vertical -->
-                        </div> <!-- End hero-content -->
-                    </li>
-                </ul>
-            </div>
+        <div id="hero-section" class="home-hero-2" data-stellar-background-ratio="0" style="background: url({{ asset('images/bg_image.jpg') }} ) no-repeat center center fixed;">
+            <div class="hero-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <div class="hero-text">
+                                <h1>Stal de vogelzang</h1>
+                                <div class="div-line"></div>
+                                <p class="hero">Waar paardrijden puur genot is.</p>
+                            </div>
+                        </div> <!-- end col-md-6 -->
+                    </div> <!-- end row -->
+                </div> <!-- End container -->
+            </div> <!-- End hero-content -->
         </div> <!-- End hero-section -->
     </section>
 

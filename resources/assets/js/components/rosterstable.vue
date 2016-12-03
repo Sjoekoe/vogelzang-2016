@@ -88,14 +88,22 @@
                             <b>{{ rider.first_name }} {{ rider.last_name }}</b>
                             <span class="pull-right">
 
-                            <span class="btn btn-warning btn-xs clickable-span" v-if="riderSubscribedToRoster(rider, rosterToShow)" @click="unSubscribeRider(rider, rosterToShow)">
-                                Uitschrijven
-                            </span>
+                            <div v-if="! subscribing">
+                                <span class="btn btn-warning btn-xs clickable-span" v-if="riderSubscribedToRoster(rider, rosterToShow)" @click="unSubscribeRider(rider, rosterToShow)">
+                                    Uitschrijven
+                                </span>
 
+                                <span v-else class="btn btn-success btn-xs clickable-span" @click="subscribeRider(rider, rosterToShow)" v-if="! rosterToShow.limit_reached">
+                                    Inschrijven
+                                </span>
+                            </div>
 
-                            <span v-else class="btn btn-success btn-xs clickable-span" @click="subscribeRider(rider, rosterToShow)" v-if="! rosterToShow.limit_reached">
-                                Inschrijven
-                            </span>
+                            <div v-else>
+                                <span class="btn btn-default btn-xs">
+                                    <i class="fa fa-spin fa-spinner"></i>
+                                </span>
+                            </div>
+
                         </span>
                         </div>
                     </div>
@@ -285,6 +293,7 @@
                 user_id: window.vogelzang.auth.user.id,
                 subscriptions: [],
                 riders: [],
+                subscribing: false
             }
         },
 
@@ -427,6 +436,7 @@
                 var data = {
                     'rider_id': rider.id,
                 }
+                this.subscribing = true;
 
                 var vm = this;
 
@@ -438,15 +448,18 @@
                         vm.findSingleRoster(subscription.data.rosterRelation.data);
                         vm.fetchRiders();
                         vm.fetchAllRecords();
+                        vm.subscribing = false;
                     }.bind(vm),
                 })
             },
 
             unSubscribeRider: function (rider, roster) {
+                this.subscribing = true;
                 var vm = this;
 
                 $.getJSON('/api/riders/' + rider.id + '/rosters/' + roster.id , function(subscription) {
                     vm.removeSubscription(roster, subscription.data);
+                    vm.subscribing = false;
                 }.bind(vm));
             },
 
