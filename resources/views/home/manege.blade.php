@@ -118,7 +118,7 @@
                         <p>
                             Tijdens de schoolvakanties organiseren wij in samenwerking met de stad Lokeren ponykampen.
                             <br>
-                            De duur van de kampen varieert van 2 dagen tot een hele week, waar er tal van activiteiten gepland staan voor de deelnemers. Er bestaat ook de mogelijkheid om te overnachten, en ook eten is voorzien.
+                            De duur van de kampen varieert van 2 dagen tot een hele week, waar er tal van activiteiten gepland staan voor de deelnemers.
                         </p>
                         <p>
                             De plaatsen voor deze kampen zijn beperkt, dus snel zijn is de boodschap. <br>

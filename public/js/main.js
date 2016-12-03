@@ -14,11 +14,11 @@ $(document).ready(function($) {
 
     var windowHeight = $(window).height(),
         topSection = $('#hero-section, #hero-slider-section');
-    topSection.css('height', windowHeight);
+    topSection.css('height', windowHeight / 2);
 
     $(window).resize(function(){
         var windowHeight = $(window).height();
-        topSection.css('height', windowHeight);
+        topSection.css('height', windowHeight / 2);
     });
 
     /* ==============================================
