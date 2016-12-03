@@ -42,7 +42,7 @@
                         </li>
                     @else
                         <li>
-                            <a href="{{ route('login') }}">Login</a>
+                            <a href="{{ route('login') }}">Leden</a>
                         </li>
                     @endif
                 </ul>
