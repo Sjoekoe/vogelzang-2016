@@ -106,7 +106,7 @@
         </div> <!-- end statistic-section -->
     </section>
 
-    <section>
+    <section id="kampen">
         <div id="about-team" class="pad-t-100">
             <div class="container">
                 <div class="row">
@@ -124,6 +124,44 @@
                             De plaatsen voor deze kampen zijn beperkt, dus snel zijn is de boodschap. <br>
                             Contacteer ons om in te schrijven, of kom gerust eens langs.
                         </p>
+                        <br>
+                        <div class="title-section">
+                            <h3>Kampen 2017</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <ul>
+                                    <li>03-07-2017 - 07-07-2017 (Stad Lokeren, Inschrijven via sportdienst)</li>
+                                    <li>10-07-2017 - 14-07-2017</li>
+                                    <li>
+                                        17-07-2017 - 20-07-2017 <br>
+                                        Dressuur / Springkamp 4 dagen met buitenwandeling. <br>
+                                        Brevet afname bekwaamheid, A en B brevet - examen op 20/07
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <ul>
+                                    <li>07-08-2017 - 11-08-2017</li>
+                                    <li>
+                                        14-08-2017 - 18-08-2017 <br>
+                                        Brevet afname bekwaamheid, A brevet - examen op 18/08
+                                    </li>
+                                    <li>21-08-2017 - 25-08-2017 (Stad Lokeren, Inschrijven via sportdienst)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="title-section">
+                            <h3>Prijzen</h3>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                Leden €150 <br>
+                                Niet leden €175 <br>
+                                Paarden / Pony's gestald op vogekzang: €100
+                            </p>
+                        </div>
                     </div> <!-- end col-md-6 -->
                 </div> <!-- end row -->
             </div>
