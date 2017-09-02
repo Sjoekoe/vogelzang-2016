@@ -24,6 +24,9 @@
                     <li class="{{ Request::is('manege') ? 'active' : '' }}">
                         <a href="{{ route('manege') }}">Manege</a>
                     </li>
+                    <li class="{{ Request::is('g-werking') ? 'active' : '' }}">
+                        <a href="{{ route('g.index') }}">G-Werking</a>
+                    </li>
                     <li class="{{ Request::is('accommodatie') ? 'active' : '' }}">
                         <a href="{{ route('accommodatie') }}">Stallingen</a>
                     </li>

@@ -71,6 +71,11 @@ class HomeController extends Controller
         return view('home.about', compact('ridersCount', 'lessonCount', 'subscriptionCount'));
     }
 
+    public function gWerking()
+    {
+        return view('g-werking.index');
+    }
+
     public function contact()
     {
         return view('home.contact');

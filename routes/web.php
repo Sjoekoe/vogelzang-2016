@@ -15,6 +15,7 @@ Route::get('messages', ['as' => 'messages.index', 'uses' => 'MessageController@i
 Route::get('users', ['as' => 'users.index', 'uses' => 'UserController@index']);
 Route::get('announcements', ['as' => 'announcements.index', 'uses' => 'AnnouncementController@index']);
 Route::get('veelgestelde-vragen', ['as' => 'faq.index', 'uses' => 'FaqController@index']);
+Route::get('g-werking', ['as' => 'g.index', 'uses' => 'HomeController@gWerking']);
 
 Route::get('articles', ['as' => 'news.index', 'uses' => 'NewsController@index']);
 Route::get('rosters', ['as' => 'rosters.index', 'uses' => 'RosterController@index']);
