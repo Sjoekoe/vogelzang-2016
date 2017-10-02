@@ -13,6 +13,7 @@ interface Roster
     const DRESSUURLES = 6;
     const GROEPSLES_GEVORDERDEN = 7;
     const SPRINGLES_GEVORDERDEN = 8;
+    const CAVALETTI = 9;
 
     const BEGINNERS = 1;
     const HALF_GEVORDERDEN = 2;

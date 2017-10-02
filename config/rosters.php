@@ -8,6 +8,7 @@ return [
         Roster::OUDERLES => 'Ouderles',
         Roster::PRIVE_LES => 'Privé-les',
         Roster::SPRINGLES => 'Springles',
+        Roster::CAVALETTI => 'Cavaletti',
         Roster::WANDELING => 'Wandeling',
         Roster::DRESSUURLES => 'Dressuurles',
         Roster::GROEPSLES_GEVORDERDEN => 'Groepsles voor gevorderden',

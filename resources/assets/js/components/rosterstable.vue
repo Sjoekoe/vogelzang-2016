@@ -176,6 +176,7 @@
                             <option value="2">Ouderles</option>
                             <option value="3">Privé-les</option>
                             <option value="4">Springles</option>
+                            <option value="9">Cavalettic</option>
                             <option value="5">Wandeling</option>
                             <option value="6">Dressuurles</option>
                             <option value="7">Groepsles voor gevorderden</option>
@@ -191,7 +192,7 @@
 
                     <div class="form-group">
                         <label for="description" class="control-label">Opmerkingen</label>
-                        <textarea v-model="description" id="description" name="description" cols="30" rows="10" class="form-control" placeholder="Opmerkingen" v-html="description"></textarea>
+                        <textarea v-model="description" id="description" name="description" cols="30" rows="5" class="form-control" placeholder="Opmerkingen" v-html="description"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -240,6 +241,7 @@
                             <option value="2">Ouderles</option>
                             <option value="3">Privé-les</option>
                             <option value="4">Springles</option>
+                            <option value="9">Cavaletti</option>
                             <option value="5">Wandeling</option>
                             <option value="6">Dressuurles</option>
                             <option value="7">Groepsles voor gevorderden</option>
@@ -255,7 +257,7 @@
 
                     <div class="form-group">
                         <label for="description" class="control-label">Opmerkingen</label>
-                        <textarea v-model="description" name="description" id="" cols="30" rows="10" class="form-control" placeholder="Opmerkingen"></textarea>
+                        <textarea v-model="description" name="description" id="" cols="30" rows="5" class="form-control" placeholder="Opmerkingen"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
